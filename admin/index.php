@@ -1,15 +1,15 @@
-<?php
+<!-- <?php
     include "../model/pdo.php";
-?>
+?> -->
 <!-- Controller : Admin -->
 
-    <div class="container">
+    <div id="wrapper">
         <!-- header -->
         <?php include "header.php"; ?>
         <!-- menu -->
         <?php include "menu.php"; ?>
         <!-- main -->
-        <div class="row mt-5 main-web">
+        <div id="page-wrapper">
             <!-- main web -->
             <?php 
             

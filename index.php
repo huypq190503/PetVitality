@@ -1,5 +1,5 @@
 <?php
-    include "../model/pdo.php";
+    include "model/pdo.php";
 ?>
 
     <div class="container">
