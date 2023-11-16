@@ -5,10 +5,10 @@
                         <a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="?act=dssp"><i class="fa fa-desktop"></i> Quản lý sản phẩm</a>
+                        <a href="?act=listdm"><i class="fa fa-bar-chart-o"></i> Quản lý danh mục</a>
                     </li>
-					<li>
-                        <a href="?act=dsdm"><i class="fa fa-bar-chart-o"></i> Quản lý danh mục</a>
+                    <li>
+                        <a href="?act=listsp"><i class="fa fa-desktop"></i> Quản lý sản phẩm</a>
                     </li>
                     <li>
                         <a href="?act=dskh"><i class="fa fa-qrcode"></i> Quản lý tài khoản</a>
