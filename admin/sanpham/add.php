@@ -25,7 +25,7 @@
             <input type="file" name="anh">
         </div>
         <div>
-            Gía 
+            Giá
             <input type="text" name="giasp">
         </div>
         <div>
