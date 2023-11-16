@@ -25,7 +25,7 @@
                     <th>MÃ SẢN PHẨM</th>
                     <th>TÊN SẢN PHẨM</th>
                     <th>ẢNH</th>
-                    <th>GÍA</th>
+                    <th>Giá</th>
                     <th></th>
                 </tr>
                 <?php
