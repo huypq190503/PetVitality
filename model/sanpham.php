@@ -18,7 +18,8 @@
         return $listsanpham;
     }
     function loadall_sanpham($kyw="",$iddm=0){
-        $sql="select * from sanpham where 1"; 
+        $sql="SELECT sanpham.id, sanpham.name, sanpham.price, sanpham.img, danhmuc.name AS 
+        tendm FROM `sanpham` LEFT JOIN danhmuc ON sanpham.iddm = danhmuc.id;"; 
         if($kyw!=""){
             $sql.=" and name like '%".$kyw."%'";
         }
@@ -49,9 +50,9 @@
         $listsanpham=pdo_query($sql);
         return $listsanpham;
     }
-    function update_sanpham($id,$tensp,$giasp,$anh,$iddm){
-        if($anh!="")
-            $sql="UPDATE `sanpham` SET `name`='$tensp',`price`='$giasp',`img`='$anh',`iddm`='$iddm' WHERE id=".$id;
+    function update_sanpham($id,$tensp,$photo,$giasp,$iddm){
+        if($photo!="")
+            $sql="UPDATE `sanpham` SET `name`='$tensp',`price`='$giasp',`img`='$photo',`iddm`='$iddm' WHERE id=".$id;
         else
             $sql="UPDATE `sanpham` SET `name`='$tensp',`price`='$giasp',`iddm`='$iddm' WHERE id=".$id;
         pdo_execute($sql);       
