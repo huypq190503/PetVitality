@@ -87,7 +87,7 @@
                                     // echo "Sorry, there was an error uploading your file.";
                                 }
             
-                                insert_sanpham($tensp,$anh,$price,$iddm);
+                                insert_sanpham($tensp,$anh,$giasp,$iddm);
                                 $thongbao="Thêm thành công";
                                 header("location: ?act=listsp");
                             }
@@ -97,6 +97,7 @@
                             break;
             
                         case "listsp":
+                            // Tìm kiếm sản phẩm 
                             if(isset($_POST['listok'])&&($_POST['listok'])){
                                 $kyw=$_POST['kyw'];
                                 $iddm=$_POST['iddm'];
@@ -117,35 +118,59 @@
                             include "sanpham/list.php";
                             break;  
             
-                        case "suasp":
+                        case "suasp":{
                             if(isset($_GET['id'])&&($_GET['id']>0)){
                                 $sp=loadone_sanpham($_GET['id']);
                             }
-                            $listdanhmuc=loadall_danhmuc();
-                            include "sanpham/update.php";
-                            break; 
-            
-                        case "updatesp":
-                            if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
-                                $id=$_POST['id'];
-                                $iddm=$_POST['iddm'];
-                                $tensp=$_POST['tensp'];                            
-                                $anh=$_FILES['anh']['name'];
-                                $giasp=$_POST['giasp'];
-                                $target_dir = "../upload/";
-                                $target_file = $target_dir . basename($_FILES["anh"]["name"]);
-                                if (move_uploaded_file($_FILES["anh"]["tmp_name"], $target_file)) {
-                                    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                                } else {
-                                    // echo "Sorry, there was an error uploading your file.";
+                            if(isset($_POST['capnhat'])){
+                                    $id=$_POST['id'];
+                                    $iddm=$_POST['iddm'];
+                                    $tensp=$_POST['tensp'];                            
+                                    $giasp=$_POST['giasp'];
+                                    // $anh=$_FILES['anh']['name'];
+                                    // $target_dir = "../upload/";
+                                    // $target_file = $target_dir . basename($_FILES["anh"]["name"]);
+                                    // if (move_uploaded_file($_FILES["anh"]["tmp_name"], $target_file)) {
+                                    //     // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                                    // } else {
+                                    //     // echo "Sorry, there was an error uploading your file.";
+                                    // }
+                                    $photo = null;
+                                    if($_FILES['anh']['name'] != ""){
+                                        $photo = time() . "_" . $_FILES['anh']['name'];
+                                        move_uploaded_file($_FILES['anh']['tmp_name'], "../upload/$photo");
+                                    }
+                                    update_sanpham($id,$tensp,$photo,$giasp,$iddm);
+                                    // $thongbao="Cập nhật thành công";
+                                    header("location: ?act=listsp");
+
                                 }
-                                update_sanpham($id,$tensp,$giasp,$anh,$iddm);
-                                $thongbao="Cập nhật thành công";
-                            }
-                            $listdanhmuc=loadall_danhmuc();
-                            $listsanpham=loadall_sanpham("",0);
-                            include "sanpham/list.php";
-                            break;
+                                $listdanhmuc=loadall_danhmuc();
+                                // $listsanpham=loadall_sanpham("",0);
+                                include "sanpham/update.php";
+                                break;
+                        }    
+                        // case "updatesp":
+                        //     if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                        //         $id=$_POST['id'];
+                        //         $iddm=$_POST['iddm'];
+                        //         $tensp=$_POST['tensp'];                            
+                        //         $anh=$_FILES['anh']['name'];
+                        //         $giasp=$_POST['giasp'];
+                        //         $target_dir = "../upload/";
+                        //         $target_file = $target_dir . basename($_FILES["anh"]["name"]);
+                        //         if (move_uploaded_file($_FILES["anh"]["tmp_name"], $target_file)) {
+                        //             // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                        //         } else {
+                        //             // echo "Sorry, there was an error uploading your file.";
+                        //         }
+                        //         update_sanpham($id,$tensp,$giasp,$anh,$iddm);
+                        //         $thongbao="Cập nhật thành công";
+                        //     }
+                        //     $listdanhmuc=loadall_danhmuc();
+                        //     $listsanpham=loadall_sanpham("",0);
+                        //     include "sanpham/list.php";
+                        //     break;
 
                         // Phần xử lí người dùng
                         case "dskh":{           
