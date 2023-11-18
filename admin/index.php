@@ -87,7 +87,7 @@
                                     // echo "Sorry, there was an error uploading your file.";
                                 }
             
-                                insert_sanpham($tensp,$anh,$price,$iddm);
+                                insert_sanpham($tensp,$anh,$giasp,$iddm);
                                 $thongbao="Thêm thành công";
                                 header("location: ?act=listsp");
                             }
