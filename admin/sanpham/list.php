@@ -29,7 +29,7 @@
                     <th></th>
                 </tr>
                 <?php
-                    foreach($listsanpham as $sanpham){
+                    foreach($listsanpham as $key => $sanpham){
                         extract($sanpham);
                         $suasp="index.php?act=suasp&id=".$id;
                         $xoasp="index.php?act=xoasp&id=".$id;
@@ -42,7 +42,8 @@
 
                         echo '<tr>
                                 <td><input type="checkbox" id="chon"></td>
-                                <td>'.$id.'</td>
+                                <input type="hidden" value="'.$id.'" >
+                                <td>'.$key + 1 .'</td>
                                 <td>'.$name.'</td>
                                 <td>'.$anh.'</td>
                                 <td>'.$price.'</td>
@@ -53,9 +54,9 @@
             </table>
             </div>
             <div>
-                <input type="button" value="CHỌN TẤT CẢ" onclick="ctt()">
+                <!-- <input type="button" value="CHỌN TẤT CẢ" onclick="ctt()">
                 <input type="button" value="BỎ CHỌN TẤT CẢ" onclick="btt()">
-                <input type="button" value="XÓA CÁC MỤC ĐÃ CHỌN">
+                <input type="button" value="XÓA CÁC MỤC ĐÃ CHỌN"> -->
                 <a href="index.php?act=addsp"> <input type="button" value="NHẬP THÊM"></a>
             </div>
     </div>
