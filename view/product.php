@@ -8,9 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./view/user/CSS/Product.css">
     <link rel="stylesheet" href="./view/user/CSS/grid.css">
+    <link rel="stylesheet" href="./view/user/CSS/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css">
     <title>Sản phẩm</title>
+
+    <style>
+        
+    </style>
 
 </head>
 
@@ -66,11 +71,27 @@
                                 </ul>
                             </div>
                         </div>
+
                         <!-- Grid -> Row -> Column -->
                         <div class="home-product dsSanPham1">
                             <div class="row" id="dsSanPham1">
-                            </div>
+                            <div class="special--product--item">
+                    <a href="../HTML_Chitiet_sanpham/Detail1.html"><div class="special--product--detail">
+                        <div class="special--product--img">
+                            <img src="./upload/1-1.jpg" alt="">
                         </div>
+                        <div class="special--product--name">
+                            <p>Sữa bột cho mèo 110g Dr.Kyan Precaten</p>
+                        </div>
+                        <div class="special--product--price justify-content-center">
+                            <p>Giá: 500.000đ</p>
+                        </div>
+                    </div>
+
+                    
+                            </div>    
+                        </div>    
+
                         <div class="home-product dsSanPham2">
                             <div class="row" id="dsSanPham2">
                             </div>
