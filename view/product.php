@@ -6,16 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="./user/CSS/Product.css">
-    <link rel="stylesheet" href="./user/CSS/grid.css">
+    <link rel="stylesheet" href="./view/user/CSS/Product.css">
+    <link rel="stylesheet" href="./view/user/CSS/grid.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./user/CSS/Font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css">
     <title>Sản phẩm</title>
 
 </head>
 
 <body>
-    <?php include "_header.php"; ?>
     <div class="app">
        
         <div class="app__container">

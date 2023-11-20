@@ -94,6 +94,7 @@
                         break;
                     case 'product':
                         include "./view/product.php";
+                        break;
                     default: {
                         include "./view/home.php";
                         break;
