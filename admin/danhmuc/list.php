@@ -30,9 +30,9 @@
             </table>
         </div>
         <div>
-        <input type="button" value="CHỌN TẤT CẢ" onclick="ctt()">
+        <!-- <input type="button" value="CHỌN TẤT CẢ" onclick="ctt()">
                 <input type="button" value="BỎ CHỌN TẤT CẢ" onclick="btt()">
-                <input type="button" value="XÓA CÁC MỤC ĐÃ CHỌN">
+                <input type="button" value="XÓA CÁC MỤC ĐÃ CHỌN"> -->
             <a href="index.php?act=adddm"> <input type="button" value="NHẬP THÊM"></a>
         </div>
     </div>

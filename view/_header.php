@@ -25,16 +25,16 @@
                         </a>
                     </div>
                     
-                    <div class="btn-group dropdown__hover user--position dropdown">
+                    <div class="btn-group dropdown__hover user--position dropdown  ">
                         <button class="btn" type="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"><i class="fas fa-user"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-content ">
-                            <a class="dropdown-item " href="Dang_ky.html" id="dangky">Đăng ký</a>
+                            <a class="dropdown-item " href="./view/Dang_ky.html" id="dangky">Đăng ký</a>
                         
-                            <a class="dropdown-item" href="Dang_nhap.html" id="dangnhap">Đăng nhập</a>
+                            <a class="dropdown-item" href="?act=dangNhap" target="_blank" id="dangnhap">Đăng nhập</a>
                             
-                            <a class="dropdown-item" href="Xemthongtin.html" id="xemthongtin">Xem thông tin</a>
+                            <!-- <a class="dropdown-item" href="Xemthongtin.html" id="xemthongtin">Xem thông tin</a> -->
                            
                             <a class="dropdown-item" href="#" id="dangxuat" onclick="dangXuat()">Đăng xuất</a>
                         </div>

@@ -1,7 +1,9 @@
 <?php
+    session_start();
+    ob_start();
     include "model/pdo.php";
     include "model/sanpham.php";
-    // include "model/taikhoan.php";
+    include "model/taikhoan.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +27,6 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
     <style>
-
     </style>
 </head>
     <body>
@@ -58,6 +59,22 @@
                         }
                     break;
 
+                    }
+                    case 'dangNhap':{
+                        if (isset($_POST['dangNhap']) && ($_POST['dangNhap'] > 0)) {
+                            $email = $_POST['email'];
+                            $pass = $_POST['pass'];
+                            $checkemail = checkemail($email, $pass);
+                            if (is_array($checkemail)) {
+                                $_SESSION['email'] = $checkemail;
+                                header("location:index.php");
+                            } else {
+                                $thongbao = "Tài khoản hoặc mật khẩu không đúng";
+                                // include "./taikhoan/dangky.php";
+                            }
+                        }                        
+                        include "Dang_nhap.php";
+                        break;
                     }
                     case 'trangSanPham':{
                         # code...
