@@ -12,10 +12,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng ký</title>
-    <link rel="stylesheet" href="./user/CSS/Dang_ky.css">
-    <link rel="stylesheet" href="./user/CSS/Bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="./user/CSS/Font-awesome/css/all.min.css">
-    <script src="../JS/dangKy - dangNhap.js"></script>
+    <link rel="stylesheet" href="./view/user/CSS/Dang_ky.css">
+    <link rel="stylesheet" href="./view/user/CSS/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css">
+    <script src="./view/JS/dangKy - dangNhap.js"></script>
 </head>
 <style>
     span {
@@ -31,7 +31,7 @@
     <!-- Header -->
     <!-- Nội dung đăng nhập -->
     
-    <div class="dangky--container--col-12">
+    <div class="dangky--container col-12">
         <div class="dangky--title">ĐĂNG KÝ</div>
         <div>THÔNG TIN CÁ NHÂN</div>
         <form action="?act=sign_up" method="POST" class="col-12"> 

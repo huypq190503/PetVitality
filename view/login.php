@@ -10,9 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
-    <link rel="stylesheet" href="./user/CSS/Bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="./user/CSS/Font-awesome/css/all.min.css">
-    <link rel="stylesheet" href="./user/CSS/Dang_nhap.css">
+    <link rel="stylesheet" href="./view/user/CSS/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="./view/user/CSS/Dang_nhap.css">
     <script src="../JS/dangKy - dangNhap.js"></script>
 </head>
 
