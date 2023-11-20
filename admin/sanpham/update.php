@@ -1,54 +1,49 @@
-<?php
-    if(is_array($sp)){
-        extract($sp);
-    }
-    $anhpath="../upload/".$img;
-    if(is_file($anhpath)){
-        $anh="<img src='".$anhpath."' height='80'>";
-    }else{
-        $anh="no photo";
-    }
-?>
-<div>
-    <div>
-        <h1>CẬP NHẬT LOẠI HÀNG HÓA</h1>
-    </div>
-    <div>
-        <form action="index.php?act=updatesp" method="POST" enctype="multipart/form-data">
-        <div>
-            Danh mục
-            <select name="iddm" id="">
-                <option value="0" selected>Tất cả</option>
-                <?php
-                    foreach($listdanhmuc as $danhmuc){
-                        extract($danhmuc);
-                        if($iddm==$id) $s="selected"; else $s="";
-                        echo '<option value="'.$id.'" '.$s.'>'.$name.'</option>';
-                    }
-                ?>   
+    <style>
+        h1{
+            margin-bottom: 2rem ;
+        }
+        .mb-3{
+            margin-bottom: 2rem !important;
+        }
+    </style>
+
+
+<div class="col-md-8">
+    <h1>Sửa sản phẩm</h1>
+    <form method="post" action="?act=suasp" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?php echo $sp['id']; ?>">
+        <div class="mb-3">
+            <label for="name" class="form-label">Tên sản phẩm</label>
+            <input type="text" class="form-control" id="name" placeholder="Nhập tên sản phẩm" name="tensp"
+                value="<?php echo $sp['name']; ?>" />
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label">Giá sản phẩm</label>
+            <input type="number" class="form-control" id="price" placeholder="Nhập giá sản phẩm" name="giasp"
+                value="<?php echo $sp['price']; ?>" />
+        </div>
+
+        <div class="mb-3">
+            <?php if($sp['img'] != null && $sp['img'] != ""): ?>
+            <img width="200" src="<?php echo "../upload/" . $sp['img']; ?>" alt="">
+            <?php endif; ?>
+            <label for="image" class="form-label">Ảnh sản phẩm</label><br><br>
+            <input type="file" id="image" name="anh" />
+        </div>
+
+        <div class="mb-3">
+            <label for="danhmuc" class="form-label">Danh mục sản phẩm</label><br>
+            <select name="iddm" id="danhmuc" class="form-control">
+                <?php foreach($listdanhmuc as $value): ?>
+                <option value="<?php echo $value['id']?>"
+                 <?php if($sp['iddm'] == $value['id']): ?> selected
+                    <?php endif; ?>>
+                    <?php echo $value['name']?>
+                </option>
+                <?php endforeach; ?>
             </select>
         </div>
-        <div>
-            Tên sản phẩm 
-            <input type="text" name="tensp" placeholder="nhập vào tên" value="<?=$sp['name']?>">
-        </div>
-        <div>
-            Ảnh 
-            <input type="file" name="anh"> <?=$anh?>
-        </div>
-        <div>
-            Gía 
-            <input type="text" name="giasp" value="<?=$price?>">
-        </div>
-        <div>
-                <input type="hidden" name="id" value="<?=$sp['id']?>">
-                <input type="submit" name="capnhat" value="CẬP NHẬT">
-                <input type="reset" value="NHẬP LẠI">
-                <a href="index.php?act=listsp"><input type="button" value="DANH SÁCH"></a>
-        </div>
-        <?php
-            if(isset($thongbao)&&($thongbao!="")) echo "$thongbao";
-        ?>
-        </form>
-    </div>
-</div>  
+        <button type="submit" class="btn btn-primary" name="capnhat">Chỉnh sửa</button>
+    </form>
+</div>
