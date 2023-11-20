@@ -16,7 +16,7 @@
                                 <a href="Contact.html" class="nav-link">LIÊN HỆ</a>
                             </li> -->
                             <li class="nav-item">
-                                <a href="Product.html" class="nav-link">SẢN PHẨM</a>
+                                <a href="?act=trangSanPham" class="nav-link">SẢN PHẨM</a>
                             </li>
                             <!-- <li class="nav-item">
                                 <a href="Blog_Trangchu.html" class="nav-link">BLOG</i></a>
@@ -43,7 +43,7 @@
                                 <a href="Contact.html" class="nav--link"><i class="fas fa-phone"></i> LIÊN HỆ </a>
                             </li>
                             <li>
-                                <a href="Product.html" class="nav--link"><i class="fas fa-dolly"></i>SẢN PHẨM </a>
+                                <a href="?act=trangSanPham" class="nav--link"><i class="fas fa-dolly"></i>SẢN PHẨM </a>
                             </li>
                             <li>
                                 <a href="Blog_Trangchu.html" class="nav--link"><i class="fas fa-newspaper"></i>BLOG</a>
