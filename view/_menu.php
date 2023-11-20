@@ -19,47 +19,7 @@
 <body>
     <div class="web--container">
 
-        <div class="web--header">
-            <div class="web--header--1">
-                <div class="header--logo">
-                    <img src="./upload/logo_white.png" alt="">
-                    <p>PETVITALITY</p>
-                </div>
-                <div class="header--common">
-                    <!-- <div class="header--contact">
-                        <div class="header--phone">
-                            <i class="fas fa-phone"></i>
-                            (+84) 012345678
-                        </div>
-                        <hr style="margin-top: 10px; margin-bottom: 10px;">
-                        <div class="header--email">
-                            <i class="fas fa-envelope"></i>
-                            sunpet@gmail.com
-                        </div>
-                    </div> -->
-                    <div class="header--cart">
-                        <a href="Gio_hang.html">
-                            <i class="fas fa-shopping-bag"></i>
-                        </a>
-                    </div>
-                    
-                    <div class="btn-group dropdown__hover user--position dropdown">
-                        <button class="btn" type="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"><i class="fas fa-user"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-content ">
-                            <a class="dropdown-item " href="index.php?act=sign_up" id="dangky">Đăng ký</a>
-                        
-                            <a class="dropdown-item" href="index.php?act=login" id="dangnhap">Đăng nhập</a>
-                            
-                            <a class="dropdown-item" href="Xemthongtin.html" id="xemthongtin">Xem thông tin</a>
-                           
-                            <a class="dropdown-item" href="#" id="dangxuat" onclick="dangXuat()">Đăng xuất</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <!-- navbar -->
         <nav class="navbar navbar-expand-md sticky-top">
@@ -79,7 +39,7 @@
                                 <a href="Contact.html" class="nav-link">LIÊN HỆ</a>
                             </li> -->
                             <li class="nav-item">
-                                <a href="Product.html" class="nav-link">SẢN PHẨM</a>
+                                <a href="index.php?act=product" class="nav-link">SẢN PHẨM</a>
                             </li>
                             <!-- <li class="nav-item">
                                 <a href="Blog_Trangchu.html" class="nav-link">BLOG</i></a>
@@ -118,101 +78,8 @@
                 </div>
             </div>
         </nav>
-        <!-- banner 1 -->
-        <div class="web--banner">
-            <img src="./upload/banner1.png" alt="">
-        </div>
-        <!-- chúng tôi có gì cho thú cưng? -->
-        <div class="web--dogcat">
-            <div class="web--content">
-                <p>Chúng tôi có gì cho thú cưng của bạn</p>
-            </div>
-            <div class="web--dogcat--detail">
-                <div class="web--dog">
-                    <img src="./upload/dogava.jpg" class="rounded-circle" alt="">
-                    <p><a href="../HTML/Product.html">Dành cho chó cưng</a></p>
-                </div>
-                <div class="web--cat">
-                    <img src="./upload/catava.jpg" class="rounded-circle" alt="">
-                    <p><a href="../HTML/Product.html">Dành cho mèo yêu</a></p>
-                </div>
-            </div>
-        </div>
-        <!-- Sản phẩm nổi bật -->
-        <div class="web--special">
-            <p>SẢN PHẨM NỔI BẬT</p>
-            <div class="web--special--block justify-content-center">
-                <div class="special--product--item">
-                    <a href="../HTML_Chitiet_sanpham/Detail1.html"><div class="special--product--detail">
-                        <div class="special--product--img">
-                            <img src="./upload/1-1.jpg" alt="">
-                        </div>
-                        <div class="special--product--name">
-                            <p>Sữa bột cho mèo 110g Dr.Kyan Precaten</p>
-                        </div>
-                        <div class="special--product--price justify-content-center">
-                            <p>Giá: 500.000đ</p>
-                        </div>
-                    </div></a>
-                </div>
 
-            </div>
-        </div>
-        <!-- bé yêu ăn gì -->
-        <div class="web--eatwhat">
-            <div class="web--eatwhat--content">
-                <p>BÉ YÊU ĂN GÌ?</p>
-            </div>
-
-            <div class="web--eatdogcat">
-                <div class="web--eatdog">
-                    <div class="web--eatdog--block">
-                        <p>CHÓ CƯNG</p>
-                    </div>
-                    <div class="web--eatdog--detail1">
-                        <a href="../HTML_Chitiet_sanpham/Detail17.html"><div class="special--product--detail1">
-                            <div class="special--product--img">
-                                <img src="./upload/17.1.png" alt="">
-                            </div>
-                            <div class="special--product--name">
-                                <p>Thức ăn cao cấp dành cho chó FIBs</p>
-                            </div>
-                            <div class="special--product--price justify-content-center">
-                                <p>Giá: 199.000đ</p>
-
-                            </div>
-                        </div></a>
-                    </div>
-                </div>
-                <div class="web--eatcat ">
-                    <div class="web--eatcat--block">
-                        <p>MÈO YÊU</p>
-                    </div>
-                    <div class="web--eatcat--detail1 col-">
-                        <a href="../HTML_Chitiet_sanpham/Detail1.html"><div class="special--product--detail1">
-                            <div class="special--product--img">
-                                <img src="./upload/1-1.jpg" alt="">
-                            </div>
-                            <div class="special--product--name">
-                                <p>Sữa bột cho mèo 110g Dr.Kyan Precaten</p>
-                            </div>
-                            <div class="special--product--price justify-content-center">
-                                <p>Giá: 500.000đ</p>
-
-                            </div>
-                        </div></a>
-                    </div>
-                </div>
-            </div>
-            <div class="button--more">
-                <button type="button" class="web__button--eatdogcat" name="more"><a href="../HTML/Product.html">XEM
-                        THÊM</a></button>
-            </div>
-        </div>
-        <!-- Footer -->
-        <div class="web--discount">
-            <img src="./upload/discount.png" alt="">
-        </div>
+</div>
 </body>
 
 </html>

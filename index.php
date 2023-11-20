@@ -1,12 +1,12 @@
 <?php
     include "model/pdo.php";
     include "model/account.php";
-    include "./view/_menu.php";   
+    // include "./view/_menu.php";   
 ?>
 
     
         <?php 
-        
+
             // Controller user
             if(isset($_GET['act']) ){
                 $act = $_GET['act'];
@@ -54,12 +54,8 @@
                                 
                                 insert_account($user,$pass,$email,$address,$tel);
                                
-                            }
-                            
-                            
+                            }  
                         }
-                        
-                      
                         include "./view/sign_up.php";
                         break;
                     }
@@ -71,16 +67,16 @@
                             {
                                 $error["email"]="Vui lòng nhập  email ";
                             } 
-                            else if($email !=  ){
-                                $error["email"]="Tài khoản hoặc mật khẩu không đúng";
-                            }
+                            // else if($email !=  ){
+                            //     $error["email"]="Tài khoản hoặc mật khẩu không đúng";
+                            // }
                             if(empty($pass))
                             {   
                                 $error['pass']="Vui lòng nhập mật khẩu ";  
                             }
-                            else if($pass != ){
-                                $error["pass"]="Tài khoản hoặc mật khẩu không đúng";
-                            }
+                            // else if($pass != ){
+                            //     $error["pass"]="Tài khoản hoặc mật khẩu không đúng";
+                            // }
                             if(!$error){
                                 $login_account=login_account($email,$pass);
                                 if(is_array($login_account)){
@@ -95,6 +91,9 @@
                         }
                         
                         include "./view/login.php";
+                        break;
+                    case 'product':
+                        include "./view/product.php";
                     default: {
                         include "./view/home.php";
                         break;

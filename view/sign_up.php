@@ -29,13 +29,12 @@
 </style>
 <body>
     <!-- Header -->
-    <?php include "./view/_header.php"; ?>
     <!-- Nội dung đăng nhập -->
     
     <div class="dangky--container--col-12">
         <div class="dangky--title">ĐĂNG KÝ</div>
         <div>THÔNG TIN CÁ NHÂN</div>
-        <form action="#" method="POST" class="col-12"> 
+        <form action="?act=sign_up" method="POST" class="col-12"> 
             <div class="dangky--ho">
                 <label for="ho" class="col-12">Họ và tên <span><?= isset($error['user'])?  $error['user'] : "*" ;?></span></label>
                 <input type="text" placeholder="Họ và tên" id="ho" name="user" class="col-12 input" require>
