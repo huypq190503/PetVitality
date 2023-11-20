@@ -2,8 +2,8 @@
 <div class="col-md-12">
         <h2>DANH SÁCH LOẠI HÀNG HÓA</h2>
     <br>
-    <form class="mb-3" action="index.php?act=listsp" method="POST">
-        <a href="?act=addsp" class="btn btn-success">Thêm mới</a>
+    <a href="?act=addsp" class="btn btn-success">Thêm mới</a>
+    <!-- <form class="mb-3" action="index.php?act=listsp" method="POST">
         <input type="text" name="kyw" id="" placeholder="Nhập sản phẩm cần tìm" >
         <select name="iddm" id="">
             <option value="0" selected>Tất cả</option>
@@ -15,7 +15,7 @@
             ?>   
         </select>
         <input type="submit" name="listok" value="TÌM">
-    </form>
+    </form> -->
 
         <table class="table">
             <thead>
