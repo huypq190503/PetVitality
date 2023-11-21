@@ -36,7 +36,7 @@
                             </h3>
                             <ul class="category-list">
                                 <li class="category-item" id="category-item">
-                                    <a href="HOME.html" class="category-item__link">Trang chủ</a>
+                                    <a href="index.php" class="category-item__link">Trang chủ</a>
                                 </li>
                                 <li class="category-item category-item--active">
                                     <a href="#category-item" class="category-item__link" id="sanpham-category">Sản phẩm

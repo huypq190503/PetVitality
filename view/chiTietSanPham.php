@@ -1,3 +1,24 @@
+<?php
+            include "./view/_header.php";  
+            include "./view/_menu.php";  
+    ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm</title>
+    <link rel="stylesheet" href="./view/user/CSS/detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="./view/user/CSS/grid.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css">
+    <!-- <script src="../JS/Giohang_themSP.js"></script> -->
+</head>
+   
 <!-- Trang chi tiết sản phẩm  -->
 <div class="app">
     <div class="app__container">
@@ -85,4 +106,4 @@
 
             </div>
         </div>
-</div>        
+</div>  

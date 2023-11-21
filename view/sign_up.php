@@ -64,24 +64,7 @@
                <a href="index.php?act=login">Đăng nhập tại đây</a> 
             </div>
         </form>
-        <h2 class="nofi">
-                        <?php
-                            // if(isset($_COOKIE[$nofi])){
-                            //     echo $_COOKIE[$nofi];
-                            // }else if(!isset($_COOKIE[$nofi])){
-                            //      header('location: login.php');
-                            // }
-                            if(isset($_COOKIE[$cookie_name])){
-                                $cookie_name="nofi";
-                                $cookie_nofi="Bạn đã đăng ký thành công";   
-                                setcookie($cookie_name,$cookie_nofi,time()+10);
-                               echo $_COOKIE[$cookie_name];
-                               header('location:./view/login.php');
-                               ob_end_flush();
-                            }
-   
-                        ?>
-         </h2> 
+
     </div>
     <!-- Nội dung footer -->
 
