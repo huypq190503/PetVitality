@@ -31,6 +31,7 @@
             <div class="web--special--block justify-content-center">
                 <div class="special--product--item">
                     <a href="../HTML_Chitiet_sanpham/Detail1.html"><div class="special--product--detail">
+                        <?php ?>
                         <div class="special--product--img">
                             <img src="./upload/1-1.jpg" alt="">
                         </div>
@@ -100,3 +101,4 @@
         <div class="web--discount">
             <img src="./upload/discount.png" alt="">
         </div>
+        <?php include "./view/_footer.php";?>

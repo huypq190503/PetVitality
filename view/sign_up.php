@@ -29,6 +29,10 @@
 </style>
 <body>
     <!-- Header -->
+    <div class="header">
+        <img src="./upload/header.jpg" alt="SunPet">
+        <div class="header--overlay"></div>
+    </div>
     <!-- Nội dung đăng nhập -->
     
     <div class="dangky--container col-12">
@@ -41,7 +45,7 @@
             </div>
             <div class="dangky--sdt">
                 <label for="sdt" class="col-12">Số điện thoại <span><?= isset($error['tel'])?  $error['tel'] : "*" ;?></span></label>
-                <input type="number" placeholder="Số điện thoại" id="sdt" name="tel" class="col-12 input" >
+                <input type="text   " placeholder="Số điện thoại" id="sdt" name="tel" class="col-12 input" >
             </div>
             <div class="dangky--sdt">
                 <label for="sdt" class="col-12">Email <span><?= isset($error['email'])?  $error['email'] : "*" ;?></span></label>

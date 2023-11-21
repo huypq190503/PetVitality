@@ -8,18 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./view/user/CSS/Product.css">
     <link rel="stylesheet" href="./view/user/CSS/grid.css">
-    <link rel="stylesheet" href="./view/user/CSS/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./view/user/CSS/item.css">
+    <link rel="stylesheet" href="./view/user/CSS/home.css">
+   
+
     <title>Sản phẩm</title>
 
     <style>
-        
     </style>
 
 </head>
 
 <body>
+    <div class="header">
+        <a href=""><img src="./upload//header.jpg" alt="SunPet"></a>
+        <div class="header--overlay"></div>
+    </div> 
     <div class="app">
        
         <div class="app__container">
@@ -36,7 +42,7 @@
                             </h3>
                             <ul class="category-list">
                                 <li class="category-item" id="category-item">
-                                    <a href="HOME.html" class="category-item__link">Trang chủ</a>
+                                    <a href="home.php" class="category-item__link">Trang chủ</a>
                                 </li>
                                 <li class="category-item category-item--active">
                                     <a href="#category-item" class="category-item__link" id="sanpham-category">Sản phẩm
@@ -76,21 +82,65 @@
                         <div class="home-product dsSanPham1">
                             <div class="row" id="dsSanPham1">
                             <div class="special--product--item">
-                    <a href="../HTML_Chitiet_sanpham/Detail1.html"><div class="special--product--detail">
-                        <div class="special--product--img">
-                            <img src="./upload/1-1.jpg" alt="">
-                        </div>
-                        <div class="special--product--name">
-                            <p>Sữa bột cho mèo 110g Dr.Kyan Precaten</p>
-                        </div>
-                        <div class="special--product--price justify-content-center">
-                            <p>Giá: 500.000đ</p>
-                        </div>
-                    </div>
-
+                    <?php 
+                            foreach($list_pro as $product){
+                            extract($product);
+                            $image=$disimg.$img;
+                            // echo 
+                            // '
+                            // <div class="special--product--detail">
+                            //     <div class="special--product--img">
+                            //             <img src="'.$image.'" alt="">
+                            //     </div>
+                            //     <div class="special--product--name">
+                            //         <p>'.$name.'</p>
+                            //     </div>
+                            //     <div class="special--product--price justify-content-center">
+                            //         <p>Giá: '.$price.'</p>
+                            //     </div>
+                            // </div>
+                            // ';
+                            echo '
+                            <div class="item mr">
+                                <div class="item_cart">
+                                <a href=""><i class="bx bx-cart"></i></a>
+                                </div>
+                                <div class="item_img">
+                                    <img src="'.$image.'" alt="">
+                                </div>
+                                <div class="item_info">
+                                    <H3 class="mb-5px">'.$name.'</H3>
+                                    <p class="mb-5px">'.$price.'đ</p>
+                                    <button class="item_button">Thêm vào giỏ hàng</button>
+                                </div>      
+                            </div>
+                            ';
+                            
+                        }
+                     ?>
                     
+
+                    <!-- <a href="./view/productdetail.php">
+                        <div class="special--product--detail">
+                            <div class="special--product--img">
+                                <img src="./upload/17.1.png" alt="">
+                            </div>
+                            <div class="special--product--name">
+                                <p>Thức ăn cao cấp dành cho chó FIBs</p>
+                            </div>
+                            <div class="special--product--price justify-content-center">
+                                <p>Giá: 199.000đ</p>
+                            </div>
                             </div>    
                         </div>    
+                     </a> -->
+                 
+                        
+                     </div>
+                     </div>
+                     </div>
+
+
 
                         <div class="home-product dsSanPham2">
                             <div class="row" id="dsSanPham2">
@@ -123,12 +173,9 @@
                     </div>
                 </div>
             </div>
-  
-
-        </div>
-
-
+         </div>
     </div>
+
 
 </body>
 

@@ -1,6 +1,9 @@
 <?php
     include "model/pdo.php";
     include "model/account.php";
+    include "model/sanpham.php";
+    include "model/danhmuc.php";
+    include "global.php";
     // include "./view/_menu.php";   
 ?>
 
@@ -29,9 +32,9 @@
                             {   
                                 $error['pass']="Vui lòng nhập mật khẩu ";  
                             }
-                            // else if( $pass >= 6){
-                            //     $error['pass']= "Mật khẩu bạn phải đủ 6 ký tự";
-                            // }
+                            else if($pass >= 6){
+                                $error['pass']= "Mật khẩu bạn phải đủ 6 ký tự";
+                            }
                             if(empty($email))
                             {
                                 $error["email"]="Vui lòng nhập  email ";
@@ -60,39 +63,36 @@
                         break;
                     }
                     case 'login':
-                        if(isset($_POST['login'])&&($_POST['login'])){
-                            $email=$_POST['email'];
-                            $pass=$_POST['pass'];
-                            if(empty($email))
-                            {
-                                $error["email"]="Vui lòng nhập  email ";
-                            } 
-                            // else if($email !=  ){
-                            //     $error["email"]="Tài khoản hoặc mật khẩu không đúng";
-                            // }
-                            if(empty($pass))
-                            {   
-                                $error['pass']="Vui lòng nhập mật khẩu ";  
-                            }
-                            // else if($pass != ){
-                            //     $error["pass"]="Tài khoản hoặc mật khẩu không đúng";
-                            // }
-                            if(!$error){
-                                $login_account=login_account($email,$pass);
-                                if(is_array($login_account)){
-                                    $_SESSION['email']=$login_account;
-                                    // $nofi="Đăng nhập thành công";
-                                    header('Location: index.php'); 
-                                }                      
-                                else{
-                                        $nofi="Đăng nhập không thành công.Vui lòng kiểm tra lại";
-                                } 
-                            }
-                        }
+                        // if(isset($_POST['login'])&&($_POST['login'])){
+                        //     $email=$_POST['email'];
+                        //     $pass=$_POST['pass'];
+                        //     if(empty($email))
+                        //     {
+                        //         $error["email"]="Vui lòng nhập  email ";
+                        //     } 
+                        //     if(empty($pass))
+                        //     {   
+                        //         $error['pass']="Vui lòng nhập mật khẩu ";  
+                        //     }
+                        //     if(!$error){
+                        //         $login_account=login_account($email,$pass);
+                        //         if(is_array($login_account)){
+                        //             $_SESSION['email']=$login_account;
+                        //             // $nofi="Đăng nhập thành công";
+                        //             header('Location: index.php'); 
+                        //         }                      
+                        //         else{
+                        //                 $nofi="Đăng nhập không thành công.Vui lòng kiểm tra lại";
+                        //         } 
+                        //     }
+                        // }
                         
                         include "./view/login.php";
                         break;
                     case 'product':
+                       
+
+                         $list_pro=loadall_sanpham_home();
                         include "./view/product.php";
                         break;
                     default: {
@@ -106,5 +106,5 @@
         ?>
 
         <!-- footer -->
-        <?php include "./view/_footer.php";?>
+       
     

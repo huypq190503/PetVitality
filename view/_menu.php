@@ -60,11 +60,11 @@
                         </label>
                         <ul class="nav__list">
                             <li>
-                                <a class="nav--link" href="#"><i class="fas fa-home"></i>TRANG CHỦ </a>
+                                <a class="nav--link" href="home.php"><i class="fas fa-home"></i>TRANG CHỦ </a>
                             </li>
 
                             <li>
-                                <a href="Product.html" class="nav--link"><i class="fas fa-dolly"></i>SẢN PHẨM </a>
+                                <a href="index.php?act=product" class="nav--link"><i class="fas fa-dolly"></i>SẢN PHẨM </a>
                             </li>
                         </ul>
                     </nav>
