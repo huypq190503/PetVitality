@@ -96,7 +96,7 @@
                 </div>
             </div>
             <div class="button--more">
-                <button type="button" class="web__button--eatdogcat" name="more"><a href="?act=trangSanPham">XEM
+                <button type="button" class="web__button--eatdogcat" name="more"><a href="?act=product">XEM
                         THÊM</a></button>
             </div>
         </div>
