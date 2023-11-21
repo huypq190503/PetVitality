@@ -9,7 +9,7 @@
     <form action="index.php?act=addsp" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
         <label for="danhmuc" class="form-label">Danh mục sản phẩm</label><br>
-            <select name="iddm" id="">
+            <select name="iddm" id="" class="form-control" >
                 <?php
                     foreach($listdanhmuc as $danhmuc){
                         extract($danhmuc);

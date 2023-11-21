@@ -7,7 +7,10 @@
     // include "./view/_menu.php";   
 ?>
 
-    
+    <!-- <div class="container"> -->
+
+
+        <!-- main -->
         <?php 
             $loadSanPhamDanhMucCho =load_sanpham_danhmuc_cho();
             $loadSanPhamDanhMucMeo =load_sanpham_danhmuc_meo();
@@ -110,8 +113,7 @@
             }else{
                 include "./view/home.php";
             }
-        ?>
+        // ?>
 
         <!-- footer -->
-        <?php include "./view/_footer.php";?>
     
