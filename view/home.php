@@ -4,7 +4,7 @@
             include "./view/_menu.php";  
     ?>
 
-
+<div class="web--container">
         <!-- banner 1 -->
         <div class="web--banner">
             <img src="./upload/banner1.png" alt="">
@@ -50,53 +50,58 @@
             <div class="web--eatwhat--content">
                 <p>BÉ YÊU ĂN GÌ?</p>
             </div>
-
             <div class="web--eatdogcat">
+                <!-- In sản phẩm danh mục chó  -->
                 <div class="web--eatdog">
                     <div class="web--eatdog--block">
-                        <p>CHÓ CƯNG</p>
+                        <p>Chó cưng</p>
                     </div>
-                    <div class="web--eatdog--detail1">
-                        <a href="../HTML_Chitiet_sanpham/Detail17.html"><div class="special--product--detail1">
+                    <div class="web--eatdog--detail1 ">
+                        <?php foreach($loadSanPhamDanhMucCho as $value): ?>
+                        <a href="?act=chiTietSanPham&idsp=<?php echo $value['id']?>">
+                        <div class="special--product--detail1">
                             <div class="special--product--img">
-                                <img src="./upload/17.1.png" alt="">
+                                <img src="./upload/<?php echo $value['img']; ?>" alt="">
                             </div>
                             <div class="special--product--name">
-                                <p>Thức ăn cao cấp dành cho chó FIBs</p>
+                                <p><?php echo $value['name']; ?></p>
                             </div>
                             <div class="special--product--price justify-content-center">
-                                <p>Giá: 199.000đ</p>
-
+                                <p>Giá : <?php echo number_format($value['price']); ?> VNĐ</p>
                             </div>
                         </div></a>
+                        <?php endforeach; ?>        
                     </div>
                 </div>
+                <!-- In sản phẩm danh mục mèo  -->
                 <div class="web--eatcat ">
                     <div class="web--eatcat--block">
-                        <p>MÈO YÊU</p>
+                        <p>Mèo yêu</p>
                     </div>
                     <div class="web--eatcat--detail1 col-">
-                        <a href="../HTML_Chitiet_sanpham/Detail1.html"><div class="special--product--detail1">
+                    <?php foreach($loadSanPhamDanhMucMeo as $value): ?>
+                        <a href="?act=chiTietSanPham&idsp=<?php echo $value['id']?>"><div class="special--product--detail1">
                             <div class="special--product--img">
-                                <img src="./upload/1-1.jpg" alt="">
+                                <img src="./upload/<?php echo $value['img']; ?>" alt="">
                             </div>
                             <div class="special--product--name">
-                                <p>Sữa bột cho mèo 110g Dr.Kyan Precaten</p>
+                                <p><?php echo $value['name']; ?></p>
                             </div>
                             <div class="special--product--price justify-content-center">
-                                <p>Giá: 500.000đ</p>
-
+                                <p>Giá : <?php echo number_format($value['price']); ?> VNĐ</p>
                             </div>
                         </div></a>
+                        <?php endforeach; ?>        
                     </div>
                 </div>
             </div>
             <div class="button--more">
-                <button type="button" class="web__button--eatdogcat" name="more"><a href="../HTML/Product.html">XEM
+                <button type="button" class="web__button--eatdogcat" name="more"><a href="?act=trangSanPham">XEM
                         THÊM</a></button>
             </div>
         </div>
         <!-- Footer -->
         <div class="web--discount">
             <img src="./upload/discount.png" alt="">
+        </div>
         </div>

@@ -33,7 +33,7 @@
                             <!-- ml auto là auto margin left -->
                             <li class="nav-item">
                                 <!-- nav-item quy định màu là màu xanh, flex 1, mỗi item cách ra một khoảng -->
-                                <a class="nav-link" href="#">TRANG CHỦ</a>
+                                <a class="nav-link" href="index.php">TRANG CHỦ</a>
                             </li>
                             <!-- <li class="nav-item">
                                 <a href="Contact.html" class="nav-link">LIÊN HỆ</a>

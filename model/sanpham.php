@@ -30,6 +30,22 @@
         $listsanpham=pdo_query($sql);
         return $listsanpham;
     }
+    
+        // In sản phẩm danh mục chó và mèo
+        function load_sanpham_danhmuc_cho(){
+            $sql = "SELECT sanpham.id, sanpham.name, sanpham.price , sanpham.img, danhmuc.name 
+            AS tendm FROM `sanpham` LEFT JOIN danhmuc ON sanpham.iddm = danhmuc.id 
+            WHERE danhmuc.name = 'Chó cưng' LIMIT 2";
+            $result = pdo_query($sql);
+            return $result;
+        }
+        function load_sanpham_danhmuc_meo(){
+            $sql = "SELECT sanpham.id, sanpham.name, sanpham.price , sanpham.img, danhmuc.name 
+            AS tendm FROM `sanpham` LEFT JOIN danhmuc ON sanpham.iddm = danhmuc.id 
+            WHERE danhmuc.name = 'Mèo yêu' LIMIT 2";
+            $result = pdo_query($sql);
+            return $result;
+        }
     function load_ten_dm($iddm){
         if($iddm>0){ 
         $sql="select * from danhmuc where id=".$iddm;

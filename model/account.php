@@ -12,10 +12,11 @@ function login_account($email,$pass){
     $acc=pdo_query_one($sql);
     return $acc; 
 }
-function check_email($email){
-    $sql="SELECT * FROM user WHERE email='".$email."' ";
-    $email=pdo_query_one($sql);
-    return $email; 
+function checkemail($email,$pass){
+    $sql = "select * from user where email='" . $email."' AND pass='".$pass."'" ;
+    $sp = pdo_query_one($sql);
+    return $sp;
+    
 }
 function update_account($id_user,$user,$pass,$email,$address,$tel){
         $sql="UPDATE user SET user='".$user."', pass='".$pass."', email='".$email."',address='".$address."',tel='".$tel."'  WHERE id_user=".$id_user  ;

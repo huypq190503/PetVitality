@@ -1,16 +1,33 @@
 <?php
+    session_start();
+    ob_start();
     include "model/pdo.php";
     include "model/account.php";
+    include "model/sanpham.php";
     // include "./view/_menu.php";   
 ?>
 
     
         <?php 
-
+            $loadSanPhamDanhMucCho =load_sanpham_danhmuc_cho();
+            $loadSanPhamDanhMucMeo =load_sanpham_danhmuc_meo();
             // Controller user
             if(isset($_GET['act']) ){
                 $act = $_GET['act'];
                 switch($act){
+                    case 'chiTietSanPham':{
+                        if(isset($_GET['idsp']) && $_GET['idsp'] > 0){
+                            $sanpham = loadone_sanpham($_GET['idsp']);
+                            // $sanpham_lq = sanpham_lienquan($_GET['idsp'],$sanpham['id_dm']);
+                            // $binhluan = loadall_binhluan($_GET['idsp']);                           
+                            // tangluotxem($_GET['idsp']);
+                            include "./view/chiTietSanPham.php";
+                        }else{
+                            include "./view/home.php";            
+                        }
+                    break;
+
+                    }
                     case 'sign_up':{
                         $error=[];
                         if(isset($_POST["sign_up"])&&($_POST["sign_up"])){
@@ -59,42 +76,32 @@
                         include "./view/sign_up.php";
                         break;
                     }
-                    case 'login':
-                        if(isset($_POST['login'])&&($_POST['login'])){
-                            $email=$_POST['email'];
-                            $pass=$_POST['pass'];
-                            if(empty($email))
-                            {
-                                $error["email"]="Vui lòng nhập  email ";
-                            } 
-                            // else if($email !=  ){
-                            //     $error["email"]="Tài khoản hoặc mật khẩu không đúng";
-                            // }
-                            if(empty($pass))
-                            {   
-                                $error['pass']="Vui lòng nhập mật khẩu ";  
+                    case 'login':{
+                        if (isset($_POST['login']) && ($_POST['login'] > 0)) {
+                            $email = $_POST['email'];
+                            $pass = $_POST['pass'];
+                            $checkemail = checkemail($email, $pass);
+                            if (is_array($checkemail)) {
+                                $_SESSION['email'] = $checkemail;
+                                header("location:index.php");
+                            } else {
+                                $thongbao = "Tài khoản hoặc mật khẩu không đúng";
+                                // include "./view/sign_up.php";
                             }
-                            // else if($pass != ){
-                            //     $error["pass"]="Tài khoản hoặc mật khẩu không đúng";
-                            // }
-                            if(!$error){
-                                $login_account=login_account($email,$pass);
-                                if(is_array($login_account)){
-                                    $_SESSION['email']=$login_account;
-                                    // $nofi="Đăng nhập thành công";
-                                    header('Location: index.php'); 
-                                }                      
-                                else{
-                                        $nofi="Đăng nhập không thành công.Vui lòng kiểm tra lại";
-                                } 
-                            }
-                        }
+                        }  
                         
                         include "./view/login.php";
                         break;
-                    case 'product':
+                    }
+                    case 'log_out':{
+                        session_unset();
+                        header("location:index.php");
+                        break;
+                    }
+                    case 'product':{
                         include "./view/product.php";
                         break;
+                    }
                     default: {
                         include "./view/home.php";
                         break;
