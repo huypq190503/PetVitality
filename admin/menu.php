@@ -24,7 +24,5 @@
                         <a href="#"><i class="fa fa-bar-chart-o"></i> Thống kê</a>
                     </li>
                 </ul>
-
             </div>
-
         </nav>

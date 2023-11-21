@@ -16,6 +16,9 @@
             if(isset($_GET['act']) && $_GET['act'] != ""){
                 $act = $_GET['act'];
                 switch($act){
+                    case 'test':
+                        include "./view/_slider.php";
+                        break;  
                     
                     default: {
                         include "./view/home.php";
