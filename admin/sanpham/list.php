@@ -1,21 +1,9 @@
 
 <div class="col-md-12">
         <h2>DANH SÁCH LOẠI HÀNG HÓA</h2>
-    <br>
-    <form class="mb-3" action="index.php?act=listsp" method="POST">
-        <a href="?act=addsp" class="btn btn-success">Thêm mới</a>
-        <input type="text" name="kyw" id="" placeholder="Nhập sản phẩm cần tìm" >
-        <select name="iddm" id="">
-            <option value="0" selected>Tất cả</option>
-            <?php
-                foreach($listdanhmuc as $danhmuc){
-                    extract($danhmuc);
-                    echo '<option value="'.$id.'">'.$name.'</option>';
-                }
-            ?>   
-        </select>
-        <input type="submit" name="listok" value="TÌM">
-    </form>
+    <br>    
+    <a href="?act=addsp" class="btn btn-success">Thêm mới</a>
+
 
         <table class="table">
             <thead>
@@ -66,6 +54,7 @@
                 <!-- <input type="button" value="CHỌN TẤT CẢ" onclick="ctt()">
                 <input type="button" value="BỎ CHỌN TẤT CẢ" onclick="btt()">
                 <input type="button" value="XÓA CÁC MỤC ĐÃ CHỌN"> -->
+                <!-- <a href="index.php?act=addsp"> <input type="button" value="NHẬP THÊM"></a> -->
             </div>
 </div>
 

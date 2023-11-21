@@ -1,0 +1,1 @@
+<!-- Cắt phần silder sang  -->
