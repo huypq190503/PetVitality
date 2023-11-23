@@ -40,7 +40,7 @@
         // End sản phẩm danh mục chó và mèo
     function loadall_sanpham($kyw="",$iddm=0){
         $sql="SELECT sanpham.id, sanpham.name, sanpham.price, sanpham.img, danhmuc.name AS 
-        tendm FROM `sanpham` LEFT JOIN danhmuc ON sanpham.iddm = danhmuc.id;"; 
+        tendm FROM `sanpham` LEFT JOIN danhmuc ON sanpham.iddm = danhmuc.id where 1"; 
         if($kyw!=""){
             $sql.=" and name like '%".$kyw."%'";
         }

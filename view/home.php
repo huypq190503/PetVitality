@@ -105,3 +105,4 @@
             <img src="./upload/discount.png" alt="">
         </div>
         </div>
+        <script src="https://uhchat.net/code.php?f=69535a"></script>
