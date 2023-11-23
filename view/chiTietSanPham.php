@@ -39,16 +39,15 @@
                         </div>
                         <div class="home-product-item__sl">
                             <label class="home-product-item__label"> Số lượng:</label>
-                            <input class="home-product-item__input" value="1" type="number" id="quantity" name="quantity" min="1" />
-
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
+                            <input class="home-product-item__input" value="1" type="number" name="quantity" min="1" />
+                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
                         </div>
                         <div class="home-product-item__sl">
                             <label class="home-product-item__label"> Khối lượng :</label>
-                            <input type="radio" name="" id="" >200g</input>
-                            <input type="radio" name="" id="">500g</input>
-                            <input type="radio" name="" id="">1kg</input>
-
-
+                            <input type="radio" name="gioitinh" checked>200kg
+                            <input type="radio" name="gioitinh">500kg
+                            <input type="radio" name="gioitinh">1kg
                         </div>
                         <div class="home-product-item__buy">
                             <a href="#"><button class="home-product-item__buy btn-mua" onclick="muaNgay()">MUA NGAY</button> </a>
