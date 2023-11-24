@@ -100,9 +100,21 @@
 
                     </div>
                 </div>
-
                 <h3 class="card">Bình luận</h3>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function(){          
+                        $("#binhluan").load("view/binhluan/binhluanform.php", {idpro: <?=$id?>});
+                    });
+                    </script>
+            
+                <div id="binhluan">
 
+                </div>
+                <!-- <iframe src="view/binhluan/binhluanform.php?idpro=<?=$id?>" frameborder="0" width="100%" height="300px"></iframe> -->
+                
             </div>
+            
         </div>
+        
 </div>  
