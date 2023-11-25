@@ -2,6 +2,8 @@
     include "../model/pdo.php";
     include "../model/danhmuc.php";
     include "../model/sanpham.php";
+    include "../model/binhluan.php";
+    include "../model/taikhoan.php";
 ?> -->
 <!-- Controller : Admin -->
 
@@ -14,7 +16,6 @@
         <div id="page-wrapper">
             <!-- main web -->
             <?php 
-            
                 // Controller
                 if(isset($_GET['act']) && $_GET['act'] != ""){
                     $act = $_GET['act'];
@@ -171,6 +172,18 @@
                         //     include "sanpham/list.php";
                         //     break;
 
+                        case "dsbl":
+                            $listbinhluan=loadall_binhluan(0);
+                            include "binhluan/list.php";
+                            break;
+        
+                        case "xoabl":
+                            if(isset($_GET['id'])&&($_GET['id']>0)){
+                                delete_binhluan($_GET['id']);
+                            }
+                            $listbinhluan=loadall_binhluan(0);
+                            include "binhluan/list.php";
+                            break;
                         // Phần xử lí người dùng
                         case "dskh":{           
                             include "khachhang/list-khachhang.php";

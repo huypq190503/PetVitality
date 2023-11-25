@@ -4,6 +4,7 @@
     include "model/pdo.php";
     include "model/account.php";
     include "model/sanpham.php";
+    include "model/binhluan.php";
     // include "./view/_menu.php";   
 ?>
 
@@ -19,10 +20,17 @@
                 $act = $_GET['act'];
                 switch($act){
                     case 'chiTietSanPham':{
+                        if(isset($_POST['guibinhluan'])&& $_POST['guibinhluan']){
+                            $noidung = $_POST['noidung'];
+                            $idpro = $_POST['idpro'];
+                            $iduser = $_POST['user'];
+                            insert_binhluan($noidung,$iduser,$idpro);
+                        }
+                        
                         if(isset($_GET['idsp']) && $_GET['idsp'] > 0){
                             $sanpham = loadone_sanpham($_GET['idsp']);
                             // $sanpham_lq = sanpham_lienquan($_GET['idsp'],$sanpham['id_dm']);
-                            // $binhluan = loadall_binhluan($_GET['idsp']);                           
+                            $dsbl = loadall_binhluan($_GET['idsp']);                           
                             // tangluotxem($_GET['idsp']);
                             include "./view/chiTietSanPham.php";
                         }else{

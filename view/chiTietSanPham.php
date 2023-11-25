@@ -45,9 +45,9 @@
                         </div>
                         <div class="home-product-item__sl">
                             <label class="home-product-item__label"> Khối lượng :</label>
-                            <input type="radio" name="gioitinh" checked>200kg
-                            <input type="radio" name="gioitinh">500kg
-                            <input type="radio" name="gioitinh">1kg
+                            <input type="radio" name="khoiluong" checked>200kg
+                            <input type="radio" name="khoiluong">500kg
+                            <input type="radio" name="khoiluong">1kg
                         </div>
                         <div class="home-product-item__buy">
                             <a href="#"><button class="home-product-item__buy btn-mua" onclick="muaNgay()">MUA NGAY</button> </a>
@@ -100,18 +100,47 @@
 
                     </div>
                 </div>
-                <h3 class="card">Bình luận</h3>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-                <script>
-                    $(document).ready(function(){          
-                        $("#binhluan").load("view/binhluan/binhluanform.php", {idpro: <?=$id?>});
-                    });
-                    </script>
-            
-                <div id="binhluan">
+                <table class="table">
+                    <div class="card-header" style="font-size: 2rem;" >Bình luận</div>
+                    <tr>
+                        <th scope="col">Nội dung</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Day</th>
+                        </tr>
+                    <tbody>
+                    <?php
+                    foreach($dsbl as $bl){
+                        extract($bl);
+                        echo '<tr><td>'.$noidung.'</td>';
+                        echo '<td>'.$iduser.'</td>';
+                        echo '<td>'.$ngaybinhluan.'</td></tr>';
 
-                </div>
-                <!-- <iframe src="view/binhluan/binhluanform.php?idpro=<?=$id?>" frameborder="0" width="100%" height="300px"></iframe> -->
+                    }
+                ?>
+                    </tbody>
+                    </table>
+
+                        <!-- Thêm bình luận -->
+                            <!-- Kiểm tra đã đăng nhập chưa  -->
+                                <?php
+                                if (isset($_SESSION['email'])) {
+                                    extract($_SESSION['email'])
+                                ?>
+                                
+                            <div class="box_search">
+                                    <form action="?act=chiTietSanPham&idsp=<?php echo $sanpham['id']; ?>" method="POST">
+                                        <input type="hidden" name="idpro" value="<?php echo $sanpham['id']; ?>">
+                                        <input type="hidden" name="user" value="<?php echo $id; ?>">
+                                        <input type="text" name="noidung">
+                                        <input type="submit" name="guibinhluan" value="Gửi bình luận">
+                                    </form>
+                                </div>
+                                <?php
+                                } else {
+                                    echo "Vui lòng đăng nhập để bình luận";
+                                }
+                    ?>
+                
                 
             </div>
             
