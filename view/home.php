@@ -70,6 +70,8 @@
                                 <p>Giá : <?php echo number_format($value['price']); ?> VNĐ</p>
                             </div>
                         </div></a>
+
+
                         <?php endforeach; ?>        
                     </div>
                 </div>

@@ -1,3 +1,7 @@
+<?php 
+        // include "model/sanpham.php";
+        // include "model/danhmuc.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,15 +43,17 @@
                                     <a href="index.php" class="category-item__link">Trang chủ</a>
                                 </li>
                                 <li class="category-item category-item--active">
-                                    <a href="#category-item" class="category-item__link" id="sanpham-category">Sản phẩm
+                                    <a href="?act=product" class="category-item__link" id="sanpham-category">Sản phẩm
                                     </a>
+                                    <!-- In name danh muc  -->
+
+                                    <?php foreach ($danhSachDanhMuc as $key => $value): ?>
                                     <li class="category-item category-item-1">
-                                        <a href="#category-item" class="category-item__link" id="category--thucanchocho">Thức ăn cho
-                                        chó</a>
+                                        <a href="?act=product_cate&iddm=<?php echo $value['id'] ?>" class="category-item__link" id="category--thucanchocho">
+                                            <?php echo $value['name'] ?></a>
                                     </li>
-                                    <li class="category-item category-item-1">
-                                        <a href="#category-item" class="category-item__link" id="category--thucanchomeo" >Thức ăn cho mèo</a>
-                                    </li>
+                                    <?php endforeach; ?>
+
                                 </li>
                             </ul>
                         </nav>
@@ -62,10 +68,10 @@
                                 <!-- List options -->
                                 <ul class="select-input__list">
                                     <li class="select-input__item">
-                                        <a href="#category-item" class="select-input__link tangdan" id="tangdan">Giá: tăng dần</a>
+                                        <a href="?act=product&filter=asc" class="select-input__link tangdan" id="tangdan">Giá: tăng dần</a>
                                     </li>
                                     <li class="select-input__item">
-                                        <a href="#category-item" class="select-input__link" id="giamdan">Giá: giảm
+                                        <a href="?act=product&filter=desc" class="select-input__link" id="giamdan">Giá: giảm
                                             dần</a>
                                     </li>
                                 </ul>
@@ -74,23 +80,23 @@
 
                         <!-- Grid -> Row -> Column -->
                         <div class="home-product dsSanPham1">
-                            <div class="row" id="dsSanPham1">
-                            <div class="special--product--item">
-                    <a href="../HTML_Chitiet_sanpham/Detail1.html"><div class="special--product--detail">
-                        <div class="special--product--img">
-                            <img src="./upload/1-1.jpg" alt="">
-                        </div>
-                        <div class="special--product--name">
-                            <p>Sữa bột cho mèo 110g Dr.Kyan Precaten</p>
-                        </div>
-                        <div class="special--product--price justify-content-center">
-                            <p>Giá: 500.000đ</p>
-                        </div>
+                            <div class="row" id="dsSanPham1">    
+                                <!-- Product item -->
+                                <?php foreach($danhSachSanPham as $value): ?>
+                                    <div class="col l-2-4 m-4 c-6">
+                    <a class="home-product-item" href="?act=chiTietSanPham&idsp=<?php echo $value['id']?>">
+                    <div class="home-product-item__img" style="background-image: url(./upload/<?php echo $value['img']; ?>);">
                     </div>
-
-                    
+                    <h4 class="home-product-item__name"><?php echo $value['name']; ?></h4>
+                    <div class="home-product-item__price">
+                    <span class="home-product-item__price-curent"><?php echo number_format($value['price']); ?> VND</span>
+                    <!-- sale  -->
+                    <!-- <span class="home-product-item__price-old">590.000đ</span> -->
+                    </div>
+                    </a>
+                </div>    
+                                    <?php endforeach; ?>        
                             </div>    
-                        </div>    
 
                         <div class="home-product dsSanPham2">
                             <div class="row" id="dsSanPham2">

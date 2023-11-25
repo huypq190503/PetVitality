@@ -17,42 +17,41 @@
     <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css">
     <script src="./view/JS/dangKy - dangNhap.js"></script>
 </head>
-<style>
-    span {
-        color: red;
-        font-size: 15px;
-    }
-    .nofi{
-        color: green;
-    }
-  
-</style>
 <body>
     <!-- Header -->
+
     <!-- Nội dung đăng nhập -->
     
     <div class="dangky--container col-12">
+    <div class="col-12" >
+    <h2 class="thongbao" id="thongbao" style=" padding-top: 20px; ; color: red; ;font-size: 1vw;" > 
+    <?php
+        if(isset($thongbao)&& ($thongbao)!=""){
+            echo $thongbao .' <a href="index.php?act=login">Đăng nhập tại đây</a> ';
+        }
+    ?>
+    </div>
         <div class="dangky--title">ĐĂNG KÝ</div>
         <div>THÔNG TIN CÁ NHÂN</div>
         <form action="?act=sign_up" method="POST" class="col-12"> 
             <div class="dangky--ho">
-                <label for="ho" class="col-12">Họ và tên <span><?= isset($error['user'])?  $error['user'] : "*" ;?></span></label>
+                <label for="ho" class="col-12">Họ và tên <span>*</span></label>
                 <input type="text" placeholder="Họ và tên" id="ho" name="user" class="col-12 input" require>
             </div>
             <div class="dangky--sdt">
-                <label for="sdt" class="col-12">Số điện thoại <span><?= isset($error['tel'])?  $error['tel'] : "*" ;?></span></label>
+                <label for="sdt" class="col-12">Số điện thoại <span>*</span></label>
                 <input type="number" placeholder="Số điện thoại" id="sdt" name="tel" class="col-12 input" >
             </div>
             <div class="dangky--sdt">
-                <label for="sdt" class="col-12">Email <span><?= isset($error['email'])?  $error['email'] : "*" ;?></span></label>
+                <label for="sdt" class="col-12">Email <span>*</span></label>
                 <input type="text" placeholder="Email" id="sdt" name="email" class="col-12 input">
             </div>
             <div class="dangky--matkhau">
-                <label for="mk" class="col-12">Mật khẩu <span><?= isset($error['pass'])?  $error['pass'] : "*" ;?></span></label>
+                <label for="mk" class="col-12">Mật khẩu <span>*</span></label>
                 <input type="password" placeholder="Mật khẩu" id="mk" name="pass" class="col-12 input" >
             </div>
             <div class="dangky--diachi">
-                <label for="diachi" class="col-12">Địa chỉ <span><?= isset($error['address'])?  $error['address'] : "*";?></span> </label> 
+                <label for="diachi" class="col-12">Địa chỉ <span>*</span></label> 
                 <input type="text" placeholder="Địa chỉ" id="diachi" name="address" class="col-12 input"    >
             </div>
 
