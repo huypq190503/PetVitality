@@ -327,6 +327,7 @@ p>a:hover{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 30px;
     margin: 0 auto ;
+   
 }
 .special--product--item>a{
     color: black !important;

@@ -1,4 +1,8 @@
 <!-- Cắt phần header  -->
+<?php 
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +13,17 @@
     <title>Pet</title>
     <link rel="stylesheet" href="./view/user/CSS/Bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./view/user/CSS/header.css">
+    <style>
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
     <!-- <div class="header">
@@ -34,24 +49,44 @@
                         </div>
                     </div> -->
                     <div class="header--cart">
-                        <a href="Gio_hang.html">
+                        <a href="?act=viewCart">
                             <i class="fas fa-shopping-bag"></i>
                         </a>
                     </div>
+
+
                     
                     <div class="btn-group dropdown__hover user--position dropdown">
                         <button class="btn" type="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"><i class="fas fa-user"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-content ">
+                        <?php
+                        if (isset($_SESSION['email'])) {
+                            // extract() để trích xuất các phần tử trong mảng $_SESSION['email'] thành các biến độc lập.
+                            extract($_SESSION['email'])
+                        ?><cite class="text-center" title="Source Title"><p>Welcome : <?php echo $user ?></p></cite>
+                         <li><a class="dropdown-item" href="index.php?act=edit_user">Cập nhật tài khoản</a></li>                       
+                        <?php if($role==1){
+                        ?>
+                        <li><a class="dropdown-item" href="./admin/index.php">Đăng nhập Admin</a></li>
+                        <?php
+                        }
+                        ?><li><a class="dropdown-item" href="index.php?act=log_out">Thoát</a></li>
+                    <?php
+                    } else {
+                    ?>  
                             <a class="dropdown-item " href="index.php?act=sign_up" id="dangky">Đăng ký</a>
                         
                             <a class="dropdown-item" href="index.php?act=login" id="dangnhap">Đăng nhập</a>
                             
-                            <a class="dropdown-item" href="Xemthongtin.html" id="xemthongtin">Xem thông tin</a>
+                            <!-- <a class="dropdown-item" href="Xemthongtin.html" id="xemthongtin">Xem thông tin</a> -->
                            
-                            <a class="dropdown-item" href="#" id="dangxuat" onclick="dangXuat()">Đăng xuất</a>
+                            <!-- <a class="dropdown-item" href="#" id="dangxuat" onclick="dangXuat()">Đăng xuất</a> -->
                         </div>
+                        <?php 
+          } 
+          ?>
                     </div>
                 </div>
             </div>

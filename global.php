@@ -1,3 +1,3 @@
 <?php
-    $disimg="upload/";
+    $img_path="upload/";
 ?>

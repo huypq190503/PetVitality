@@ -17,25 +17,20 @@
     <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css">
     <script src="./view/JS/dangKy - dangNhap.js"></script>
 </head>
-<style>
-    span {
-        color: red;
-        font-size: 15px;
-    }
-    .nofi{
-        color: green;
-    }
-  
-</style>
 <body>
     <!-- Header -->
-    <div class="header">
-        <img src="./upload/header.jpg" alt="SunPet">
-        <div class="header--overlay"></div>
-    </div>
+
     <!-- Nội dung đăng nhập -->
     
     <div class="dangky--container col-12">
+    <div class="col-12" >
+    <h2 class="thongbao" id="thongbao" style=" padding-top: 20px; ; color: red; ;font-size: 1vw;" > 
+    <?php
+        if(isset($thongbao)&& ($thongbao)!=""){
+            echo $thongbao .' <a href="index.php?act=login">Đăng nhập tại đây</a> ';
+        }
+    ?>
+    </div>
         <div class="dangky--title">ĐĂNG KÝ</div>
         <div>THÔNG TIN CÁ NHÂN</div>
         <form action="?act=sign_up" method="POST" class="col-12"> 
@@ -45,7 +40,7 @@
             </div>
             <div class="dangky--sdt">
                 <label for="sdt" class="col-12">Số điện thoại <span><?= isset($error['tel'])?  $error['tel'] : "*" ;?></span></label>
-                <input type="text   " placeholder="Số điện thoại" id="sdt" name="tel" class="col-12 input" >
+                <input type="number" placeholder="Số điện thoại" id="sdt" name="tel" class="col-12 input" >
             </div>
             <div class="dangky--sdt">
                 <label for="sdt" class="col-12">Email <span><?= isset($error['email'])?  $error['email'] : "*" ;?></span></label>
@@ -56,7 +51,7 @@
                 <input type="password" placeholder="Mật khẩu" id="mk" name="pass" class="col-12 input" >
             </div>
             <div class="dangky--diachi">
-                <label for="diachi" class="col-12">Địa chỉ <span><?= isset($error['address'])?  $error['address'] : "*";?></span> </label> 
+                <label for="diachi" class="col-12">Địa chỉ <span><?= isset($error['address'])?  $error['address'] : "*";?></span></label> 
                 <input type="text" placeholder="Địa chỉ" id="diachi" name="address" class="col-12 input"    >
             </div>
 
@@ -68,24 +63,7 @@
                <a href="index.php?act=login">Đăng nhập tại đây</a> 
             </div>
         </form>
-        <h2 class="nofi">
-                        <?php
-                            // if(isset($_COOKIE[$nofi])){
-                            //     echo $_COOKIE[$nofi];
-                            // }else if(!isset($_COOKIE[$nofi])){
-                            //      header('location: login.php');
-                            // }
-                            if(isset($_COOKIE[$cookie_name])){
-                                $cookie_name="nofi";
-                                $cookie_nofi="Bạn đã đăng ký thành công";   
-                                setcookie($cookie_name,$cookie_nofi,time()+10);
-                               echo $_COOKIE[$cookie_name];
-                               header('location:./view/login.php');
-                               ob_end_flush();
-                            }
-   
-                        ?>
-         </h2> 
+
     </div>
     <!-- Nội dung footer -->
 

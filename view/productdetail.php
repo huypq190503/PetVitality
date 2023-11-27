@@ -1,4 +1,3 @@
-<!-- Trang chi tiết sản phẩm  -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,99 +6,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết sản phẩm</title>
-    <link rel="stylesheet" href="../CSS/detail.css">
+    <link rel="stylesheet" href="./view/user/CSS/detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="../CSS/grid.css">
+    <link rel="stylesheet" href="./view/user/CSS/grid.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/Font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css">
     <!-- <script src="../JS/Giohang_themSP.js"></script> -->
 </head>
-
+<style>
+.co-black{
+    color:black;
+}
+span{
+    color:red;
+}
+</style>
 <body>
-    <div class="app">
-        <a href="../HTML/HOME.html">
-            <div class="header">
-                <img src=".upload/header.jpg" alt="SunPet">
-                <div class="header--overlay"></div>
-            </div>
-        </a>
+
+        <div class="app">
         <div class="app__container">
             <div class="grid wide">
                 <div class="row sm-gutter ">
                     <div class="col l-5 ">
-                        <div class="home-product-item">
+                        <div class="home-product-item">     
                             <div class="item-img">
-                                <img src="../Image/1-1.jpg" class="home-product-item__img" alt="">
+                                <img  src="./upload/<?= $list_ctsp[0]['img'];?>" class="home-product-item__img" alt="">
                             </div>
                             <div class="item-dt">
-                                <img src="../Image/1-1.jpg" class="item-dt-1" alt="">
+                                <img src="./upload/<?= $list_ctsp[0]['img'];?>" class="item-dt-1" alt="">
 
-                                <img src="../Image/1-2.png" class="item-dt-1" alt="">
-
-                                <img src="../Image/1-3.png" class="item-dt-1" alt="">
-
-                                <img src="../Image/1-4.jpg" class="item-dt-1" alt="">
+                                <img src="./upload/<?= $list_ctsp[0]['img'];?>" class="item-dt-1" alt="">
+        
+                                <img src="./upload/<?= $list_ctsp[0]['img'];?>" class="item-dt-1" alt="">
+        
+                                <img src="./upload/<?= $list_ctsp[0]['img'];?>" class="item-dt-1" alt="">
                             </div>
                         </div>
-                    </div>
-                    <div class="col l-7 ">
-                        <h2 class="home-product-item__name">Sữa bột cho mèo 110g Dr.Kyan Precaten</h2>
-                        <div class="home-product-item__price">
-                            <span class="home-product-item__price-curent">500.000đ</span>
-                            <span class="home-product-item__price-old">590.000đ</span>
                         </div>
-                        <div class="home-product-item__sl">
-                            <label class="home-product-item__label"> Số lượng:</label>
-                            <input class="home-product-item__input" value="1" type="number" id="quantity" name="quantity" min="1" />
-
+                        <div class="col l-7 ">
+                                <h2 class="home-product-item__name"><?= $list_ctsp[0]['name_sp']; ?></h2>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-curent"><?= $list_ctsp[0]['price']; ?></span>
+                                <span class="home-product-item__price-old">590.000đ</span>
+                            </div>
+                        <form action="?act=addToCart" method="post" >
+                            <div class="home-product-item__sl">
+                                <label class="home-product-item__label"> Số lượng:</label>
+                                <input  class="home-product-item__input co-black" value="<?= $list_ctsp[0]['quantity'];?>" type="number" id="quantity" name="quantity" min="1" />
+                            </div>
+                            <?php if(isset($nofi)&& ($nofi)!=""){
+                                    echo "<style='color:red'>$nofi</style>" ;
+                                }?>
+                            <div class="home-product-item__sl">
+                            <label class="home-product-item__label"> Khối lượng :</label> 
+                               <select style="color:black;" name="" id="">
+                                <?php foreach($list_ctsp as $weight): ?> 
+                                    <option  class="co-black" value="<?php $weight['id_ctsp'] ?>"><?= $weight['weight']; ?></option>
+                                <?php endforeach?>
+                            </select>
+                            </div>
+                            <div class="home-product-item__sl">
+                            <label class="home-product-item__label"> Loại :</label>
+                                <select style="color:black;" name="" id=""> 
+                                <?php foreach($list_ctsp as $genre): ?> 
+                                    <option  class="co-black" value="<?php $genre['id_ctsp'] ?>"><?= $genre['genre']; ?></option>
+                                <?php endforeach?>
+                                </select> 
+                            </div>
+                          
+                                <div class="home-product-item__buy">
+                            <input type="hidden" name="id_sp" value="<?php echo $list_ctsp[0]['id_sp']?>">
+                            <input type="hidden" name="name_sp" value="<?php echo $list_ctsp[0]['name_sp']?>">
+                            <input type="hidden" name="price" value="<?php echo ($list_ctsp[0]['price']) ?>">
+                            <input type="hidden" name="weight" value="<?php echo $weight['weight']; ?>">
+                            <input type="hidden" name="genre" value="<?php echo $genre['genre'];?>">
+                            <input type="hidden" name="img" value="./upload/<?php echo $list_ctsp[0]['img']?>">
+                            <a href="#"><button class="home-product-item__buy btn-mua" >MUA NGAY</button> </a>
+                            <input type="submit" name="addCart" class="home-product-item__buy btn-them" value="THÊM VÀO GIỎ HÀNG" ></input>
+                            <!-- <a href="#"><button class="home-product-item__buy btn-them" name="addCart" >THÊM VÀO GIỎ HÀNG</button></a> -->
+                                </div>
+                        </form>
                         </div>
-                        <div class="home-product-item__sl">
-                            <label class="home-product-item__label"> Khối lượng :</label>
-                            <input type="radio" name="" id="" >200g</input>
-                            <input type="radio" name="" id="">500g</input>
-                            <input type="radio" name="" id="">1kg</input>
-
-
-                        </div>
-                        <div class="home-product-item__buy">
-                            <a href="#"><button class="home-product-item__buy btn-mua" onclick="muaNgay()">MUA NGAY</button> </a>
-                            <a href="#"><button class="home-product-item__buy btn-them" onclick="them()">THÊM VÀO GIỎ HÀNG</button></a>
-                        </div>
                     </div>
-                </div>
-                <div class="motasp">
-                    <div class="home-product-item__mota">
-                        <button class="home-product-item__mota btn-mota">MÔ TẢ SẢN PHẨM</button>
+                    <div class="motasp">
+                        <?php $list_ctsp[0]['description'];?>
                     </div>
-                    <div class="text1">
-                        <span class="inline">Thành Phần:</span> <br> Sữa bột nguyên kem, Sữa bột gầy, Nondairy creamer, Maltodextrin,Sucrose,Whey protein concentrate,Hương dùng trong thực phẩm,Chất xơ Inulin, Lysine, Nano - Precipitated Calcium Carbonate,Vitamin
-                        C, Vitamin K1, Vitamin B6, Vitamin B1, VitaminB2, Vitamin D3, Vitamin A, Vitamin B12, Vitamin Axit Pantothenic, Biotine, Axit Folic... <br>
-                    </div>
-                    <div class="text1">
-                        <span class="inline">Dinh dưỡng:</span> <br> - Canxi nano và vitamin D : Kích thước siêu nhỏ giú hấp thụ tối ưu vào xương, giúp xương và rang chắc khỏe, đặc biệt không tạo ra sỏi thận như thức ăn thông thường. <br> - Vitamin A
-                        : Tốt cho mắt và ngăn biến chứng võng mạc. <br> - Biotine : Giúp cho da khỏe mạnh và bộ lông bóng mượt. <br> - Lnulin :chất xơ tự nhiên giúp hệ tiêu hóa khỏe mạnh. <br> - Lysine : Kích thích them ăn. <br> - Folic acid : Hỗ trợ
-                        phát triển trí não. <br>
-                    </div>
-                    <div class="text1">
-                        <span class="inline"> Hướng dẫn sử dụng:</span> <br> *Pha với nước ấm khoảng 40 - 50°C <br>
-
-                        <span class="inline">- Mèo con dưới 1 tháng tuổi:</span> Hòa 3 muỗng sữa bột ( khoảng 15gr ) vào 30ml nước ấm, chia thành 4-6 lần, dung bình cho bú hoặc để mèo tự ăn hết trong ngày <br>
-                        <span class="inline">- Mèo con từ 1 – 2 tháng tuổi:</span> Hòa 6 muỗng sữa bột (khoảng 30gr) với 60ml nước ấm, chia thành 3-3 lấn ăn trong ngày . <br>
-                        <span class="inline">- Mèo trên 2 tháng tuổi:</span> Cho ăn khoảng 2-3 lần/ ngày như bữa phụ xen kẽ với các bữa chính, mỗi lần cho ăn bằng cách hòa 2 muỗng sữa bột (khoảng 10gr) với 20ml nước ấm để tự ăn. <br>
-                        <span class="inline">- Mèo đang ốm/ còi/ đang mang thai:</span> cho ăn khoảng 3 lần/ ngày như bữa phụ xen kẽ với các bữa chính, mỗi lần cho ăn bằng cách hòa 2 muỗng sữa bột (khoảng 10gr)
-                        <br>
-                    </div>
-                    <div class="text1">
-                        <span class="inline"> Bảo quản:</span> <br> - Nơi khô ráo thoáng mát. <br> - Sữa đã pha, bảo quản trong tủ lạnh được 24h. <br>
-                    </div>
-                </div>
+                    
                 <div class="home-product1">
                     <h3 class="prodct-lq">Sản phẩm liên quan</h3>
                     <div class="row sm-gutter">
                         <!-- <h3>Sản phẩm liên quan</h3> -->
                         <div class="col l-2-4 m-4 c-6">
                             <!-- Product item -->
-                            <a class="home-product-item1" href="Detail1.html" target="_self">
+                            <!-- <a class="home-product-item1" href="Detail1.html" target="_self">
                                 <div class="home-product-item1__img" style="background-image: url(https://bizweb.dktcdn.net/thumb/large/100/432/370/products/sua-bot-cho-meo-dr-kyan-precaten-anh.jpg?v=1626752115000);">
                                 </div>
                                 <h4 class="home-product-item1__name">Sữa cho mèo Dr.Kyan Precaten</h4>
@@ -107,7 +106,7 @@
                                     <span class="home-product-item1__price-curent">500.000đ</span>
                                     <span class="home-product-item1__price-old">590.000đ</span>
                                 </div>
-                            </a>
+                            </a> -->
                         </div>
 
                     </div>
@@ -115,9 +114,12 @@
             </div>
         </div>
         <h1>Bình luận</h1>
-
+                            
     </div>
     <?php include "./view/_footer.php";?>
 </body>
-
 </html>
+<script>
+    const addCart=document.querySelector('addCart');
+    console.log(addCart);
+</script>
