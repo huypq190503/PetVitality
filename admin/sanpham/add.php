@@ -1,4 +1,4 @@
-    <style>
+<style>
         .mb-3{
             margin-bottom: 1rem !important;
         }
@@ -18,7 +18,6 @@
                 ?>      
             </select>
         </div>
-
         <div class="mb-3">
             <label for="name" class="form-label">Tên sản phẩm</label>
             <input type="text" class="form-control" id="name" placeholder="Nhập tên sản phẩm" name="tensp" />
@@ -33,6 +32,30 @@
             <label for="price" class="form-label">Giá sản phẩm</label>
             <input type="number" class="form-control" id="price" placeholder="Nhập giá sản phẩm" name="giasp" />
         </div>
+        <!-- <div class="mb-3">
+            <label for="price" class="form-label">Số lượng</label>
+            <input type="number" class="form-control" id="price" placeholder="Nhập số lượng" name="quantity" />
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Mô tả</label>
+            <input type="text" class="form-control" id="price" placeholder="Mô tả" name="description" />
+        </div> -->
+        <!-- <div class="mb-3">
+            <label for="" class="form-label">Khối lượng</label>
+         <select name="weight" id="">
+            <option value="">500g</option>
+            <option value="">200g</option>
+            <option value="">300g</option>
+         </select>
+        </div> -->
+        <!-- <div class="mb-3">
+            <label for="" class="form-label">Khối lượng</label>
+            <input type="text" class="form-control" id="weight" placeholder="Khối lượng" name="weight" />
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Loại</label>
+            <input type="text" class="form-control" id="genre" placeholder="Loại" name="genre" />
+        </div> -->
 
         <!-- <div class="mb-3">
             <label for="discount" class="form-label">Giảm giá sản phẩm</label>

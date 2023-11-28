@@ -26,10 +26,11 @@
 
             $danhSachDanhMuc = loadall_danhmuc();
             $danhSachSanPham = danhsach_sanpham();
-            $loadSanPhamDanhMucCho =load_sanpham_danhmuc_cho();
-            $loadSanPhamDanhMucMeo =load_sanpham_danhmuc_meo();
+            $loadSanPhamDanhMucCho = load_sanpham_danhmuc_cho();
+            $loadSanPhamDanhMucMeo = load_sanpham_danhmuc_meo();
+            $loadSanPhamNoiBat=loadall_sanpham_top10();
             // Controller user
-            if(isset($_GET['act']) ){
+            if(isset($_GET['act']) ){   
                 $act = $_GET['act'];
                 switch($act){
 /*---------------------------------Chi tiết sản phẩm-------------------------------------- */                     

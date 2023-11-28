@@ -41,6 +41,12 @@
                             <li class="nav-item">
                                 <a href="index.php?act=product" class="nav-link">SẢN PHẨM</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">LIÊN HỆ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">TIN THÚ CƯNG</a>
+                            </li>
                             <!-- <li class="nav-item">
                                 <a href="Blog_Trangchu.html" class="nav-link">BLOG</i></a>
                             </li> -->
@@ -58,15 +64,6 @@
                         <label for="nav--input" class="nav--bar--close">
                             <i class="fas fa-times"></i>
                         </label>
-                        <ul class="nav__list">
-                            <li>
-                                <a class="nav--link" href="#"><i class="fas fa-home"></i>TRANG CHỦ </a>
-                            </li>
-
-                            <li>
-                                <a href="Product.html" class="nav--link"><i class="fas fa-dolly"></i>SẢN PHẨM </a>
-                            </li>
-                        </ul>
                     </nav>
                 </div>
 

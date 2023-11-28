@@ -79,6 +79,11 @@
                                 $tensp=$_POST['tensp'];                              
                                 $anh=$_FILES['anh']['name'];
                                 $giasp=$_POST['giasp'];
+                                // $weight=$_POST['weight'];
+                                // $genre=$_POST['genre'];
+                                // $id_sp=$_POST['id_sp'];
+                                // $quantity=$_POST['quantity'];
+                                // $description=$_POST['description'];
                                 $target_dir = "../upload/";
                                 $target_file = $target_dir . basename($_FILES["anh"]["name"]);
                                 if (move_uploaded_file($_FILES["anh"]["tmp_name"], $target_file)) {
@@ -86,12 +91,13 @@
                                 } else {
                                     // echo "Sorry, there was an error uploading your file.";
                                 }
-            
-                                insert_sanpham($tensp,$anh,$giasp,$iddm);
+                                $id_sp=insert_sanpham($tensp,$anh,$giasp,$iddm);
+                                // insert_chitietsanpham($weight,$genre,$id_sp);
+                                // insert_soluong($quantity,$id_sp);
                                 $thongbao="Thêm thành công";
                                 header("location: ?act=listsp");
                             }
-            
+                            // $listsanpham=list_sp();
                             $listdanhmuc=loadall_danhmuc();
                             include "sanpham/add.php";
                             break;
@@ -105,6 +111,7 @@
                                 $kyw='';
                                 $iddm=0;
                             }
+                            // $listchitietsanpham=list_ctsp();
                             $listdanhmuc=loadall_danhmuc();
                             $listsanpham=loadall_sanpham($kyw,$iddm);
                             include "sanpham/list.php";
@@ -150,27 +157,26 @@
                                 include "sanpham/update.php";
                                 break;
                         }    
-                        // case "updatesp":
-                        //     if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
-                        //         $id=$_POST['id'];
-                        //         $iddm=$_POST['iddm'];
-                        //         $tensp=$_POST['tensp'];                            
-                        //         $anh=$_FILES['anh']['name'];
-                        //         $giasp=$_POST['giasp'];
-                        //         $target_dir = "../upload/";
-                        //         $target_file = $target_dir . basename($_FILES["anh"]["name"]);
-                        //         if (move_uploaded_file($_FILES["anh"]["tmp_name"], $target_file)) {
-                        //             // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                        //         } else {
-                        //             // echo "Sorry, there was an error uploading your file.";
-                        //         }
-                        //         update_sanpham($id,$tensp,$giasp,$anh,$iddm);
-                        //         $thongbao="Cập nhật thành công";
-                        //     }
-                        //     $listdanhmuc=loadall_danhmuc();
-                        //     $listsanpham=loadall_sanpham("",0);
-                        //     include "sanpham/list.php";
-                        //     break;
+                        case "updatesp":
+                            if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                                $id=$_POST['id'];
+                                $iddm=$_POST['iddm'];
+                                $tensp=$_POST['tensp'];                            
+                                $anh=$_FILES['anh']['name'];
+                                $giasp=$_POST['giasp'];
+                                $target_dir = "../upload/";
+                                $target_file = $target_dir . basename($_FILES["anh"]["name"]);
+                                if (move_uploaded_file($_FILES["anh"]["tmp_name"], $target_file)) {
+                                    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                                } else {
+                                    // echo "Sorry, there was an error uploading your file.";
+                                }
+                                update_sanpham($id,$tensp,$giasp,$anh,$iddm);
+                                $thongbao="Cập nhật thành công";
+                            }
+                            
+                            include "sanpham/list.php";
+                            break;
 
                         case "dsbl":
                             $listbinhluan=loadall_binhluan(0);

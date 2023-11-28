@@ -1,5 +1,5 @@
 <!-- Trang hiển thị sản phẩm khi vào trang  -->
-    <?php
+<?php
             include "./view/_header.php";  
             include "./view/_menu.php";  
     ?>
@@ -30,17 +30,20 @@
             <p>SẢN PHẨM NỔI BẬT</p>
             <div class="web--special--block justify-content-center">
                 <div class="special--product--item">
-                    <a href="../HTML_Chitiet_sanpham/Detail1.html"><div class="special--product--detail">
+                <?php foreach($loadSanPhamNoiBat as $value): ?>
+                    <a href="?act=chiTietSanPham&idsp=<?php echo $value['id']?>">
+                    <div class="special--product--detail">
                         <div class="special--product--img">
-                            <img src="./upload/1-1.jpg" alt="">
+                            <img src="./upload/<?php echo $value['img']; ?>" alt="">
                         </div>
                         <div class="special--product--name">
-                            <p>Sữa bột cho mèo 110g Dr.Kyan Precaten</p>
+                            <p><?php echo $value['name']; ?></p>
                         </div>
                         <div class="special--product--price justify-content-center">
-                            <p>Giá: 500.000đ</p>
+                            <p>Giá : <?php echo number_format($value['price']); ?> VNĐ</p>
                         </div>
                     </div></a>
+                <?php endforeach; ?>
                 </div>
 
             </div>

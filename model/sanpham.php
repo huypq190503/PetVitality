@@ -5,14 +5,14 @@
         $sql="insert into sanpham(name,img,price,iddm) values('$tensp','$anh','$price','$iddm')";
         pdo_execute($sql);
     }
-    function delete_sanpham($id){
-        $sql="delete from sanpham where id=".$id;
+    function insert_chitietsanpham($weight,$genre,$id_sp){
+        $sql="insert into chitietsanpham(weight,genre,id_sp) values('$weight','$genre','$id_sp')";
         pdo_execute($sql);
     }
 /****************************************************************************************/
     // Sản phẩm top 10    
     function loadall_sanpham_top10(){
-        $sql="select * from sanpham where 1 order by luotxem desc limit 0,10"; 
+        $sql="select * from sanpham where 1 order by luotxem desc limit 0,4"; 
         $listsanpham=pdo_query($sql);
         return $listsanpham;
     }
@@ -84,5 +84,10 @@
         else
             $sql="UPDATE `sanpham` SET `name`='$tensp',`price`='$giasp',`iddm`='$iddm' WHERE id=".$id;
         pdo_execute($sql);       
+    }
+    // Xóa sản phẩm
+    function delete_sanpham($id){
+        $sql="delete from sanpham where id=".$id;
+        pdo_execute($sql);
     }
 ?>

@@ -1,25 +1,40 @@
-<div class="footer--mainpage">
+<!-- Cắt phần footer  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <link rel="stylesheet" href="./view/user/CSS/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="./view/user/CSS/Footer.css">
+</head>
+<body>
+    <div class="footer--mainpage">
         <div class="footer--overlay"></div>
         <div class="footer--container row">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <p>HỖ TRỢ KHÁCH HÀNG</p>
-                <a href="#">Chính sách giao hàng</a> <br>
-                <a href="#">Chính sách trả hàng</a>
+                <a href="#" onclick="window.open('thongtin_footer.html','_parent')">Chính sách giao hàng</a> <br>
+                <a href="#" onclick="window.open('thongtin_footer.html','_parent')">Chính sách trả hàng</a>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <p>VỀ CHÚNG TÔI</p>
-                <a href="#">Giới thiệu</a> <br>
-                <a href="#">Tuyển dụng</a>
+                <a href="#" onclick="window.open('thongtin_footer.html','_parent')">Giới thiệu</a> <br>
+                <a href="#" onclick="window.open('thongtin_footer.html','_parent')">Tuyển dụng</a>
             </div>
             
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <p>THEO DÕI CHÚNG TÔI TRÊN</p>
-                <a href="" target="_top" class="fab fa-facebook"></a>
-                <a href="" target="_top" class="fab fa-instagram"></a>
-                <a href="" target="_top" class="fab fa-pinterest-square"></a>
+                <a href="https://www.facebook.com/hqqtv/" target="_top" class="fab fa-facebook"></a>
+                <a href="https://www.instagram.com/" target="_top" class="fab fa-instagram"></a>
+                <a href="https://www.pinterest.com/" target="_top" class="fab fa-pinterest-square"></a>
             </div>
-            <div class="text-center copyright">© Bản quyền thuộc về PetVitality</div>
+            <div class="text-center copyright">© Bản quyền thuộc về SunPet</div>
         </div>
     </div>
+</body>
+</html>

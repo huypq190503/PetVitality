@@ -15,7 +15,7 @@
             ?>   
         </select>
         <input type="submit" name="listok" value="TÌM">
-    </form>
+    </form> 
 
         <table class="table">
             <thead>
@@ -69,6 +69,7 @@
                 <!-- <a href="index.php?act=addsp"> <input type="button" value="NHẬP THÊM"></a> -->
             </div>
 </div>
+
 
 
 
