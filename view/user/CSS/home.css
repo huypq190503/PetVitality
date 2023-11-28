@@ -106,7 +106,7 @@ div.dropdown-menu{
   }
 .user--position{
     position: relative;
-    z-index: 10000000;
+    /* z-index: 10000000; */
 }
 button.btn:focus{
     outline: none;
@@ -357,6 +357,7 @@ p>a:hover{
 .web--eatwhat{
     margin: 20px;
     margin-bottom: 50px;
+
 }
 .web--eatwhat--content{
     text-align: center;
@@ -476,11 +477,11 @@ button>a:hover{
     height: 300px;
     
 }
-.web--discount img{
-    width: auto;
+/* .web--discount img{
+    width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 /*fashion*/
 .fashion--rectangle--detail{
     display: flex;
@@ -961,6 +962,72 @@ button>a:hover{
         min-width: 300px;
         height: 450px;
     }
+    .footer--mainpage{
+        position: relative;
+        height: 400px;
+        min-width: 300px;
+        background-image:url(../Image/footer.jpg); background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .footer--mainpage .footer--overlay{
+        position: absolute;
+        background-color: #FFA800;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.9;
+    }
+    .footer--mainpage .footer--container{
+        position: absolute;
+        top: 30px;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+    }
+    .footer--mainpage .footer--container>div{
+        padding-left: 50px;
+    }
+    .footer--mainpage .footer--container>div>p{
+        margin-bottom: 20px;
+    }
+    
+    @media (max-width: 720px){
+    
+        *{
+            font-size: 12px !important;
+        }
+        .footer--mainpage .fa-facebook,.footer--mainpage .fab.fa-instagram,.footer--mainpage .fab.fa-pinterest-square{
+            font-size: 20px !important;
+        }
+        .footer--mainpage{
+            height: 450px !important;
+        }
+        .footer--mainpage .footer--container>div{
+            padding-left: 10%;
+        }
+    }
+    
+    .footer--mainpage .fa-facebook,.footer--mainpage .fab.fa-instagram,.footer--mainpage .fab.fa-pinterest-square{
+        font-size: 2rem;
+        margin-right: 25px;
+    }
+    .footer--mainpage a{
+        text-decoration: none;
+        color: white;
+    }
+    .footer--mainpage a:hover{
+        color: black;
+    }
+    .footer--mainpage h6{
+        font-weight: bold;
+    }
+    .footer--mainpage .copyright{
+        position: absolute;
+        bottom: 0px;
+        font-size: 10px;
+    }
+    
 
 }
 @media screen and(max-width:300px) {
