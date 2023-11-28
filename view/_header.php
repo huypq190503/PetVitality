@@ -49,7 +49,7 @@
                         </div>
                     </div> -->
                     <div class="header--cart">
-                        <a href="Gio_hang.html">
+                        <a href="?act=viewCart">
                             <i class="fas fa-shopping-bag"></i>
                         </a>
                     </div>
@@ -66,7 +66,7 @@
                             // extract() để trích xuất các phần tử trong mảng $_SESSION['email'] thành các biến độc lập.
                             extract($_SESSION['email'])
                         ?><cite class="text-center" title="Source Title"><p>Welcome : <?php echo $user ?></p></cite>
-                         <li><a class="dropdown-item" href="index.php?act=edit_taikhoan">Cập nhật tài khoản</a></li>                       
+                         <li><a class="dropdown-item" href="index.php?act=edit_user">Cập nhật tài khoản</a></li>                       
                         <?php if($role==1){
                         ?>
                         <li><a class="dropdown-item" href="./admin/index.php">Đăng nhập Admin</a></li>

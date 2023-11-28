@@ -43,16 +43,26 @@
                             <input class="home-product-item__input" value="1" type="number" name="quantity" min="1" />
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
                         </div>
+                        
                         <div class="home-product-item__sl">
                             <label class="home-product-item__label"> Khối lượng :</label>
                             <input type="radio" name="khoiluong" checked>200kg
                             <input type="radio" name="khoiluong">500kg
                             <input type="radio" name="khoiluong">1kg
                         </div>
+
+                        <form action="?act=addToCart" method="post" >
                         <div class="home-product-item__buy">
-                            <a href="#"><button class="home-product-item__buy btn-mua" onclick="muaNgay()">MUA NGAY</button> </a>
-                            <a href="#"><button class="home-product-item__buy btn-them" onclick="them()">THÊM VÀO GIỎ HÀNG</button></a>
+                            <input type="hidden" name="idsp" value="<?php echo $sanpham['id']?>">
+                            <input type="hidden" name="name" value="<?php echo $sanpham['name']?>">
+                            <input type="hidden" name="price" value="<?php echo ($sanpham['price']) ?>">
+                            <input type="hidden" name="img" value="./upload/<?php echo $sanpham['img']?>">
+                            <a href="#"><button class="home-product-item__buy btn-mua" >MUA NGAY</button> </a>
+                            <input type="submit" name="addCart" class="home-product-item__buy btn-them" value="THÊM VÀO GIỎ HÀNG" ></input>
+                            <!-- <a href="#"><button class="home-product-item__buy btn-them" name="addCart" >THÊM VÀO GIỎ HÀNG</button></a> -->
                         </div>
+                        </form>
+
                     </div>
                 </div>
                 <div class="motasp">

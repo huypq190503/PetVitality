@@ -69,7 +69,7 @@ a{
     margin-right: 5px;
 }
 .fa-shopping-bag{
-    font-size: 40px;
+    font-size: 25px;
     color: black !important;
 }
 
@@ -477,11 +477,11 @@ button>a:hover{
     height: 300px;
     
 }
-.web--discount img{
+/* .web--discount img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 /*fashion*/
 .fashion--rectangle--detail{
     display: flex;
