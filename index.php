@@ -5,6 +5,11 @@
     include "model/account.php";
     include "model/sanpham.php";
     include "model/danhmuc.php";
+    include "model/order.php";
+    include "model/binhluan.php";
+
+    // unset($_SESSION['cart']);
+    if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
     
     // include "./view/_menu.php";   
 ?>
@@ -14,30 +19,28 @@
 
         <!-- main -->
         <?php            
-            if (!isset($_SESSION['cart'])) {
-                $_SESSION['cart'] = [];
-            }
-
-            // if (!isset($_SESSION['cart'])) {
-            //     $_SESSION['cart'] = [];
-            // }
-            // unset($_SESSION['mycart']); 
-            // die;  
-
             $danhSachDanhMuc = loadall_danhmuc();
             $danhSachSanPham = danhsach_sanpham();
             $loadSanPhamDanhMucCho =load_sanpham_danhmuc_cho();
             $loadSanPhamDanhMucMeo =load_sanpham_danhmuc_meo();
+            $loadSanPhamNoiBat=loadall_sanpham_top10();
             // Controller user
             if(isset($_GET['act']) ){
                 $act = $_GET['act'];
                 switch($act){
 /*---------------------------------Chi tiết sản phẩm-------------------------------------- */                     
                     case 'chiTietSanPham':{
+                        if(isset($_POST['guibinhluan'])&& $_POST['guibinhluan']){
+                            $noidung = $_POST['noidung'];
+                            $idpro = $_POST['idpro'];
+                            $iduser = $_POST['user'];
+                            insert_binhluan($noidung,$iduser,$idpro);
+                        }
+
                         if(isset($_GET['idsp']) && $_GET['idsp'] > 0){
                             $sanpham = loadone_sanpham($_GET['idsp']);
                             // $sanpham_lq = sanpham_lienquan($_GET['idsp'],$sanpham['id_dm']);
-                            // $binhluan = loadall_binhluan($_GET['idsp']);                           
+                            $binhluan = loadall_binhluan($_GET['idsp']);                           
                             // tangluotxem($_GET['idsp']);
                             include "./view/chiTietSanPham.php";
                         }else{
@@ -84,7 +87,8 @@
                         break;
                     }
                     case 'log_out':{
-                        session_unset();
+                        // session_unset();
+                        unset($_SESSION['email']);
                         header("location:index.php");
                         break;
                     }
@@ -102,7 +106,7 @@
                             $thongbao = "Cập nhật thành công";
                             // header("location:index.php?act=edit_taikhoan");
                         }
-                        include "./view/user/TaiKhoan/thongTin.php";
+                        include "./view/TaiKhoan/thongTin.php";
                         break;
                     }
 /*---------------------------------Trang sản phầm-------------------------------------- */                     
@@ -125,7 +129,22 @@
 
 /*---------------------------------Giỏ hàng-------------------------------------- */ 
                     case 'viewCart' :{
-                        include "./view/user/GioHang/ViewCart.php";
+                        if (!empty($_SESSION['cart'])) {
+                            $cart = $_SESSION['cart'];
+
+                            // Tạo mảng chứa ID các sản phẩm trong giỏ hàng
+                            $productId = array_column($cart, 'id');
+                            // var_dump($productId);
+                            
+                            // Chuyển đôi mảng id thành một chuỗi để thực hiện truy vấn
+                            $idList = implode(',', $productId);
+                            // var_dump($idList);                            
+                            
+                            // Lấy sản phẩm trong bảng sản phẩm theo id
+                            $dataDb = loadone_sanphamCart($idList);
+                            // var_dump($dataDb);
+                        } 
+                        include "./view/GioHang/ViewCart.php";
                         break;
                     }
                     case "delCart":{
@@ -138,33 +157,61 @@
                         header('Location: index.php?act=viewCart');
                         break;
                     }
-                    case 'addToCart' :{
-                        if(isset($_POST['addCart']) && ($_POST['addCart'] > 0)){
-                            $id = $_POST['idsp'];
-                            $name = $_POST['name'];
-                            $price = $_POST['price'];
-                            $img = $_POST['img'];
-                            $soluong = 1;
-                            $ttien = (int)$price * $soluong;
-                            $addsp = [$id,$name,$price,$img,$soluong,$ttien];
-                            array_push($_SESSION['cart'],$addsp);
+                    // case 'addToCart' :{
+                    //     if(isset($_POST['addCart']) && ($_POST['addCart'] > 0)){
+                    //         $id = $_POST['idsp'];
+                    //         $name = $_POST['name'];
+                    //         $price = $_POST['price'];
+                    //         $img = $_POST['img'];
+                    //         $soluong = 1;
+                    //         $ttien = (int)$price * $soluong;
+                    //         $addsp = [$id,$name,$price,$img,$soluong,$ttien];
+                    //         array_push($_SESSION['cart'],$addsp);
 
-                        }
-                        include "./view/user/GioHang/ViewCart.php";
-                        // include "./view/user/GioHang/Cart.php";
-                        break;
-                    }
+                    //     }
+                    //     include "./view/GioHang/ViewCart.php";
+                    //     // include "./view/user/GioHang/Cart.php";
+                    //     break;
+                    // }
                     case 'order' :{
-                        if(isset($_POST['order']) && ($_POST['order'] > 0)){
-                            $order = $_POST['order'];
-                            var_dump($order);
-                            die();
+                        if (isset($_SESSION['cart'])) {
+                            $cart = $_SESSION['cart'];
+                            // print_r($cart);
+                            if (isset($_POST['order_confirm'])) {
+                                $txthoten = $_POST['user'];
+                                $txttel = $_POST['tel'];
+                                $txtemail = $_POST['email'];
+                                $txtaddress = $_POST['address'];
+                                $pttt = $_POST['pttt'];
+                                // date_default_timezone_set('Asia/Ho_Chi_Minh');
+                                // $currentDateTime = date('Y-m-d H:i:s');
+                                if (isset($_SESSION['user'])) {
+                                    $id_user = $_SESSION['user']['id'];
+                                } else {
+                                    $id_user = 0;
+                                }
+                                $idBill = addOrder($id_user, $txthoten, $txttel, $txtemail, $txtaddress, $_SESSION['resultTotal'], $pttt);
+                                foreach ($cart as $item) {
+                                    addOrderDetail($idBill, $item['id'], $item['price'], $item['quantity'], $item['price'] * $item['quantity']);
+                                }
+                                unset($_SESSION['cart']);
+                                $_SESSION['success'] = $idBill;
+                                header("Location: index.php?act=success");
+                            }
+                            include "./view/GioHang/Order.php";
+                        } else {
+                            header("Location: index.php?act=viewCart");
                         }
-                        include "./view/user/GioHang/Order.php";
-                        // include "./view/user/GioHang/Cart.php";
                         break;
                     }
-                    
+                    case "success":{
+                        if (isset($_SESSION['success'])) {
+                            include 'view/success.php';
+                        } else {
+                            header("Location: index.php");
+                        }
+                        break;
+                    }
                     default: {
                         include "./view/home.php";
                         break;

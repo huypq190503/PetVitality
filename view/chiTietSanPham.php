@@ -38,31 +38,34 @@
                             <!-- <span class="home-product-item__price-old">590.000đ</span> -->
                         </div>
                         <div class="home-product-item__sl">
-                            <label class="home-product-item__label"> Số lượng:</label>
-                            <input class="home-product-item__input" value="1" type="number" id="quantity" name="quantity" min="1" />
+                            <label class="home-product-item__label"> Số lượng sản phẩm còn :</label>
+                            <input class="home-product-item__input" value="1" type="button" id="quantity" name="quantity" readonly />
 
                         </div>
                         
                         <div class="home-product-item__sl">
                             <label class="home-product-item__label"> Khối lượng :</label>
-                            <input type="radio" name="" id="" >200g</input>
-                            <input type="radio" name="" id="">500g</input>
-                            <input type="radio" name="" id="">1kg</input>
+                            <input type="radio" name="weight" id="" >200g</input>
+                            <input type="radio" name="weight" id="">500g</input>
+                            <input type="radio" name="weight" id="">1kg</input>
 
 
                         </div>
 
-                        <form action="?act=addToCart" method="post" >
+                        <!-- <form action="?act=addToCart" method="post" > -->
                         <div class="home-product-item__buy">
                             <input type="hidden" name="idsp" value="<?php echo $sanpham['id']?>">
                             <input type="hidden" name="name" value="<?php echo $sanpham['name']?>">
                             <input type="hidden" name="price" value="<?php echo ($sanpham['price']) ?>">
                             <input type="hidden" name="img" value="./upload/<?php echo $sanpham['img']?>">
-                            <a href="#"><button class="home-product-item__buy btn-mua" >MUA NGAY</button> </a>
-                            <input type="submit" name="addCart" class="home-product-item__buy btn-them" value="THÊM VÀO GIỎ HÀNG" ></input>
+                            <!-- <a href="#"><button class="home-product-item__buy btn-mua" >MUA NGAY</button> </a> -->
+                            <input type="submit" data-id ="<?php echo $value['id']?>"
+                            onclick="addToCart(<?php echo $sanpham['id']?>,'<?php echo $sanpham['name']?>',<?php echo $sanpham['price']?>)"
+                            name="addToCart" class="home-product-item__buy btn-them" 
+                            value="THÊM VÀO GIỎ HÀNG" ></input>
                             <!-- <a href="#"><button class="home-product-item__buy btn-them" name="addCart" >THÊM VÀO GIỎ HÀNG</button></a> -->
                         </div>
-                        </form>
+                        <!-- </form> -->
 
                     </div>
                 </div>
@@ -112,8 +115,83 @@
                     </div>
                 </div>
 
-                <h3 class="card">Bình luận</h3>
+                   <!-- Bình luận -->
+                <table class="table">
+                <div class="card-header" style="font-size: 2rem;" >Bình luận</div>
+                <tr>
+                    <th scope="col">Nội dung</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Day</th>
+                    </tr>
+                <tbody>
+                <?php foreach($binhluan as $value): ?>
+
+                    
+
+                    <tr>
+                        <td><?php echo $value['noidung']?></td>
+                        <td><?php echo $value['user']?></td>
+                        <td><?php echo date("d/m/Y", strtotime($value['ngaybinhluan'])) ?></td>
+                    </tr>
+                </tbody>
+                <?php endforeach; ?>
+                </table>
+
+                    <!-- Thêm bình luận -->
+                        <!-- Kiểm tra đã đăng nhập chưa  -->
+                            <?php
+                            if (isset($_SESSION['email'])) {
+                                extract($_SESSION['email'])
+                            ?>
+                            
+                        <div class="box_search">
+                                <form action="?act=chiTietSanPham&idsp=<?php echo $sanpham['id']; ?>" method="POST">
+                                    <input type="hidden" name="idpro" value="<?php echo $sanpham['id']; ?>">
+                                    <input type="hidden" name="user" value="<?php echo $id; ?>">
+                                    <input type="text" name="noidung">
+                                    <input type="submit" name="guibinhluan" value="Gửi bình luận">
+                                </form>
+                            </div>
+                            <?php
+                            } else {
+                                echo "Vui lòng"." <a href='?act=login' style='color:red !important ;'> đăng nhập</a>"." để bình luận";
+                            }
+                ?>
+
 
             </div>
         </div>
 </div>  
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+
+    let totalProduct = document.getElementById('totalProduct');
+                
+
+    function addToCart(productId, productName, productPrice){
+        console.log(productId, productName, productPrice);
+        // Sử dụng jQuery 
+        $.ajax({
+            type: "POST",
+            // Đường dẫn tới tệp PHP xử lí dữ liệu 
+            url:'./view/GioHang/addToCart.php',
+            data: {
+                id : productId,
+                name : productName,
+                price : productPrice
+            },
+            success:function(response){
+                totalProduct.innerText = response;
+                alert('Bạn đã thêm sản phẩm vào giỏ hàng thành công !!');
+            },
+            error:function(error){
+                console.log(error);
+            }
+
+        });
+
+    }
+
+</script>

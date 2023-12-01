@@ -12,7 +12,7 @@
 /****************************************************************************************/
     // Sản phẩm top 10    
     function loadall_sanpham_top10(){
-        $sql="select * from sanpham where 1 order by luotxem desc limit 0,10"; 
+        $sql="select * from sanpham where 1 order by luotxem desc limit 0,4"; 
         $listsanpham=pdo_query($sql);
         return $listsanpham;
     }
@@ -30,14 +30,14 @@
     function load_sanpham_danhmuc_cho(){
         $sql = "SELECT sanpham.id, sanpham.name, sanpham.price , sanpham.img, danhmuc.name 
         AS tendm FROM `sanpham` LEFT JOIN danhmuc ON sanpham.iddm = danhmuc.id 
-        WHERE danhmuc.name = 'Chó cưng' LIMIT 2";
+        WHERE danhmuc.name = 'Chó' LIMIT 2";
         $result = pdo_query($sql);
         return $result;
     }
     function load_sanpham_danhmuc_meo(){
         $sql = "SELECT sanpham.id, sanpham.name, sanpham.price , sanpham.img, danhmuc.name 
         AS tendm FROM `sanpham` LEFT JOIN danhmuc ON sanpham.iddm = danhmuc.id 
-        WHERE danhmuc.name = 'Mèo yêu' LIMIT 2";
+        WHERE danhmuc.name = 'Mèo' LIMIT 2";
         $result = pdo_query($sql);
         return $result;
     }
@@ -84,5 +84,10 @@
         else
             $sql="UPDATE `sanpham` SET `name`='$tensp',`price`='$giasp',`iddm`='$iddm' WHERE id=".$id;
         pdo_execute($sql);       
+    }
+    function loadone_sanphamCart ($idList) {
+        $sql = 'SELECT * FROM sanpham WHERE id in ('.$idList.')';
+        $sanpham = pdo_query($sql);
+        return $sanpham;
     }
 ?>

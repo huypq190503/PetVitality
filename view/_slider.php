@@ -1,33 +1,34 @@
-<!-- Cắt phần silder sang  -->
-<div class="container-fluid">
-    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+<script>
+var arrImg=[];
+       arrImg[0]="./Slide/tacm7.png";
+       arrImg[1]="./Slide/slider_4.webp";
+       arrImg[2]="./Slide/slider_5.webp";
+     var i=0;
+      var clear = setInterval(function(){
+            i++;
+            if(i>arrImg.length-1){i=0}
+        document.getElementById("banner").src=arrImg[i];
+        },2500);
 
-    <!-- Indicators/dots -->
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-    </div>
     
-    <!-- The slideshow/carousel -->
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-        <img src="./upload/banner3" alt="Los Angeles" class="d-block h-100 "  style="width:100% ; object-fit: contain; ">
-        </div>
-        <div class="carousel-item">
-        <img src="./upload/banner3" alt="Chicago" class="d-block h-100" style="width:100%; object-fit: contain;">
-        </div>
-        <div class="carousel-item">
-        <img src="./upload/banner3" alt="New York" class="d-block h-100" style="width:100% ; object-fit: contain;">
-        </div>
-    </div>
+    function next(){
+        i++;
+            if(i>arrImg.length-1){i=0}
+        document.getElementById("banner").src=arrImg[i];
+    }
+    function pre(){
+
+            if(i>0){i--;
+            }
+            document.getElementById("banner").src=arrImg[i];
+
+    }
+
     
-    <!-- Left and right controls/icons -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </button>
-    </div>
-</div>       
+</script>
+        <!-- banner 1 -->
+        <div class="web--banner slide" style="width:100%;height:500px">
+            <img style="object-fit:cover" id="banner" src="./Slide/1.jpg" alt="" height="100% " width="100%">
+            <!-- <button class="pre" onclick="pre()">&#10094;</button>
+            <button class="next" onclick="next()">&#10095;</button> -->
+        </div>
