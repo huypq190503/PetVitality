@@ -55,6 +55,7 @@
                     >
                         Xóa
                     </a>
+                    <a href="?act=listspct&id=<?php echo $sanpham['id']; ?> " class="btn btn-warning">Chi tiết</a>
                 </td>
             </tr>
             <?php endforeach; ?>

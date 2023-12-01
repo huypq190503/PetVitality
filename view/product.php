@@ -1,6 +1,6 @@
 <?php 
-        include "./view/_header.php";  
-        include "./view/_menu.php";  
+        // include "./view/_header.php";  
+        // include "./view/_menu.php";  
 ?>
 <!DOCTYPE html>
 <html lang="en">

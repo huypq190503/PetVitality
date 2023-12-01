@@ -62,14 +62,13 @@ a{
     color: black !important;
 }
 .header--phone{
-    
     margin-left: 10px;
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 5px;
 }
 .fa-shopping-bag{
-    font-size: 25px;
+    font-size: 40px;
     color: black !important;
 }
 
@@ -941,7 +940,7 @@ button>a:hover{
         width: 100px;
     }
     .fa-shopping-bag{
-        font-size: 30px;
+        font-size: 40px;
     }
     .header--cart{
         width: 35px;

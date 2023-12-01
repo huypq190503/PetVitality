@@ -23,7 +23,7 @@
             <input type="number" class="form-control" id="price" placeholder="Nhập giá sản phẩm" name="giasp"
                 value="<?php echo $sp['price']; ?>" />
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="price" class="form-label">Khối lượng</label>
             <input type="number" class="form-control" id="weight" placeholder="Nhập giá sản phẩm" name="weight"
                 value="<?php echo $ctsp['weight']; ?>" />
@@ -32,7 +32,7 @@
             <label for="price" class="form-label">Loại</label>
             <input type="number" class="form-control" id="genre" placeholder="Nhập giá sản phẩm" name="genre"
                 value="<?php echo $ctsp['genre']; ?>" />
-        </div>
+        </div> -->
 
         <div class="mb-3">
             <?php if($sp['img'] != null && $sp['img'] != ""): ?>
