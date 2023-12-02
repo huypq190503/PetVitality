@@ -1,8 +1,4 @@
 <!-- Cắt phần header  -->
-<?php 
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,18 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet</title>
     <link rel="stylesheet" href="./view/user/CSS/Bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="./view/user/CSS/header.css">
+    <link rel="stylesheet" href="./view/user/CSS/home.css">
     <style>
-    .error {
-      color: red;
-      font-weight: bold;
-    }
+        /* .totalProduct{
+            width: 30px;
+            border-radius: 22px;
+            right: 117px;
+            top: 14px;
+            position: absolute;
+            border: 1px solid red;
+            color: red;
+        } */
 
-    .success {
-      color: green;
-      font-weight: bold;
-    }
-  </style>
+    </style>
+
+    <!-- <link rel="stylesheet" href="../view/user/CSS/header.css"> -->
 </head>
 <body>
     <!-- <div class="header">
@@ -48,10 +47,14 @@
                             sunpet@gmail.com
                         </div>
                     </div> -->
-                    <div class="header--cart">
-                        <a href="?act=viewCart">
-                            <i class="fas fa-shopping-bag"></i>
-                        </a>
+
+                    <div class="header--cart position-relative d-flex align-items-baseline ">
+
+                        <!-- Icon giỏ hàng  -->
+                        <a href="?act=viewCart"><i class="fas fa-shopping-bag"></i></a>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" 
+                        id="totalProduct"><?= !empty($_SESSION['cart']) ? count($_SESSION['cart']) : 0 ?></span>
+                        
                     </div>
 
 
