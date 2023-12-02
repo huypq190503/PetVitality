@@ -2,10 +2,9 @@
 <div class="col-12" >
         <h2>DANH SÁCH ĐƠN HÀNG</h2>
     <br>
-    <a href="?act=addsp" class="btn btn-success">Thêm mới</a>
 
 
-        <table class="table">
+        <table class="table table-bordered border-primary">
             <thead>
             <tr>
                 <th scope="col">STT</th>

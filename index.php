@@ -208,7 +208,7 @@
                     }
                     case "success":{
                         if (isset($_SESSION['success'])) {
-                            include 'view/success.php';
+                            include 'success.php';
                         } else {
                             header("Location: index.php");
                         }

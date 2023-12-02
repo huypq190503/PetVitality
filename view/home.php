@@ -59,6 +59,9 @@ a.book{
 
 
 }
+.themgh{
+    color: red;
+}
 </style>
 
 <div class="web--container">
@@ -103,7 +106,7 @@ a.book{
                         <input type="submit" class="book" 
                         data-id ="<?php echo $value['id']?>"
                         onclick="addToCart(<?php echo $value['id']?>,'<?php echo $value['name']?>',<?php echo $value['price']?>)"
-                        value="THÊM VÀO GIỎ HÀNG"></input>
+                        style="color:orangered" value="THÊM VÀO GIỎ HÀNG"></input>
                     </section>
                     </div>
                 
@@ -141,7 +144,7 @@ a.book{
                             <input type="submit" class="book" 
                         data-id ="<?php echo $value['id']?>"
                         onclick="addToCart(<?php echo $value['id']?>,'<?php echo $value['name']?>',<?php echo $value['price']?>)"
-                        value="THÊM VÀO GIỎ HÀNG"></input>
+                        style="color:orangered" value="THÊM VÀO GIỎ HÀNG"></input>
                         </div>
                    
 
@@ -171,7 +174,7 @@ a.book{
                             <input type="submit" class="book" 
                         data-id ="<?php echo $value['id']?>"
                         onclick="addToCart(<?php echo $value['id']?>,'<?php echo $value['name']?>',<?php echo $value['price']?>)"
-                        value="THÊM VÀO GIỎ HÀNG"></input>
+                        style="color:orangered" value="THÊM VÀO GIỎ HÀNG"></input>
                         </div>
                     
                         <?php endforeach; ?>        
@@ -188,7 +191,7 @@ a.book{
             <img src="./upload/discount.png" alt="">
         </div>
         </div>
-
+        <script src="https://uhchat.net/code.php?f=69535a"></script>
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
