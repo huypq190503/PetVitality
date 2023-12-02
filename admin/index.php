@@ -1,10 +1,14 @@
-<!-- <?php
+ <?php
     include "../model/pdo.php";
     include "../model/danhmuc.php";
     include "../model/sanpham.php";
     include "../model/binhluan.php";
-    include "../model/taikhoan.php";
-?> -->
+    include "../model/account.php";
+    include "../model/khachhang.php";
+    include "../model/order.php";
+    include "../model/thongke.php";
+
+?> 
 <!-- Controller : Admin -->
 
     <div id="wrapper">
@@ -16,6 +20,7 @@
         <div id="page-wrapper">
             <!-- main web -->
             <?php 
+            
                 // Controller
                 if(isset($_GET['act']) && $_GET['act'] != ""){
                     $act = $_GET['act'];
@@ -42,6 +47,7 @@
                             // load danh sach danh muc
                         case "listdm":{
                             $listdanhmuc=loadall_danhmuc();
+                            // var_dump($listdanhmuc);
                             include "danhmuc/list.php";
                             break; 
                         }
@@ -158,55 +164,121 @@
                                 include "sanpham/update.php";
                                 break;
                         }    
-                        case "updatesp":
-                            if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
-                                $id=$_POST['id'];
-                                $iddm=$_POST['iddm'];
-                                $tensp=$_POST['tensp'];                            
-                                $anh=$_FILES['anh']['name'];
-                                $giasp=$_POST['giasp'];
-                                $target_dir = "../upload/";
-                                $target_file = $target_dir . basename($_FILES["anh"]["name"]);
-                                if (move_uploaded_file($_FILES["anh"]["tmp_name"], $target_file)) {
-                                    // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                                } else {
-                                    // echo "Sorry, there was an error uploading your file.";
-                                }
-                                update_sanpham($id,$tensp,$giasp,$anh,$iddm);
-                                $thongbao="Cập nhật thành công";
-                            }
-                            
-                            include "sanpham/list.php";
-                            break;
+                        // case "updatesp":
+                        //     if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                        //         $id=$_POST['id'];
+                        //         $iddm=$_POST['iddm'];
+                        //         $tensp=$_POST['tensp'];                            
+                        //         $anh=$_FILES['anh']['name'];
+                        //         $giasp=$_POST['giasp'];
+                        //         $target_dir = "../upload/";
+                        //         $target_file = $target_dir . basename($_FILES["anh"]["name"]);
+                        //         if (move_uploaded_file($_FILES["anh"]["tmp_name"], $target_file)) {
+                        //             // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                        //         } else {
+                        //             // echo "Sorry, there was an error uploading your file.";
+                        //         }
+                        //         update_sanpham($id,$tensp,$giasp,$anh,$iddm);
+                        //         $thongbao="Cập nhật thành công";
+                        //     }
+                        //     $listdanhmuc=loadall_danhmuc();
+                        //     $listsanpham=loadall_sanpham("",0);
+                        //     include "sanpham/list.php";
+                        //     break;
 
-                        case "dsbl":
-                            $listbinhluan=loadall_binhluan(0);
-                            include "binhluan/list.php";
-                            break;
-        
-                        case "xoabl":
-                            if(isset($_GET['id'])&&($_GET['id']>0)){
-                                delete_binhluan($_GET['id']);
-                            }
-                            $listbinhluan=loadall_binhluan(0);
-                            include "binhluan/list.php";
-                            break;
                         // Phần xử lí người dùng
                         case "dskh":{           
+                            $dskh = danhsach_khachhang();
                             include "khachhang/list-khachhang.php";
                             break;
                         }
                         case "addkh":{
+                            if(isset($_POST['btnsubmit'])){
+                                $tenkh = $_POST['tenkh'];
+                                $password = $_POST['password'];
+                                $email = $_POST['email'];
+                                $address = $_POST['address'];
+                                $tel = $_POST['tel'];
+                                $role = $_POST['role'];
+                                add_khachhang($tenkh, $password, $email, $address, $tel, $role);
+                                header("location: ?act=dskh");
+                            }
                             include "khachhang/add-khachhang.php";
                             break;
                         }
                         case "editkh":{
+                            if(isset($_GET['idkh']) & $_GET['idkh'] > 0){
+                                $khachhang = getone_khachhang($_GET['idkh']);
+                            }
+                            if(isset($_POST['btnsubmit'])){
+                                $tenkh = $_POST['tenkh'];
+                                $password = $_POST['password'];
+                                $email = $_POST['email'];
+                                $address = $_POST['address'];
+                                $tel = $_POST['tel'];
+                                $role = $_POST['role'];
+                                $idkh = $_POST['idkh'];
+                                update_khachhang($tenkh, $password, $email, $address, $tel, $role, $idkh);
+                                header("location: ?act=dskh");
+                            }
                             include "khachhang/edit-khachhang.php";
                             break;
                         }
                         case "deletekh":{
+                            if(isset($_GET['idkh']) && $_GET['idkh'] > 0){
+                                delete_khachhang($_GET['idkh']);
+                                header("location: ?act=dskh");
+                            }
                             break;
                         }
+                        // End Khách Hàng
+                        // Bình luận 
+                        case "dsbl":{
+                            $danhSachBinhLuan = danhsach_binhluan();
+                            // var_dump($danhSachBinhLuan);
+                            include "binhluan/list-binhluan.php";
+                            break;
+                        }
+                        case "deletebl":{
+
+                            if(isset($_GET['idbl']) && $_GET['idbl'] > 0){
+                                delete_binhluan($_GET['idbl']);
+                                header("location: ?act=dsbl");
+                            }
+                            break;
+                        }
+                        // End bình luận 
+
+                        case "dsdh":{
+                            // $danhSachBinhLuan = danhsach_binhluan();
+                            $danhSachDonHang = danhsach_donhang();
+                            // var_dump($danhSachBinhLuan);
+                            include "donhang/list-donhang.php";
+                            break;
+                        }
+                        case "deletedh":{
+
+                            if(isset($_GET['idbl']) && $_GET['idbl'] > 0){
+                                delete_binhluan($_GET['idbl']);
+                                header("location: ?act=dsbl");
+                            }
+                            break;
+                        }
+                        // case"thongke":{
+                        //     $listthongke = loadall_thongke();
+                        //     include 'thongke/list.php';
+                        //     break;
+                        // }
+                        case "dstk":
+                            $listthongke=loadall_thongke();
+                            include "thongke/list.php";
+                            break;
+                            
+                        case "bieudo":
+                            $listthongke=loadall_thongke();
+                            include "thongke/bieudo.php";
+                            break;
+
                         default: {
                             include "trangchu/trangchu.php";
                             break;

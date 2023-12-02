@@ -69,7 +69,7 @@
     display: flex;
     flex-direction: row;
     margin-top: 20px;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 .form--row>input{
@@ -128,9 +128,9 @@
     text-align: center;
 }
 .btn--thaydoi>div>button{
-    border: 1px solid #ABAAAA;
+    border: 1px solid #FFC700;
     border-radius: 5px;
-    background-color: #ABAAAA;
+    background-color: #FFC700;
     font-weight: bold;
     padding: 10px 20px;
 

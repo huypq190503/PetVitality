@@ -52,7 +52,7 @@ a{
     
 }
 .header--cart{
-    border : 1px solid black;
+    /* border : 1px solid black; */
     height: 45px;
     margin-left: 10px;
     width: 50px;
@@ -241,6 +241,7 @@ button.btn:focus{
     border: 1px ;
     width: 320px;
     padding: 5px 10px;
+    padding-bottom: 10px;
 }
 .web--banner{
     width: 100%;

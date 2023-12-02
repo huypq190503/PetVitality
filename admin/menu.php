@@ -18,10 +18,10 @@
                         <a href="?act=dsbl"><i class="fa fa-table"></i> Quản lý bình luận</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-edit"></i> Quản lý đơn hàng</a>
+                        <a href="?act=dsdh"><i class="fa fa-edit"></i> Quản lý đơn hàng</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o"></i> Thống kê</a>
+                        <a href="?act=dstk"><i class="fa fa-bar-chart-o"></i> Thống kê</a>
                     </li>
                 </ul>
             </div>

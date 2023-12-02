@@ -30,14 +30,14 @@
     function load_sanpham_danhmuc_cho(){
         $sql = "SELECT sanpham.id, sanpham.name, sanpham.price , sanpham.img, danhmuc.name 
         AS tendm FROM `sanpham` LEFT JOIN danhmuc ON sanpham.iddm = danhmuc.id 
-        WHERE danhmuc.name = 'Chó cưng' LIMIT 2";
+        WHERE danhmuc.name = 'Chó' LIMIT 2";
         $result = pdo_query($sql);
         return $result;
     }
     function load_sanpham_danhmuc_meo(){
         $sql = "SELECT sanpham.id, sanpham.name, sanpham.price , sanpham.img, danhmuc.name 
         AS tendm FROM `sanpham` LEFT JOIN danhmuc ON sanpham.iddm = danhmuc.id 
-        WHERE danhmuc.name = 'Mèo yêu' LIMIT 2";
+        WHERE danhmuc.name = 'Mèo' LIMIT 2";
         $result = pdo_query($sql);
         return $result;
     }
@@ -89,5 +89,10 @@
     function delete_sanpham($id){
         $sql="delete from sanpham where id=".$id;
         pdo_execute($sql);
+    }
+    function loadone_sanphamCart ($idList) {
+        $sql = 'SELECT * FROM sanpham WHERE id in ('.$idList.')';
+        $sanpham = pdo_query($sql);
+        return $sanpham;
     }
 ?>
