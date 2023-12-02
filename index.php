@@ -39,9 +39,11 @@
 
                         if(isset($_GET['idsp']) && $_GET['idsp'] > 0){
                             $sanpham = loadone_sanpham($_GET['idsp']);
-                            // $sanpham_lq = sanpham_lienquan($_GET['idsp'],$sanpham['id_dm']);
+                            $sanpham_lq = loadone_sanpham_cungloai($_GET['idsp'],$sanpham['iddm']);
                             $binhluan = loadall_binhluan($_GET['idsp']);                           
                             // tangluotxem($_GET['idsp']);
+                            // $sanpham=loadone_sanpham($id_sp);
+                            // $ditto_product=loadone_sanpham_cungloai($id_sp,$sanpham['iddm']);
                             include "./view/chiTietSanPham.php";
                         }else{
                             include "./view/home.php";            

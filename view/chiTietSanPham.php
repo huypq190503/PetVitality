@@ -98,19 +98,20 @@
                 <div class="home-product1">
                     <h3 class="prodct-lq">Sản phẩm liên quan</h3>
                     <div class="row sm-gutter">
-                        <!-- <h3>Sản phẩm liên quan</h3> -->
-                        <!-- Product item -->
-                        <!-- <div class="col l-2-4 m-4 c-6">
-                            <a class="home-product-item1" href="Detail1.html" target="_self">
-                                <div class="home-product-item1__img" style="background-image: url(https://bizweb.dktcdn.net/thumb/large/100/432/370/products/sua-bot-cho-meo-dr-kyan-precaten-anh.jpg?v=1626752115000);">
+                    <?php foreach($sanpham_lq as $product):?>
+                        <div class="col l-2-4 m-4 c-6">
+                            <a class="home-product-item1" href="?act=productdetail&idsp=<?php echo $product['id']?>" target="_self">
+                                <div class="home-product-item1__img" style="background-image: url(./upload/<?php echo $product['img']; ?>);">
                                 </div>
-                                <h4 class="home-product-item1__name">Sữa cho mèo Dr.Kyan Precaten</h4>
+                                <h4 class="home-product-item1__name"><?php echo $product['name']; ?></h4>
                                 <div class="home-product-item1__price">
-                                    <span class="home-product-item1__price-curent">500.000đ</span>
-                                    <span class="home-product-item1__price-old">590.000đ</span>
+                                    <span class="home-product-item1__price-curent"><?php echo number_format($product['price']); ?>VNDđ</span>
+                                    <!-- <span class="home-product-item1__price-old">590.000đ</span> -->
                                 </div>
                             </a>
-                        </div> -->
+                        </div>
+                        <?php endforeach;?>
+
 
                     </div>
                 </div>
