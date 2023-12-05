@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./view/user/CSS/Bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./view/user/CSS/button.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -69,9 +70,11 @@
 
                 <!-- search -->
                 <div class="search--bar">
+                    <form action="?act=product" method="post">
                     <input type="text" value="" name="search" id="search" placeholder="Bạn muốn tìm gì?" autocomplete="off"
                         class="search--input">
-                    <button type="button" class="search--button" onclick="timKiemSanPham()"><i class="fas fa-search"></i></button>
+                    <button type="submit" class="search--button" name="btn_search" onclick="timKiemSanPham()"><i class="fas fa-search"></i></button>
+                    </form>
                 </div>
             </div>
         </nav>

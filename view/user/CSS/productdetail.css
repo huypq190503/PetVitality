@@ -1,0 +1,36 @@
+.co-black{
+    color:black;
+}
+span{
+    color:red;
+}
+button{
+    padding:5px 10px;
+    background-color: white;
+    transition: 0.5s;
+    opacity: 0.9;
+}
+button:hover{
+    opacity: 1;
+    padding:8px 15px;
+    background-color: white;
+    background:#FFC700;
+    border:1px solid white;
+    
+}
+.nofi{
+    width: 200px;
+    height:50px;
+    text-align:center;
+    
+}
+.nofi h1{
+    color:red;
+    text-shadow: 0 0 3px #FF0000,0 0 10px red;
+    font-size:40px;
+}
+span{
+    color: rgb(117, 117, 117);
+    width: 200px;
+   font-size: 14px
+}

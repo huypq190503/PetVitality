@@ -23,14 +23,17 @@
 
 </head>
 
-<body>
+<body>  
     <div class="app">
        
         <div class="app__container">
             <div class="grid-wide">
                 <div class="search">
-                    <input type="text" placeholder="Bạn muốn tìm sản phẩm gì?" id="search_text">
-                    <label class="fas fa-search"></label>
+                <form action="?act=product" method="post">
+                    <input type="text" value="" name="search" id="search" placeholder="Bạn muốn tìm gì?" autocomplete="off"
+                        class="search--input">
+                    <button type="submit" class="search--button" name="btn_search" onclick="timKiemSanPham()"><i class="fas fa-search"></i></button>
+                    </form> 
                 </div>
                 <div class="row sm-gutter app__content">
                     <div class="col l-2 m-3 c-0">
@@ -48,7 +51,7 @@
                                     <!-- In name danh muc  -->
 
                                     <?php foreach ($danhSachDanhMuc as $key => $value): ?>
-                                    <li class="category-item category-item-1">
+                                        <li class="category-item category-item-1">
                                         <a href="?act=product_cate&iddm=<?php echo $value['id'] ?>" class="category-item__link" id="category--thucanchocho">
                                             <?php echo $value['name'] ?></a>
                                     </li>
@@ -89,18 +92,16 @@
                             <div class="row" id="dsSanPham1">    
                                 <!-- Product item -->
                                 <?php foreach($danhSachSanPham as $value): ?>
-                                    <div class="col l-2-4 m-4 c-6">
-                    <a class="home-product-item" href="?act=productdetail&id_sp=<?php echo $value['id']?>">
-                    <div class="home-product-item__img" style="background-image: url(./upload/<?php echo $value['img']; ?>);">
-                    </div>
-                    <h4 class="home-product-item__name"><?php echo $value['name']; ?></h4>
-                    <div class="home-product-item__price">
-                    <span class="home-product-item__price-curent"><?php echo number_format($value['price']); ?> VND</span>
-                    <!-- sale  -->
-                    <!-- <span class="home-product-item__price-old">590.000đ</span> -->
-                    </div>
-                    </a>
-                </div>    
+                            <div class="col l-2-4 m-4 c-6">
+                            <a class="home-product-item" href="?act=productdetail&id_sp=<?php echo $value['id']?>">
+                            <div class="home-product-item__img" style="background-image: url(./upload/<?php echo $value['img']; ?>);">
+                            </div>
+                            <h4 class="home-product-item__name"><?php echo $value['name']; ?></h4>
+                            <div class="home-product-item__price">
+                            <span class="home-product-item__price-curent"><?php echo number_format($value['price']); ?> VND</span>
+                            </div>
+                            </a>
+                            </div>    
                                     <?php endforeach; ?>        
                             </div>    
 

@@ -1,0 +1,22 @@
+.btnCart{
+   width:200px;
+   height:30px;
+   border:1px solid #FFC700;
+   border-radius: 5px;
+   color: white;
+   background-color: #ce822b;
+   margin-bottom: 5px;
+   font-size: 15px;
+   transition: 2s;
+}
+.btnCart:hover{
+   width:200px;
+   height:30px;
+   border:1px solid #FFC700;
+   border-radius: 5px;
+   color: white;
+   background-color: #FFC700;
+   margin-bottom: 5px;
+   font-size: 20px;
+   transform: scale(10px);
+}

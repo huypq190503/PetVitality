@@ -10,9 +10,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet</title>
+    <title>PETVITALITY</title>
     <link rel="stylesheet" href="./view/user/CSS/Bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./view/user/CSS/header.css">
+    <link rel="stylesheet" href="./view/user/CSS/item.css"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="view/user/JS/home.js"></script>
     <style>
     .error {
       color: red;
@@ -37,21 +40,23 @@
                     <p>PETVITALITY</p>
                 </div>
                 <div class="header--common">
-                    <!-- <div class="header--contact">
+                    <div class="header--contact">
                         <div class="header--phone">
                             <i class="fas fa-phone"></i>
-                            (+84) 012345678
+                            (+84)33 444 555
                         </div>
                         <hr style="margin-top: 10px; margin-bottom: 10px;">
                         <div class="header--email">
                             <i class="fas fa-envelope"></i>
-                            sunpet@gmail.com
+                            petvitality@gmail.com
                         </div>
-                    </div> -->
-                    <div class="header--cart">
-                        <a href="?act=viewCart">
-                            <i class="fas fa-shopping-bag"></i>
-                        </a>
+                    </div>
+                    <div class="header--cart position-relative d-flex align-items-baseline ">
+                        <a href="?act=viewCart"><i class="fas fa-shopping-bag"></i></a>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" 
+                            id="totalProduct"><?= !empty($_SESSION['cart']) ? count($_SESSION['cart']) : 0 ?>
+                        </span>
+                        
                     </div>
 
 
@@ -66,13 +71,12 @@
                             // extract() để trích xuất các phần tử trong mảng $_SESSION['email'] thành các biến độc lập.
                             extract($_SESSION['email'])
                         ?><cite class="text-center" title="Source Title"><p>Welcome : <?php echo $user ?></p></cite>
-                         <li><a class="dropdown-item" href="index.php?act=edit_user">Cập nhật tài khoản</a></li>                       
-                        <?php if($role==1){
-                        ?>
+                         <li><a class="dropdown-item" href="index.php?act=update_user">Cập nhật tài khoản</a></li>                       
+                        <?php if($role==1){?>
                         <li><a class="dropdown-item" href="./admin/index.php">Đăng nhập Admin</a></li>
                         <?php
                         }
-                        ?><li><a class="dropdown-item" href="index.php?act=log_out">Thoát</a></li>
+                        ?><li><a class="dropdown-item" href="index.php?act=log_out">Đăng xuất</a></li>
                     <?php
                     } else {
                     ?>  

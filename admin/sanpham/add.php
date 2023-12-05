@@ -20,34 +20,26 @@
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Tên sản phẩm</label>
-            <input type="text" class="form-control" id="name" placeholder="Nhập tên sản phẩm" name="tensp" />
+            <input type="text" class="form-control" id="name" placeholder="Nhập tên sản phẩm" name="name_pro" required/>
         </div>
 
         <div class="mb-3">
             <label for="image" class="form-label">Ảnh sản phẩm</label><br>
-            <input type="file" id="image" name="anh" />
+            <input type="file" id="image" name="img_pro" />
         </div>
 
         <div class="mb-3">
             <label for="price" class="form-label">Giá sản phẩm</label>
-            <input type="number" class="form-control" id="price" placeholder="Nhập giá sản phẩm" name="giasp" />
+            <input type="text" class="form-control" id="price" placeholder="Nhập giá sản phẩm" name="price_sp" required/>
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Số lượng</label>
-            <input type="number" class="form-control" id="price" placeholder="Nhập số lượng" name="quantity" />
+            <input type="text" class="form-control" id="price" placeholder="Nhập số lượng" name="quantity" />
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">Mô tả</label>
+            <label for="price" class="form-label">Mô tả sản phẩm</label>
             <input type="text" class="form-control" id="price" placeholder="Mô tả" name="description" />
         </div>
-        <!-- <div class="mb-3">
-            <label for="" class="form-label">Khối lượng</label>
-         <select name="weight" id="">
-            <option value="">500g</option>
-            <option value="">200g</option>
-            <option value="">300g</option>
-         </select>
-        </div> -->
         <div class="mb-3">
             <label for="" class="form-label">Khối lượng</label>
             <input type="text" class="form-control" id="weight" placeholder="Khối lượng" name="weight" />
@@ -56,26 +48,16 @@
             <label for="" class="form-label">Loại</label>
             <input type="text" class="form-control" id="genre" placeholder="Loại" name="genre" />
         </div>
-
-        <!-- <div class="mb-3">
-            <label for="discount" class="form-label">Giảm giá sản phẩm</label>
-            <input type="number" class="form-control" id="discount" placeholder="Nhập giảm giá sản phẩm"
-                name="giamgiasp" />
-        </div> -->
-
-        <!-- <div class="mb-3">
-            <label for="mota" class="form-label">Mô tả sản phẩm</label>
-            <textarea name="motasp" id="mota" class="form-control" placeholder="Nhập mô tả sản phẩm"></textarea>
-        </div> -->
-
-
         <div>
             <input type="submit" name="themmoi" value="THÊM MỚI">
             <input type="reset" value="NHẬP LẠI">
             <a href="index.php?act=listsp"><input type="button" value="DANH SÁCH"></a>
         </div>
         <?php
-            if(isset($thongbao)&&($thongbao!="")) echo "$thongbao";
+            if(isset($thongbao)&&($thongbao!="")){
+                echo "$thongbao";
+                header("Location: sanpham/list.php");
+            }
         ?>
     </form>
 </div>  

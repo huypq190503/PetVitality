@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+<title>Hóa Đơn Thanh Toán</title>
+    
+   
+<style>
+        body, table {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #invoice {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+            position: relative;
+        }
+        button{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            background-color: black;
+            color: #fff;
+        }
+        #invoice:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        #header {
+            background-color: #FFC700;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #customer-info, #total {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #total {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: right;
+            font-size: 18px;
+            background-color: #e6e6e6;
+            transition: background-color 0.3s ease;
+        }
+
+        #total:hover {
+            background-color: #d4d4d4;
+        }
+
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            background-color: #FFC700;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        #status:hover {
+            background-color: #be9709;
+        }
+    </style>
+
+</head>
+
+<body>
+
+        <div id="invoice">  
+            <div id="header">
+                <button>X</button>
+                <h2>Hóa Đơn Thanh Toán</h2>
+                <p>Cửa Hàng Thức Ăn Cho Chó và Mèo</p>
+            </div>
+            <div id="customer-info">
+                        <h3>Thông Tin Khách Hàng</h3>
+                        <p><strong>Tên:</strong> Nguyễn Văn A</p>  
+                        <p><strong>Địa Chỉ:</strong> 123 Đường ABC, Quận XYZ</p>
+                        <p><strong>Email:</strong> example@example.com</p>
+                    </div>
+
+                    <table>
+                        <thead>       
+                            <tr>
+                                <th>Sản Phẩm</th>             
+                                <th>Đơn Giá</th>          
+                                <th>Số Lượng</th>         
+                                <th>Thành Tiền</th>               
+                            </tr>
+                        </thead>
+                            <tbody>
+                                <tr>      
+                            <td>Thức Ăn Cho Chó</td>
+                            <td>$15.00</td>
+                            <td>2</td>
+                            <td>$30.00</td>
+                                </tr>
+
+                                <tr>
+                                <td>Thức Ăn Cho Mèo</td>
+                                <td>$12.00</td>                
+                                <td>3</td>
+                                <td>$36.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+            <div id="total">
+                        <p><strong>Tổng Cộng: $66.00</strong></p>
+                    </div>
+
+                    <div id="status">
+                        <p><strong>Trạng Thái Đơn Hàng: Đang xử lý</strong> </p>
+                       
+                    </div>
+        </div>
+
+</body>
+
+</html>

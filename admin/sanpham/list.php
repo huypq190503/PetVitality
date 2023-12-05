@@ -2,20 +2,20 @@
 <div class="col-md-12">
         <h2>DANH SÁCH LOẠI HÀNG HÓA</h2>
     <br>
-    <a href="?act=addsp" class="btn btn-success">Thêm mới</a>
-    <!-- <form class="mb-3" action="index.php?act=listsp" method="POST">
-        <input type="text" name="kyw" id="" placeholder="Nhập sản phẩm cần tìm" >
-        <select name="iddm" id="">
-            <option value="0" selected>Tất cả</option>
-            <?php
-                foreach($listdanhmuc as $danhmuc){
-                    extract($danhmuc);
-                    echo '<option value="'.$id.'">'.$name.'</option>';
-                }
-            ?>   
-        </select>
-        <input type="submit" name="listok" value="TÌM">
-    </form> -->
+    <a href="?act=addsp" class="btn btn-success ">Thêm mới</a>
+        <form  class="mb-3" action="index.php?act=listsp" method="POST">
+            <input type="text" name="kyw" id="" placeholder="Nhập sản phẩm cần tìm" >
+            <select name="iddm" id="">
+                <option value="0" selected>Tất cả</option>
+                <?php
+                    foreach($listdanhmuc as $danhmuc){
+                        extract($danhmuc);
+                        echo '<option value="'.$id.'">'.$name.'</option>';
+                    }
+                ?>   
+            </select>
+            <input type="submit" name="listok" value="TÌM">
+        </form>
 
         <table class="table">
             <thead>
@@ -24,6 +24,7 @@
                 <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Giá sản phẩm</th>
                 <th scope="col">Hình ảnh</th>
+                <th scope="col">Lượt xem</th>
                 <th scope="col">Danh mục</th>
                 <th scope="col">Hành động</th>
             </tr>
@@ -38,12 +39,15 @@
                     <?php echo $sanpham['name']; ?>
                 </td>
                 <td>
-                    <?php echo $sanpham['price']; ?>
+                    <?php echo number_format($sanpham['price'],0,",",".")."đ";?>
                 </td>
                 <td>
                     <?php if($sanpham['img'] != "" && $sanpham['img'] != null):?>
-                    <img width="100" src="<?php echo "../upload/" . $sanpham['img']; ?>" alt="">
+                    <img width="80"  src="<?php echo "../upload/" . $sanpham['img']; ?>" alt="">
                     <?php endif; ?>
+                </td>
+                <td>
+                    <?php echo $sanpham['luotxem']; ?>
                 </td>
                 <td>
                     <?php echo $sanpham['tendm']; ?>
@@ -51,13 +55,14 @@
                 <td>
                     <a href="?act=suasp&id=<?php echo $sanpham['id']; ?>" class="btn btn-warning">Sửa</a>
                     <a class="btn btn-danger" 
-                    onclick="return confirm('bạn có muốn xóa không')" href="?act=xoasp&id=<?php echo $sanpham['id']; ?>" 
-                    >
-                        Xóa
-                    </a>
+                    onclick="return confirm('bạn có muốn xóa không')" href="?act=xoasp&id=<?php echo $sanpham['id']; ?>"> Xóa
+                    </a>    
+                    <a href="?act=list_bienthe&id=<?=$sanpham['id']?>" class="btn btn-warning">Chi tiết</a>
+
                 </td>
             </tr>
-            <?php endforeach; ?>
+            <?php endforeach; ?>  
+          
 
 
         </tbody>            
