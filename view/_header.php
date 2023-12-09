@@ -26,6 +26,9 @@
       color: green;
       font-weight: bold;
     }
+    .header--cart{
+        border: none !important;
+    }
   </style>
 </head>
 <body>
@@ -51,7 +54,7 @@
                             petvitality@gmail.com
                         </div>
                     </div>
-                    <div class="header--cart position-relative d-flex align-items-baseline ">
+                    <div class="header--cart position-relative d-flex align-items-baseline "  >
                         <a href="?act=viewCart"><i class="fas fa-shopping-bag"></i></a>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" 
                             id="totalProduct"><?= !empty($_SESSION['cart']) ? count($_SESSION['cart']) : 0 ?>
@@ -77,6 +80,7 @@
                         <?php
                         }
                         ?><li><a class="dropdown-item" href="index.php?act=log_out">Đăng xuất</a></li>
+                        <li><a class="dropdown-item" href="index.php?act=order_history">Lịch sử đặt hàng</a></li>
                     <?php
                     } else {
                     ?>  

@@ -2,6 +2,7 @@
    ob_start();
    $cookie_name="nofi";
    $cookie_nofi="Bạn đã đăng ký thành công";
+
    ?>
   
 
@@ -36,7 +37,7 @@
         <form action="?act=sign_up" method="POST" class="col-12"> 
             <div class="dangky--ho">
                 <label for="ho" class="col-12">Họ và tên <span><?= isset($error['user'])?  $error['user'] : "*" ;?></span></label>
-                <input type="text" placeholder="Họ và tên" id="ho" name="user" class="col-12 input" require>
+                <input type="text" placeholder="Họ và tên" id="ho" name="user" class="col-12 input"  >
             </div>
             <div class="dangky--sdt">
                 <label for="sdt" class="col-12">Số điện thoại <span><?= isset($error['tel'])?  $error['tel'] : "*" ;?></span></label>
@@ -44,15 +45,15 @@
             </div>
             <div class="dangky--sdt">
                 <label for="sdt" class="col-12">Email <span><?= isset($error['email'])?  $error['email'] : "*" ;?></span></label>
-                <input type="text" placeholder="Email" id="sdt" name="email" class="col-12 input">
+                <input type="text" placeholder="Email" id="sdt" name="email" class="col-12 input" >
             </div>
             <div class="dangky--matkhau">
                 <label for="mk" class="col-12">Mật khẩu <span><?= isset($error['pass'])?  $error['pass'] : "*" ;?></span></label>
-                <input type="password" placeholder="Mật khẩu" id="mk" name="pass" class="col-12 input" >
+                <input type="password" placeholder="Mật khẩu" id="mk" name="pass" class="col-12 input">
             </div>
             <div class="dangky--diachi">
                 <label for="diachi" class="col-12">Địa chỉ <span><?= isset($error['address'])?  $error['address'] : "*";?></span></label> 
-                <input type="text" placeholder="Địa chỉ" id="diachi" name="address" class="col-12 input"    >
+                <input type="text" placeholder="Địa chỉ" id="diachi" name="address" class="col-12 input">
             </div>
 
             <div class="btn--dangky center">

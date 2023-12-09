@@ -52,7 +52,7 @@ a{
     
 }
 .header--cart{
-    border : 1px solid black;
+    /* border : 1px solid black; */
     height: 45px;
     margin-left: 10px;
     width: 50px;

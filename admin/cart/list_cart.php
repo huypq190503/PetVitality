@@ -15,8 +15,8 @@
                 <th scope="col">Địa chỉ </th>
                 <th scope="col">Tổng tiền</th>
                 <th scope="col">Phương thức thanh toán</th>
-                <th scope="col">Ngày đặt hàng</th>
-                <th scope="col">Trạng thái</th>
+                <th scope="col">Ngày và tháng</th>
+                <th scope="col">Chi tiết đơn hàng</th>
             </tr>
         </thead>
         <tbody>
@@ -42,21 +42,13 @@
                     <?php echo $donhang['tongtien']; ?>
                 </td>
                 <td>
-                    <?php echo $donhang['pttt']; ?>
+                    <?php echo $donhang['name_pttt']; ?>
                 </td>
                 <td>
                     <?php echo $donhang['ngaydathang']; ?>
                 </td>
                 <td>
-                    <?php echo $donhang['trangthai']; ?>
-                </td>
-                <td>
-                    <a href="?act=suasp&id=<?php echo $donhang['id_order']; ?>" class="btn btn-warning">Sửa</a>
-                    <a class="btn btn-danger" 
-                    onclick="return confirm('bạn có muốn xóa không')" href="?act=xoasp&id=<?php echo $donhang['id_order']; ?>" 
-                    >
-                        Xóa
-                    </a>
+                    <a href="?act=suadh&id=<?php echo $donhang['id']; ?>" class="btn btn-warning">Chi tiết đơn hàng</a>
                 </td>
             </tr>
             <?php endforeach; ?>

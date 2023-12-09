@@ -168,7 +168,9 @@ function loadall_sanpham($kyw="",$iddm=0){
 /****************************************************************************************/
 //Sản phẩm cart
 function loadone_sanphamCart ($idList) {
-    $sql = 'SELECT * FROM sanpham WHERE id in ('.$idList.')';
+    // $sql = 'SELECT sanpham.*,chitietsanpham.id_ctsp as id_ctsp,chitietsanpham.weight as weight,chitietsanpham.genre as genre FROM sanpham
+    // INNER JOIN chitietsanpham ON sanpham.id=chitietsanpham.id_sp WHERE id in ('.$idList.')';
+    $sql = 'SELECT * FROM sanpham  WHERE id in ('.$idList.')';
     $sanpham = pdo_query($sql);
     return $sanpham;
 }

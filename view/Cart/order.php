@@ -1,3 +1,4 @@
+<?php $listpttt=danhsach_pttt();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="./view/user/CSS/header.css">
     
     <!-- <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css"> -->
+    <script src="./view/user/JS/datHang.js"></script>
 </head>
 
 <body>
@@ -44,51 +46,11 @@
 
             }    
     ?>
-    <!-- Pop up thay đổi thông tin đặt hàng -->
-    <!-- <div  class="pop-up-change" id="pop-up">
-        <div class="pop-up-content">
-            <div>
-                <label for="" class="khachhang--title">THÔNG TIN KHÁCH HÀNG</label>
-                <button class="btn--close" onclick="anFormThayDoi()">X</button>
-                <div class="form--row">
-                    <label for="">Họ tên: </label>
-                    <input type="text" value="<?=$user?>" name="user" id="change-hoten">
-                </div>
-                <div class="form--row">
-                    <label for="">Số điện thoại: </label>
-                    <input type="text" value="<?=$tel?>" name="tel" id="change-sdt">
-                </div>
-                <div class="form--row">
-                    <label for="">Địa chỉ: </label>
-                    <input type="text" value="<?=$address?>" name="address" id="change-diachi">
-                </div>
-                <div class="form--row">
-                    <label for="">Phương thức thanh toán: </label>
-                    <select action="#" method="post" >
-                        <option type="radio" value="1" name ="order" checked> Thanh toán khi giao hàng <br>
-                        <option type="radio" value="2" name ="order"> Thanh toán trực tuyến
-                    </select>
-                </div>
-                <a href="#" class="form--row" style="justify-content: center;" >
-                    <button class="btn--change" >Thay đổi</button>
-                </a>
-            </div>
-        </div>
-    </div> -->
-    <!-- Header -->
-    <div class="header col-12">
-        <img src="./upload/header.jpg" alt="SunPet">
-        <a href="index.php">
-            <div class="header--overlay"></div>
-        </a>
-    </div>
-
-    <!-- Nội dung đơn hàng -->
-    <div class="donhang--container col-12">
-        <div class="row col-12 donhang--title">
-            THÔNG TIN ĐƠN HÀNG
-        </div>
-
+    <a href="index.php">
+        <div class="header">
+         <img src="./upload/header.jpg" alt="SunPet">
+         <div class="header--overlay"></div>
+     </div></a>
         <!-- Thông tin khách hàng  -->
         <form action="" method="post">
         <div class="row col-12 donhang--khachhang1" id="donhang--khachhang1">
@@ -115,8 +77,16 @@
                 <div class="form--row">
                     <label for="">Phương thức thanh toán: </label>
                     <form action="?act=order" method="post" class="input--cod " >
-                        <input type="radio" value="1" name ="pttt" checked> Thanh toán khi giao hàng <br>
-                        <input type="radio" value="2" name ="pttt"> Thanh toán trực tuyến
+                    <select name="id_pttt" id="" class="" >
+                        <?php
+                            foreach($listpttt as $pttt){
+                                extract($pttt);
+                                echo '<option value="'.$id_pttt.'">'.$name_pttt.'</option>';
+                            }
+                        ?>      
+                    </select>
+                        <!-- <input type="radio" value="1" name ="pttt" checked> Thanh toán khi giao hàng <br>
+                        <input type="radio" value="2" name ="pttt"> Thanh toán trực tuyến -->
                     </form>
                 </div>
                 </form>
@@ -128,10 +98,12 @@
             </div>
             <div class="col-3 btn--thaydoi bold">
                 <div class="col-3">                    
-                <a href="#"><button type="button"class="btn-tienhanhdathang" name="order_confirm">Thay đổi</button></a>
+                <button type="submit" class="btn-tienhanhdathang" name="order_confirm">Đặt hàng</button>
                 </div>
             </div>
-
+            <!-- <div class="col-lg-12 col-md-12 bold">
+                        <button type="submit" class="btn-tienhanhdathang" name="order_confirm">Xác nhận</button>
+                    </div> -->
         </div>
 
         </form>
@@ -222,10 +194,13 @@
                 </div>
 
                 <div class="row giohang1--footer">
-                    <div class="col-lg-12 col-md-12 bold">
-                        <button type="submit" class="btn-tienhanhdathang" name="order_confirm">Đặt hàng</button>
-                    </div>
+                    <!-- <div class="col-lg-12 col-md-12 bold">
+                        <button type="submit" class="btn-tienhanhdathang" name="order_confirm">Xác nhận</button>
+                    </div> -->
                 </div>
+
+                
+
             </section>
 
 

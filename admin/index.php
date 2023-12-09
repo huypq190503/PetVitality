@@ -5,6 +5,7 @@
     include "../model/account.php";
     include "../model/comment.php";
     include "../model/order.php";
+    include "../model/thongke.php";
 ?> -->
 <!-- Controller : Admin -->
 
@@ -26,7 +27,7 @@
                         // case có thể tự đặt 
                         case "dashboard":{
                             // Kiem tra nguoi dung co click vao add hay khong
-                            $listsanpham=list_sanpham();
+                            $doanhthu_ngay=doanhthu_ngay();
                             include "./dashboard/dashboard.php";
                             break;
                         }    
@@ -256,6 +257,13 @@
                         // End bình luận 
 
                         case "dsdh":{
+                            // $danhSachBinhLuan = danhsach_binhluan();
+                            $danhSachDonHang =danhsach_donhang();
+                            // var_dump($danhSachBinhLuan);
+                            include "./cart/list_cart.php";
+                            break;
+                        }
+                        case "chitietdh":{
                             // $danhSachBinhLuan = danhsach_binhluan();
                             $danhSachDonHang =danhsach_donhang();
                             // var_dump($danhSachBinhLuan);

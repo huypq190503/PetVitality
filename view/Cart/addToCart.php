@@ -13,6 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     // Kiểm tra sản phẩm đã có trong giỏ hàng chưa
     $index = array_search($productId, array_column($_SESSION['cart'], 'id'));
+    if(isset($_POST['weight'])&&isset($_POST['genre'])){
+        $productWeight=$_POST['weight'];
+        $productGenre=$_POST['genre'];
+        $_SESSION['cart'][$index]['weight']=$productWeight;
+        $_SESSION['cart'][$index]['genre']=$productGenre;
+    }
     if(isset($_POST['quantity'])&&$index !== false){
         $productQuantity=$_POST['quantity'];
         $_SESSION['cart'][$index]['quantity']+=$productQuantity;

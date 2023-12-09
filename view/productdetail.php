@@ -16,8 +16,7 @@
     <!-- <script src="../JS/Giohang_themSP.js"></script> -->
 </head>
 <script>
-var quantity=document.getElementbyId('quantity');
-console.log(quantity);
+
 
 </script>
 <body>
@@ -48,9 +47,46 @@ console.log(quantity);
                             <input class="home-product-item__input" value="1" type="number" id="quantity" name="quantity"/>
                         </div>
                         
-                        <!-- <div class="home-product-item__sl">
+                        <div class="home-product-item__sl">                    
                             <label class="home-product-item__label"> Khối lượng :</label>
-                        </div> -->
+                            <?php
+                                $number = 1; 
+                                foreach ($listweight as $weight):
+                                    $uniqueID = "weight_" . $number; 
+                                ?>
+                                    <button id="<?= $uniqueID ?>" data-php-value="<?= $weight ?>"><?php echo $weight; ?></button>
+                                    <script>
+                                        document.getElementById("<?= $uniqueID ?>").addEventListener("click", function(){
+                                            var productWeight = parseInt(this.getAttribute("data-php-value"));
+                                            console.log(productWeight);
+                                            window.productWeightForAddToCart = productWeight;
+                                        });
+                                    </script>
+                                <?php
+                                    $number++; 
+                                endforeach;
+                            ?>
+                        </div>
+
+                        <div class="home-product-item__sl">                    
+                            <label class="home-product-item__label">Loại :</label>
+                            <?php
+                                $number = 1; 
+                                foreach ($listgenre as $genre):
+                                    $uniqueID = "genre_" . $number; 
+                                ?>
+                                    <button id="<?= $uniqueID ?>" data-php-value="<?= $genre ?>"><?php echo $genre; ?></button>
+                                    <script>
+                                        document.getElementById("<?= $uniqueID ?>").addEventListener("click", function(){
+                                            var productGenre = this.getAttribute("data-php-value");
+                                            console.log(productGenre);
+                                            window.productGenreForAddToCart = productGenre;
+                                        });
+                                    </script>
+                                <?php
+                                    $number++; 
+                                endforeach;
+                            ?>
 
                         <div class="home-product-item__buy">   
                         <button data-id="<?= $product[0]['id'] ?>"
@@ -129,10 +165,12 @@ console.log(quantity);
 </html>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-   
-    function addToCart(productId, productName, productPrice,productQuantity){
+
+    function addToCart(productId, productName, productPrice,productQuantity,productWeight,productGenre){
         var productQuantity = parseInt(document.getElementById("quantity").value);
-        // console.log(productId, productName, productPrice,productQuantity);
+        var productWeight=window.productWeightForAddToCart;
+        var productGenre=window.productGenreForAddToCart;
+        // console.log(productId, productName, productPrice,productQuantity,productWeight,productGenre);
         // Sử dụng jQuery 
         
         $.ajax({
@@ -143,10 +181,13 @@ console.log(quantity);
                 id : productId,
                 name : productName,
                 price : productPrice,
-                quantity: productQuantity
+                quantity: productQuantity,
+                weight: productWeight,
+                genre: productGenre
             },
             success:function(response){
-                alert('Bạn đã thêm sản phẩm vào giỏ hàng thành công !!');
+                alert('Bạn đã thêm sản phẩm vào giỏ hàng thành công !! ');
+
             },
             error:function(error){
                 console.log(error);

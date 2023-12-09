@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hóa đơn</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .invoice {
+            width: 80%;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .invoice-header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .invoice-details {
+            padding: 20px;
+        }
+
+        .invoice-details table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .invoice-details th, .invoice-details td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .invoice-total {
+            margin-top: 20px;
+            text-align: right;
+            padding: 15px;
+            background-color: #eee;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: #fff;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice">
+        <div class="invoice-header">
+            <h2>HÓA ĐƠN</h2>
+        </div>
+
+        <div class="invoice-details">
+            <table>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
+                </tr>
+                <tr>
+                    <td>Sản phẩm A</td>
+                    <td>2</td>
+                    <td>100,000 VND</td>
+                    <td>200,000 VND</td>
+                </tr>
+                <!-- Thêm các dòng sản phẩm khác nếu cần -->
+            </table>
+        </div>
+
+        <div class="invoice-total">
+            <p><strong>Tổng cộng:</strong> 200,000 VND</p>
+        </div>
+
+        <div class="button-container">
+            <a href="#" class="button">Đánh giá sản phẩm</a>
+            <a href="#" class="button">Liên hệ người bán</a>
+        </div>
+    </div>
+</body>
+</html>

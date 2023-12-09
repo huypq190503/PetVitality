@@ -69,13 +69,13 @@
                 </div>
 
                 <!-- search -->
-                <div class="search--bar">
+                <!-- <div class="search--bar">
                     <form action="?act=product" method="post">
                     <input type="text" value="" name="search" id="search" placeholder="Bạn muốn tìm gì?" autocomplete="off"
                         class="search--input">
                     <button type="submit" class="search--button" name="btn_search" onclick="timKiemSanPham()"><i class="fas fa-search"></i></button>
                     </form>
-                </div>
+                </div> -->
             </div>
         </nav>
 

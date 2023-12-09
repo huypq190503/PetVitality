@@ -7,7 +7,7 @@
     include "model/danhmuc.php";
     include "model/comment.php";
     include "model/order.php";
-
+    // unset($_SESSION['cart']);
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
@@ -31,9 +31,7 @@
             // Controller user
             if(isset($_GET['act']) ){
                 $act = $_GET['act'];
-                switch($act){
-                  
-                    
+                switch($act){     
 /*---------------------------------Đăng nhập-------------------------------------- */                     
                      case 'sign_up':{
                         $error=[];
@@ -182,6 +180,23 @@
                     }
 
 /*---------------------------------Giỏ hàng-------------------------------------- */ 
+                    case 'order_history':{
+                        $order_history=lichsu_donhang();
+                        include "./view/donhang.php";
+                        break;
+                    }
+                    case 'order_detail':{
+                        if(isset($_GET['id_order'])){
+                            $id_order=$_GET['id_order'];
+                            $order_detail=order_detail($id_order);
+                            $thongtin_donhang=thongtin_donhang($id_order);
+                        }
+                       
+                        include "./view/chitietdonhang.php";
+                        break;
+                    }
+
+
                     case 'viewCart' :{
                         if (!empty($_SESSION['cart'])) {
                             $cart = $_SESSION['cart'];
@@ -220,7 +235,7 @@
                                     $txttel = $_POST['tel'];
                                     $txtemail = $_POST['email'];
                                     $txtaddress = $_POST['address'];
-                                    $pttt = $_POST['pttt'];
+                                    $id_pttt = $_POST['id_pttt'];
                                     // date_default_timezone_set('Asia/Ho_Chi_Minh');
                                     // $currentDateTime = date('Y-m-d H:i:s');
                                     if (isset($_SESSION['user'])) {
@@ -228,7 +243,7 @@
                                     } else {
                                         $id_user = 0;
                                     }
-                                    $idBill = addOrder($id_user, $txthoten, $txttel, $txtemail, $txtaddress, $_SESSION['resultTotal'], $pttt);
+                                    $idBill = addOrder($id_user, $txthoten, $txttel, $txtemail, $txtaddress, $_SESSION['resultTotal'], $id_pttt);
                                     foreach ($cart as $item) {
                                         addOrderDetail($idBill, $item['id'], $item['price'], $item['quantity'], $item['price'] * $item['quantity']);
                                     }
@@ -240,11 +255,12 @@
                             } else {
                                 header("Location: index.php?act=viewCart");
                             }
+                            
                             break;
                         }
                         case "success":{
                             if (isset($_SESSION['success'])) {
-                                include 'view/success.php';
+                                include 'success.php';
                             } else {
                                 header("Location: index.php");
                             }

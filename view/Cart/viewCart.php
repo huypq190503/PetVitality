@@ -59,18 +59,29 @@
                         <?php
                     $sum_total = 0;
                     foreach ($dataDb as $key => $product) :
+                        // var_dump($product);
                         // kiểm tra số lượng sản phẩm trong giỏ hàng
                         $quantityInCart = 0;
+                        $weightInCart = null;
+                        $genreInCart = null;
                         $i = 0;
-                        foreach ($_SESSION['cart'] as $item) {
-                            $xoasp = '<a href ="?act=delCart&idCart='.$i.'" > <button class="far fa-trash-alt btn-xoa"></button> </a>';
-                            if ($item['id'] == $product['id']) {
-                                $quantityInCart = $item['quantity'];
-                                break;
-                            }
-                            $i +=1;
-                        } 
-                        ?>
+                            foreach ($_SESSION['cart'] as $item) {
+                                // var_dump($item);
+                                
+                                $xoasp = '<a href ="?act=delCart&idCart='.$i.'" > <button class="far fa-trash-alt btn-xoa"></button> </a>';
+                                if ($item['id'] == $product['id']) {
+                                    $quantityInCart = $item['quantity'];
+                                    break;
+                                // }elseif($item['weight'] === $product['weight'] && $item['genre'] === $product['genre']){
+                                //     $weightInCart=$item['weight'];
+                                //     $genreInCart = $item['genre']; 
+                                //     break;
+                                }
+                                
+                                }
+                                $i +=1;
+                            
+                            ?>
                         
                         <div class="giohang--item">
 
@@ -167,7 +178,7 @@
             },
             success: function(response) {
                 // Sau khi cập nhật thành công
-                $.post('./view/tableCartOrder.php',function(data) {
+                $.post('./view/Cart/tableCartOrder.php',function(data) {
                     $('#order').html(data);
                 })
             },
