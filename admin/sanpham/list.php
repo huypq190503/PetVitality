@@ -2,20 +2,22 @@
 <div class="col-12" style="min-width: 90%;" >
         <h2>DANH SÁCH LOẠI HÀNG HÓA</h2>
     <br>
-    <a href="?act=addsp" class="btn btn-success">Thêm mới</a>
-    <br>
     <form class="mb-3" action="index.php?act=listsp" method="POST">
-        <input type="text" name="kyw" id="" placeholder="Nhập sản phẩm cần tìm" >
+        <a href="?act=addsp" class="btn btn-success">Thêm mới</a>
+        <input type="text" class="form" name="kyw" id="" placeholder="Nhập sản phẩm cần tìm" >
         <select name="iddm" id="">
             <option value="0" selected>Tất cả</option>
             <?php
                 foreach($listdanhmuc as $danhmuc){
                     extract($danhmuc);
                     echo '<option value="'.$id.'">'.$name.'</option>';
+
                 }
+                
             ?>   
         </select>
-        <input type="submit" name="listok" value="TÌM">
+        <input type="submit" name="search" value="TÌM">
+        
     </form>
 
         <table class="table table-bordered border-primary">

@@ -32,27 +32,21 @@
                             <!-- cho phép hiện các cái đường link khi co trang mình vào-->
                             <!-- ml auto là auto margin left -->
                             <li class="nav-item">
-                                <!-- nav-item quy định màu là màu xanh, flex 1, mỗi item cách ra một khoảng -->
                                 <a class="nav-link" href="index.php">TRANG CHỦ</a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a href="Contact.html" class="nav-link">LIÊN HỆ</a>
-                            </li> -->
                             <li class="nav-item">
                                 <a href="index.php?act=product" class="nav-link">SẢN PHẨM</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">LIÊN HỆ</a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a href="?act=lsdh" class="nav-link">LỊCH SỬ ĐƠN HÀNG</a>
-                            </li> -->
-                            <!-- <li class="nav-item">
-                                <a href="Blog_Trangchu.html" class="nav-link">BLOG</i></a>
-                            </li> -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">TIN THÚ CƯNG</i></a>
+                            </li>
 
                         </ul>
                     </nav>
+                    
                     <label for="nav--input" class="nav__bars-btn">
                         <i class="fas fa-bars"></i>
                     </label>
@@ -68,11 +62,14 @@
                 </div>
 
                 <!-- search -->
-                <div class="search--bar">
-                    <input type="text" value="" name="search" id="search" placeholder="Bạn muốn tìm gì?" autocomplete="off"
-                        class="search--input">
-                    <button type="button" class="search--button" onclick="timKiemSanPham()"><i class="fas fa-search"></i></button>
-                </div>
+                <form action="index.php?act=timSanPham" method="POST">
+                    <div class="search--bar">
+                        <input type="text" value="" name="kyw" id="search" placeholder="Bạn muốn tìm gì?" autocomplete="off"
+                            class="search--input">
+                        <button type="submit" name="search" class="search--button"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+
             </div>
         </nav>
 
