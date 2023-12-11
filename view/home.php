@@ -5,71 +5,26 @@
     ?>
 
 <style>
-    .image{
-    position: relative;
-    overflow: hidden;
-}
-.image:hover .text{
-    bottom: 0;
-}
-
-.images img{
-    width: 100%;
-    
-}
-
- 
-.text{
-    padding-top: 15px;
-    text-align: center;
-    position: absolute;
-    bottom: -160px;
-    transition: 0.5s ease-in-out;
-    background-color: white;
-    width: 100%;
-
-}
-
-.text a{
-    color: #000;
-    font-size: 24px;
-    text-decoration: none;
-}
-
-.text a:hover{
-    color: #ffa800;
-}
-.price{
-    font-size: 20px;
-    padding: 25px 0;
-}
-
-a.book{
-    font-size: 20px;
-    display: block;
-    padding: 10px 0;
-    /* background-color: #000; */
+    body {
+    overflow-x: hidden;
+    }
+    .book {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #FFC700;
+    border-radius: 5px;
     color: white;
-}
-
-.images{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
-    gap: 30px;
-
-
-}
+    background-color: #ce822b;
+    margin-bottom: 5px;
+    font-size: 15px;
+    }
 </style>
 
 <div class="web--container">
         <!-- banner 1 -->
         <?php
             include "./view/_slider.php";              
-            ?>
-        <!-- <div class="web--banner">
-            <img src="./upload/banner1.png" alt="">
-        </div> -->
-        <!-- chúng tôi có gì cho thú cưng? -->
+        ?>
         <div class="web--dogcat">
             <div class="web--content">
                 <p>Chúng tôi có gì cho thú cưng của bạn</p>
@@ -89,25 +44,30 @@ a.book{
         <div class="web--special">
             <p>SẢN PHẨM NỔI BẬT</p>
             <div class="web--special--block justify-content-center ">
-                <div class="special--product--item images">
-                <?php foreach($loadSanPhamNoiBat as $value): ?>
-                    <div class="special--product--detail image">
-                    <img src="./upload/<?php echo $value['img']; ?>" alt="">
+                <div class="special--product--item">
+                    <?php foreach($loadSanPhamNoiBat as $value): ?>
+                        <div class="special--product--detail">
+                            <a href="?act=chiTietSanPham&idsp=<?php echo $value['id']?>">
+                                    <div class="special--product--img">
+                                        <img src="./upload/<?php echo $value['img']; ?>" alt="">
+                                    </div>
+                                    <div class="special--product--name">
+                                        <p><?php echo $value['name']; ?></p>
+                                    </div>
+                                
+                                    <div class="special--product--price justify-content-center">
+                                        <p>Giá : <?php echo number_format($value['price']); ?> VNĐ</p>
+                                    </div>
+                            </a> 
 
-                    <section class="text">
-                        <a href="?act=chiTietSanPham&idsp=<?php echo $value['id']?>">
-                        <?php echo $value['name']; ?></a>
-                        <section class="price">
-                        Giá : <?php echo number_format($value['price']); ?> VNĐ
-                        </section>
-                        <input type="submit" class="book" 
-                        data-id ="<?php echo $value['id']?>"
-                        onclick="addToCart(<?php echo $value['id']?>,'<?php echo $value['name']?>',<?php echo $value['price']?>)"
-                        value="THÊM VÀO GIỎ HÀNG"></input>
-                    </section>
-                    </div>
-                
-                <?php endforeach; ?>
+                            <div> 
+                                <button data-id="<?= $value['id'] ?>" class="book" onclick="addToCart(<?= $value['id'] ?>, '<?= $value['name'] ?>', <?= $value['price'] ?>)">Thêm vào giỏ hàng</button>              
+                            </div> 
+
+                        
+                        </div>
+                    
+                    <?php endforeach; ?>
                 </div>
 
             </div>
@@ -126,23 +86,25 @@ a.book{
                     <div class="web--eatdog--detail1 ">
                         <?php foreach($loadSanPhamDanhMucCho as $value): ?>
                         
-                        <div class="special--product--detail1">
-                            <div class="special--product--img">
-                                <img src="./upload/<?php echo $value['img']; ?>" alt="">
+                            <div class="special--product--detail1">
+                                <div class="special--product--img">
+                                    <img src="./upload/<?php echo $value['img']; ?>" alt="">
+                                </div>
+                                <a href="?act=chiTietSanPham&idsp=<?php echo $value['id']?>">
+                                    <div class="special--product--name">
+                                        <p><?php echo $value['name']; ?></p>
+                                    </div>
+                                    
+                                    <div class="special--product--price justify-content-center">
+                                        <p>Giá : <?php echo number_format($value['price']); ?> VNĐ</p>
+                                    </div>
+                                </a>  
+                                <input type="submit" class="book" 
+                                    data-id ="<?php echo $value['id']?>"
+                                    onclick="addToCart(<?php echo $value['id']?>,'<?php echo $value['name']?>',<?php echo $value['price']?>)"
+                                    value="THÊM VÀO GIỎ HÀNG">
+                                </input>
                             </div>
-                            <a href="?act=chiTietSanPham&idsp=<?php echo $value['id']?>">
-                            <div class="special--product--name">
-                                <p><?php echo $value['name']; ?></p>
-                            </div>
-                            </a>    
-                            <div class="special--product--price justify-content-center">
-                                <p>Giá : <?php echo number_format($value['price']); ?> VNĐ</p>
-                            </div>
-                            <input type="submit" class="book" 
-                        data-id ="<?php echo $value['id']?>"
-                        onclick="addToCart(<?php echo $value['id']?>,'<?php echo $value['name']?>',<?php echo $value['price']?>)"
-                        value="THÊM VÀO GIỎ HÀNG"></input>
-                        </div>
                    
 
 
@@ -155,24 +117,25 @@ a.book{
                         <p>Mèo</p>
                     </div>
                     <div class="web--eatcat--detail1 col-">
-                    <?php foreach($loadSanPhamDanhMucMeo as $value): ?>
+                        <?php foreach($loadSanPhamDanhMucMeo as $value): ?>
                        
-                        <div class="special--product--detail1">
-                            <div class="special--product--img">
-                                <img src="./upload/<?php echo $value['img']; ?>" alt="">
+                            <div class="special--product--detail1">
+                                <div class="special--product--img">
+                                    <img src="./upload/<?php echo $value['img']; ?>" alt="">
+                                </div>
+                                <a href="?act=chiTietSanPham&idsp=<?php echo $value['id']?>">
+                                <div class="special--product--name">
+                                    <p><?php echo $value['name']; ?></p>
+                                </div></a>
+                                <div class="special--product--price justify-content-center">
+                                    <p>Giá : <?php echo number_format($value['price']); ?> VNĐ</p>
+                                </div>
+                                <input type="submit" class="book" 
+                                    data-id ="<?php echo $value['id']?>"
+                                    onclick="addToCart(<?php echo $value['id']?>,'<?php echo $value['name']?>',<?php echo $value['price']?>)"
+                                    value="THÊM VÀO GIỎ HÀNG">
+                                </input>
                             </div>
-                            <a href="?act=chiTietSanPham&idsp=<?php echo $value['id']?>">
-                            <div class="special--product--name">
-                                <p><?php echo $value['name']; ?></p>
-                            </div></a>
-                            <div class="special--product--price justify-content-center">
-                                <p>Giá : <?php echo number_format($value['price']); ?> VNĐ</p>
-                            </div>
-                            <input type="submit" class="book" 
-                        data-id ="<?php echo $value['id']?>"
-                        onclick="addToCart(<?php echo $value['id']?>,'<?php echo $value['name']?>',<?php echo $value['price']?>)"
-                        value="THÊM VÀO GIỎ HÀNG"></input>
-                        </div>
                     
                         <?php endforeach; ?>        
                     </div>
@@ -187,7 +150,8 @@ a.book{
         <div class="web--discount">
             <img src="./upload/discount.png" alt="">
         </div>
-        </div>
+    </div>
+    <?php include "view/_footer.php"?>
 
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

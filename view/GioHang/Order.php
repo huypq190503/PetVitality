@@ -33,49 +33,18 @@
                             $dataDb = loadone_sanphamCart($idList);
                             // var_dump($dataDb);
                         } 
-            if(isset($_SESSION['email']) && (is_array($_SESSION['email']))){
-                extract($_SESSION['email']);
-                // var_dump($_SESSION['email']);
-                // die();
-            }else{
-                $user ="";
-                $tel ="";
-                $email ="";
-                $address ="";
+                        if(isset($_SESSION['email']) && (is_array($_SESSION['email']))){
+                            extract($_SESSION['email']);
+                            // var_dump($_SESSION['email']);
+                            // die();
+                        }else{
+                            $user ="";
+                            $tel ="";
+                            $email ="";
+                            $address ="";
 
-            }    
-    ?>
-    <!-- Pop up thay đổi thông tin đặt hàng -->
-    <!-- <div  class="pop-up-change" id="pop-up">
-        <div class="pop-up-content">
-            <div>
-                <label for="" class="khachhang--title">THÔNG TIN KHÁCH HÀNG</label>
-                <button class="btn--close" onclick="anFormThayDoi()">X</button>
-                <div class="form--row">
-                    <label for="">Họ tên: </label>
-                    <input type="text" value="<?=$user?>" name="user" id="change-hoten">
-                </div>
-                <div class="form--row">
-                    <label for="">Số điện thoại: </label>
-                    <input type="text" value="<?=$tel?>" name="tel" id="change-sdt">
-                </div>
-                <div class="form--row">
-                    <label for="">Địa chỉ: </label>
-                    <input type="text" value="<?=$address?>" name="address" id="change-diachi">
-                </div>
-                <div class="form--row">
-                    <label for="">Phương thức thanh toán: </label>
-                    <select action="#" method="post" >
-                        <option type="radio" value="1" name ="order" checked> Thanh toán khi giao hàng <br>
-                        <option type="radio" value="2" name ="order"> Thanh toán trực tuyến
-                    </select>
-                </div>
-                <a href="#" class="form--row" style="justify-content: center;" >
-                    <button class="btn--change" >Thay đổi</button>
-                </a>
-            </div>
-        </div>
-    </div> -->
+                        }    
+?>
     <!-- Header -->
     <div class="header col-12">
         <img src="./upload/header.jpg" alt="SunPet">
@@ -120,6 +89,7 @@
                         <input type="radio" value="2" name ="pttt"> Thanh toán trực tuyến
                     </form>
                 </div>
+                <input type="hidden" value="<?=$id?>" >
                 </form>
                 <!-- <a href="#" class="form--row">
                     <button class="btn--change" >Thay đổi</button>

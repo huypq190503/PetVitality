@@ -22,7 +22,16 @@
         $sql="select * from sanpham where 1 ";
         if($filter!=""){
             $sql.="order by price $filter";
-        }         $listsanpham=pdo_query($sql);
+        }
+        // if($kyw != ""){
+        //     $sql.=" name like '%".$kyw."%'";
+        // }       
+        $listsanpham=pdo_query($sql);
+        return $listsanpham;
+    }
+    function timSanPham($kyw){
+        $sql="select * from sanpham where name like '%".$kyw."%'";     
+        $listsanpham=pdo_query($sql);
         return $listsanpham;
     }
 /****************************************************************************************/
@@ -49,12 +58,12 @@
     }
     function loadall_sanpham($kyw="",$iddm=0){
         $sql="SELECT sanpham.id, sanpham.name, sanpham.price, sanpham.img, danhmuc.name AS 
-        tendm FROM `sanpham` LEFT JOIN danhmuc ON sanpham.iddm = danhmuc.id;"; 
+        tendm FROM `sanpham` LEFT JOIN danhmuc ON sanpham.iddm = danhmuc.id ";
         if($kyw!=""){
-            $sql.=" and name like '%".$kyw."%'";
+            $sql.=" where sanpham.name like '%".$kyw."%'";
         }
         if($iddm>0){
-            $sql.=" and iddm ='".$iddm."'";
+            $sql.=" where iddm ='".$iddm."'";
         }
         $sql.=" order by id desc";
         $listsanpham=pdo_query($sql);

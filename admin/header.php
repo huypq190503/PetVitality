@@ -9,6 +9,7 @@
     <link href="../assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
     <link href="../assets/css/font-awesome.css" rel="stylesheet" />
+
         <!-- Custom Styles-->
     <link href="../assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
@@ -24,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">ADMIN</a>
+                <a class="navbar-brand" href="?act=dashboard">ADMIN</a>
             </div>
 
             <!-- /.dropdown user -->
@@ -35,7 +36,7 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="#"><i class="fa fa-user fa-edit fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>

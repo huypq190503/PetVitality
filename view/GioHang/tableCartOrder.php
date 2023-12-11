@@ -69,11 +69,11 @@ if (!empty($_SESSION['cart'])) {
             ?>
             <div class="row giohang--pttt">
                 <div class="col-4 bold">
-                    <div>Phương thức thanh toán</div>
+                    <!-- <div>Phương thức thanh toán</div>
                     <form action="?act=order" method="post" class="input--cod " >
                         <input type="radio" value="1" name ="order" checked> Thanh toán khi giao hàng <br>
                         <input type="radio" value="2" name ="order"> Thanh toán trực tuyến
-                    </form>
+                    </form> -->
                 </div>
                 <div class="col-lg-4 col-md-4 bold">
                     <div class="tongtien">Tổng tiền: 
