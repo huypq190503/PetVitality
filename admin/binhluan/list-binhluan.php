@@ -2,8 +2,8 @@
     <h3>Danh sách danh mục sản phẩm</h3>
     <!-- <a href="?act=addbl" class="btn btn-success">Thêm mới</a> -->
     
-
-    <table class="table">
+<br>
+    <table class="table table-bordered border-primary">
         <thead>
             <tr>
                 <th scope="col">STT</th>

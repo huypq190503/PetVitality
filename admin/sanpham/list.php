@@ -33,6 +33,7 @@
         </thead>
         <tbody>
                 <?php foreach($listsanpham as $key => $sanpham): ?>      
+                <?php foreach($listsanpham as $key => $sanpham): ?>      
             <tr>
                 <th scope="row">
                     <?php echo $key + 1; ?>
@@ -54,6 +55,7 @@
                 <td>
                     <a href="?act=suasp&id=<?php echo $sanpham['id']; ?>" class="btn btn-warning">Sửa</a>
                     <a class="btn btn-danger" 
+                    onclick="return confirm('bạn có muốn xóa không')" href="?act=xoasp&id=<?php echo $sanpham['id'];?>" 
                     onclick="return confirm('bạn có muốn xóa không')" href="?act=xoasp&id=<?php echo $sanpham['id'];?>" 
                     >
                         Xóa

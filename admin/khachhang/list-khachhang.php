@@ -1,8 +1,8 @@
 <div class="col-12" style="min-width: 90%;">
     <h3>Danh sách khách hàng</h3>
     <br>
-    <a href="?act=addkh" class="btn btn-success">Thêm mới</a>
-    <table class="table">
+
+    <table class="table table-bordered border-primary">
         <thead>
             <tr>
                 <th scope="col">STT</th>

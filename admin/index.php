@@ -125,6 +125,7 @@
                                 $iddm=0;
                             }
                             // $listchitietsanpham=list_ctsp();
+                            // $listchitietsanpham=list_ctsp();
                             $listdanhmuc=loadall_danhmuc();
                             $listsanpham=loadall_sanpham($kyw,$iddm);
                             include "sanpham/list.php";
@@ -266,6 +267,16 @@
                         //     include 'thongke/list.php';
                         //     break;
                         // }
+                        case "dstk":
+                            $listthongke=loadall_thongke();
+                            include "thongke/list.php";
+                            break;
+                            
+                        case "bieudo":
+                            $listthongke=loadall_thongke();
+                            include "thongke/bieudo.php";
+                            break;
+
                         default: {
                             include "trangchu/trangchu.php";
                             break;
