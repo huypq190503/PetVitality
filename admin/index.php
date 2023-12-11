@@ -20,6 +20,7 @@
         <div id="page-wrapper">
             <!-- main web -->
             <?php 
+             $listdanhmuc=loadall_danhmuc();
             
                 // Controller
                 if(isset($_GET['act']) && $_GET['act'] != ""){
@@ -97,6 +98,7 @@
                                 } else {
                                     // echo "Sorry, there was an error uploading your file.";
                                 }
+                                // $danhmucsp = $_POST['danhmucsp'];
                                 $id_sp=insert_sanpham($tensp,$anh,$giasp,$iddm);
                                 // insert_chitietsanpham($weight,$genre,$id_sp);
                                 // insert_soluong($quantity,$id_sp);

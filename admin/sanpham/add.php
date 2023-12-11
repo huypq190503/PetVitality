@@ -32,6 +32,7 @@
             <label for="price" class="form-label">Giá sản phẩm</label>
             <input type="number" class="form-control" id="price" placeholder="Nhập giá sản phẩm" name="giasp" />
         </div>
+
         <!-- <div class="mb-3">
             <label for="price" class="form-label">Số lượng</label>
             <input type="number" class="form-control" id="price" placeholder="Nhập số lượng" name="quantity" />

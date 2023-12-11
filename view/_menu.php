@@ -44,9 +44,9 @@
                             <li class="nav-item">
                                 <a href="#" class="nav-link">LIÊN HỆ</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">TIN THÚ CƯNG</a>
-                            </li>
+                            <!-- <li class="nav-item">
+                                <a href="?act=lsdh" class="nav-link">LỊCH SỬ ĐƠN HÀNG</a>
+                            </li> -->
                             <!-- <li class="nav-item">
                                 <a href="Blog_Trangchu.html" class="nav-link">BLOG</i></a>
                             </li> -->

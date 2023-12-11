@@ -25,6 +25,7 @@
             $loadSanPhamDanhMucCho =load_sanpham_danhmuc_cho();
             $loadSanPhamDanhMucMeo =load_sanpham_danhmuc_meo();
             $loadSanPhamNoiBat=loadall_sanpham_top10();
+            
             // Controller user
             if(isset($_GET['act']) ){   
                 $act = $_GET['act'];
@@ -41,7 +42,8 @@
                         if(isset($_GET['idsp']) && $_GET['idsp'] > 0){
                             $sanpham = loadone_sanpham($_GET['idsp']);
                             $sanpham_lq = loadone_sanpham_cungloai($_GET['idsp'],$sanpham['iddm']);
-                            $binhluan = loadall_binhluan($_GET['idsp']);                           
+                            $binhluan = loadall_binhluan($_GET['idsp']);  
+                                                 
                             // tangluotxem($_GET['idsp']);
                             // $sanpham=loadone_sanpham($id_sp);
                             // $ditto_product=loadone_sanpham_cungloai($id_sp,$sanpham['iddm']);
@@ -214,7 +216,8 @@
                             header("Location: index.php");
                         }
                         break;
-                    }
+                    
+                }
                     default: {
                         include "./view/home.php";
                         break;
