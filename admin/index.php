@@ -7,6 +7,7 @@
     include "../model/khachhang.php";
     include "../model/order.php";
     include "../model/thongke.php";
+    
 
 ?> 
 <!-- Controller : Admin -->
@@ -21,6 +22,8 @@
             <!-- main web -->
             <?php 
                 $danhSachBinhLuan = danhsach_binhluan();
+                $listthongke=loadall_thongke();
+
 
                 // Controller
                 if(isset($_GET['act']) && $_GET['act'] != ""){
@@ -29,9 +32,17 @@
 
                         // case có thể tự đặt 
                         case "trangchu":{
-                            include "trangchu/trangchu.php";
+                            include "./dashboard/dashboard.php";
                             break;
                         }
+                        // case có thể tự đặt 
+                        case "dashboard":{
+                            // Kiem tra nguoi dung co click vao add hay khong
+                            $doanhthu_ngay=doanhthu_ngay();
+                            $listthongke=loadall_thongke();
+                            include "./dashboard/dashboard.php";
+                            break;
+                        }                          
                         // Phần xử lí danh mục 
                         case "adddm":{
                             // Kiem tra nguoi dung co click vao add hay khong
@@ -105,13 +116,15 @@
                         }
                         case "listsp":{
                             // Tìm kiếm sản phẩm 
-                            if(isset($_POST['listok'])&&($_POST['listok'])){
+                            if(isset($_POST['search'])&&($_POST['search'])){
                                 $kyw=$_POST['kyw'];
                                 $iddm=$_POST['iddm'];
+                                // var_dump($kyw);
                             }else{
                                 $kyw='';
                                 $iddm=0;
                             }
+                            // $listchitietsanpham=list_ctsp();
                             // $listchitietsanpham=list_ctsp();
                             $listdanhmuc=loadall_danhmuc();
                             $listsanpham=loadall_sanpham($kyw,$iddm);
@@ -228,6 +241,19 @@
                             include "donhang/list-donhang.php";
                             break;
                         }
+                        case "editdh":{
+                            if(isset($_GET['iddh']) & $_GET['iddh'] > 0){
+                                $donHang = load_one_donhang($_GET['iddh']);
+                            }
+                            if(isset($_POST['capnhat'])){
+                                $trangThai = $_POST['trangthai'];
+                                $id_order =$_POST['id'];
+                                updateStatus($trangThai,$id_order);
+                                header("location: ?act=dsdh");
+                            }
+                            include "donhang/update-donhang.php";
+                            break;
+                        }
                         case "deletedh":{
 
                             if(isset($_GET['idbl']) && $_GET['idbl'] > 0){
@@ -257,7 +283,7 @@
                         }
                     }
                 }else{
-                    // include "trangchu/trangchu.php";
+                    include "./dashboard/dashboard.php";
                 }
             ?>
         </div>

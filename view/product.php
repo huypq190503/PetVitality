@@ -1,6 +1,7 @@
 <?php 
         // include "model/sanpham.php";
         // include "model/danhmuc.php";
+        // var_dump($kyw);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +29,13 @@
        
         <div class="app__container">
             <div class="grid-wide">
+
+            <form class="mb-3" action="index.php?act=timSanPham" method="POST">
                 <div class="search">
-                    <input type="text" placeholder="Bạn muốn tìm sản phẩm gì?" id="search_text">
-                    <label class="fas fa-search"></label>
+                    <input type="text" name="kyw" placeholder="Bạn muốn tìm sản phẩm gì?" id="search_text">
+                    <button type="submit" name="search" value="TÌM" class="fas fa-search" ></button>
                 </div>
+            </form>
                 <div class="row sm-gutter app__content">
                     <div class="col l-2 m-3 c-0">
                         <nav class="category">
@@ -135,7 +139,7 @@
 
 
     </div>
-    <script src="https://uhchat.net/code.php?f=69535a"></script>
+    <!-- <script src="https://uhchat.net/code.php?f=69535a"></script> -->
 </body>
 
 </html>

@@ -152,7 +152,7 @@
         // alert('Update Quantity');
         // lấy giá trị của ô input
         let newQuantity = $('#quantity_' + id).val();
-        console.log(newQuantity);
+        // console.log(newQuantity);
         if (newQuantity <= 0) {
             newQuantity = 1
         }

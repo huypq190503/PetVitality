@@ -24,6 +24,7 @@
             $loadSanPhamDanhMucCho =load_sanpham_danhmuc_cho();
             $loadSanPhamDanhMucMeo =load_sanpham_danhmuc_meo();
             $loadSanPhamNoiBat=loadall_sanpham_top10();
+            $danhSachDonHang = danhsach_donhang();
             // Controller user
             if(isset($_GET['act']) ){
                 $act = $_GET['act'];
@@ -111,13 +112,37 @@
                         include "./view/TaiKhoan/thongTin.php";
                         break;
                     }
+                    case 'my_cart':{
+                        $listBill=myCart($_SESSION['email']['id']);
+                        // var_dump($danhSachDonHang);
+                        // die();
+                        include "./view/GioHang/myCart.php";
+                        break;
+                    }
+                    case 'order_detail':{
+                        if(isset($_GET['id_order'])){
+                            $id_order=$_GET['id_order'];
+                            $order_detail=load_sanpham_user($id_order);
+                            $thongtin_donhang=load_one_donhang($id_order);
+                        }
+                        include "./view/GioHang/orderDetail.php";
+                        break;
+                    }
 /*---------------------------------Trang sản phầm-------------------------------------- */                     
                     case 'product':{
                         $danhSachSanPham=loadall_sanpham_home((isset($_GET['filter']) ? $_GET['filter'] : ''));
-                        // $danhSachSanPhamTheoDanhMuc=sanpham_theodanhmuc((isset($_GET['iddm']) ? $_GET['iddm'] : ''));
-                        // if(isset($_GET['iddm']) && $_GET['iddm'] > 0){
-                        //     $dssp = sanpham_theodanhmuc($_GET['iddm']);
-                        // }
+                        include "./view/product.php";
+                        break;
+                    }
+                    // Tìm sản phẩm 
+                    case 'timSanPham':{
+                        if(isset($_POST['kyw']) && ($_POST['kyw'] > 0)){
+                            $kyw=$_POST['kyw'];
+                            // var_dump($kyw);
+                        }else{
+                            $kyw='';
+                        }
+                        $danhSachSanPham=timSanPham($kyw);
                         include "./view/product.php";
                         break;
                     }
@@ -185,13 +210,12 @@
                                 $txtemail = $_POST['email'];
                                 $txtaddress = $_POST['address'];
                                 $pttt = $_POST['pttt'];
-                                // date_default_timezone_set('Asia/Ho_Chi_Minh');
-                                // $currentDateTime = date('Y-m-d H:i:s');
-                                if (isset($_SESSION['user'])) {
-                                    $id_user = $_SESSION['user']['id'];
+                                if (isset($_SESSION['email'])) {
+                                    $id_user = $_SESSION['email']['id'];
                                 } else {
                                     $id_user = 0;
                                 }
+
                                 $idBill = addOrder($id_user, $txthoten, $txttel, $txtemail, $txtaddress, $_SESSION['resultTotal'], $pttt);
                                 foreach ($cart as $item) {
                                     addOrderDetail($idBill, $item['id'], $item['price'], $item['quantity'], $item['price'] * $item['quantity']);
@@ -222,7 +246,7 @@
             }else{
                 include "./view/home.php";
             }
-        // ?>
+        ?>
 
         <!-- footer -->
     

@@ -36,7 +36,7 @@
                     <p>PETVITALITY</p>
                 </div>
                 <div class="header--common">
-                    <!-- <div class="header--contact">
+                    <div class="header--contact">
                         <div class="header--phone">
                             <i class="fas fa-phone"></i>
                             (+84) 012345678
@@ -44,9 +44,9 @@
                         <hr style="margin-top: 10px; margin-bottom: 10px;">
                         <div class="header--email">
                             <i class="fas fa-envelope"></i>
-                            sunpet@gmail.com
+                            petvitality@gmail.com
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="header--cart position-relative d-flex align-items-baseline ">
 
@@ -64,32 +64,28 @@
                             aria-expanded="false"><i class="fas fa-user"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-content ">
-                        <?php
-                        if (isset($_SESSION['email'])) {
-                            // extract() để trích xuất các phần tử trong mảng $_SESSION['email'] thành các biến độc lập.
-                            extract($_SESSION['email'])
-                        ?><cite class="text-center" title="Source Title"><p>Welcome : <?php echo $user ?></p></cite>
-                         <li><a class="dropdown-item" href="index.php?act=edit_user">Cập nhật tài khoản</a></li>                       
-                        <?php if($role==1){
-                        ?>
-                        <li><a class="dropdown-item" href="./admin/index.php">Đăng nhập Admin</a></li>
-                        <?php
-                        }
-                        ?><li><a class="dropdown-item" href="index.php?act=log_out">Thoát</a></li>
-                    <?php
-                    } else {
-                    ?>  
-                            <a class="dropdown-item " href="index.php?act=sign_up" id="dangky">Đăng ký</a>
+                        <?php if (isset($_SESSION['email'])): ?>
+                            <?php extract($_SESSION['email']); ?>
+
+                            <cite class="text-center" title="Source Title">
+                                <p>Welcome : <?php echo $user; ?></p>
+                            </cite>
+
+                            <li><a class="dropdown-item" href="index.php?act=edit_user">Xem thông tin</a></li>
+                            <li><a class="dropdown-item" href="index.php?act=my_cart&id=<?php echo $id ?>">Đơn hàng của tôi</a></li>                            
+                            <?php if ($role == 1): ?>
+                                <li><a class="dropdown-item" href="./admin/index.php">Đăng nhập Admin</a></li>
+                            <?php endif; ?>
+
+                            <li><a class="dropdown-item" href="index.php?act=log_out">Thoát</a></li>
                         
+                        <?php else: ?>
+                            <a class="dropdown-item " href="index.php?act=sign_up" id="dangky">Đăng ký</a>
                             <a class="dropdown-item" href="index.php?act=login" id="dangnhap">Đăng nhập</a>
-                            
                             <!-- <a class="dropdown-item" href="Xemthongtin.html" id="xemthongtin">Xem thông tin</a> -->
-                           
                             <!-- <a class="dropdown-item" href="#" id="dangxuat" onclick="dangXuat()">Đăng xuất</a> -->
-                        </div>
-                        <?php 
-          } 
-          ?>
+                        <?php endif; ?>
+
                     </div>
                 </div>
             </div>
