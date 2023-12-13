@@ -1,131 +1,141 @@
 <?php
-    var_dump($_SESSION['email']['id']);
-?>
+   ob_start();
+   $cookie_name="nofi";
+   $cookie_nofi="Bạn đã đăng ký thành công";
+   ?>
+  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lịch sử đơn hàng</title>
-    <style>
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="../../view/user/CSS/Dang_ky.css">
+    <link rel="stylesheet" href="../../view/user/CSS/Bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../view/user/CSS/Font-awesome/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+     rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <script src="./view/JS/dangKy - dangNhap.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+     crossorigin="anonymous"></script>
+     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #ddd;
-            margin: 0;
+            margin: 0; /* Loại bỏ các khoảng trắng ngoại vi */
             padding: 0;
-            
-            
+            background-image: url('duong-dan-den-anh-nen-cua-ban.jpg'); /* Đường dẫn đến ảnh nền */
+            background-size: cover; /* Hiển thị ảnh nền sao cho nó phủ toàn bộ phần nền */
+            background-position: center; /* Đặt ảnh nền ở giữa */
+            background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+            font-family: 'Arial', sans-serif; /* Lựa chọn font chữ */
         }
 
-        header {
-            background-color: #f0ad4e;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        table {
-           
-            width: 90%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: white;
-        }
-
-        th, td {
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f0ad4e   ;
-            color: white;
-        }
-        .btn-group{
-            display:flex;
-        }
-        .back-btn {
-            box-sizing:border-box;
-            display: block;
-            margin: 20px auto;
-            width: 250px;
-            padding: 10px 20px;
-            background-color: #f0ad4e;
-            color: black;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 5px;
-            transition: 0.5s
-        }
-        .back-btn:hover {
-            box-sizing:border-box;
-            display: block;
-            margin: 20px auto;
-            width: 250px;
-            padding: 10px 20px;
-            background-color: #f0ad4e;
-            color: white;
-            text-transform: uppercase;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 5px;
-        }
-        .detail {
-            box-sizing:border-box;
-            display: block;
-            margin: 20px auto;
-            width: 150px;
-            padding: 10px 20px;
-            background-color: #f0ad4e;
-            color: white;
-            text-transform: uppercase;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 5px;
-        }
-    </style>
+     </style>
 </head>
 <body>
-    <header>
-        <h1>Lịch sử đơn hàng</h1>
-    </header>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Mã đơn hàng</th>
-                <th>Thời gian</th>
-                <th>Số lượng mặt hàng </th>
-                <th>Trạng thái</th>
-                <th>Chi tiết đơn hàng</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-            <?php
-            if(is_array($listBill)){
-            foreach($listBill as $order){
-                extract($order);
-            echo'    
-                <tr>
-                    <td>PET#'. $order['id_order'].'</td>
-                    <td> '.$order ['ngaydathang'].'</td>
-                    <td> '.countCart($order['id_order']).'</td>
-                    <td>  '.status($order['trangthai']).'</td>
-                    <td><a href="index.php?act=order_detail&id_order='.$order['id_order'].'" class="detail">Chi tiết đơn hàng</a></td>
-                </tr>';
-            }
-        }
-        ?>
-            
-            <!-- Thêm các dòng dữ liệu khác tương tự cần thiết -->
-        </tbody>
-    </table>
-    <div class="btn-group">
-        <a class="back-btn" href="index.php">Quay lại trang chủ</a>
-        <a class="back-btn" href="index.php?act=product">Tiếp tục mua hàng</a>
+    <!-- ... -->
+
+    <div class="dangky--container col-12">
+        <div class="col-12">
+            <h2 class="thongbao" id="thongbao" style="padding-top: 20px; color: red; font-size: 1vw;">
+                <?php
+                if (isset($thongbao) && ($thongbao) != "") {
+                    echo $thongbao . ' <a href="index.php?act=login">Đăng nhập tại đây</a> ';
+                }
+                ?>
+            </h2>
+            <div class="dangky--title mb-3">ĐĂNG KÝ TÀI KHOẢN</div>
+            <div class="mb-2" >THÔNG TIN CÁ NHÂN</div>
+            <form action="?act=sign_up" method="POST" class="needs-validation" novalidate>
+
+                <div class="dangky--ho col-12">
+                    <label for="validationCustom01" class="col-12">Họ và tên <span>*</span></label>
+                    <input type="text" id="validationCustom01" name="user" class="col-12 input form-control" required>
+                    <div class="valid-feedback">
+                        Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Vui lòng nhập họ và tên .
+                    </div>
+                </div>
+
+                <div class="dangky--ho col-12">
+                    <label for="validationCustom01" class="col-12">Số điện thoại <span>*</span></label>
+                    <input type="text" id="validationCustom01" name="tel" class="col-12 input form-control" required>
+                    <div class="valid-feedback">
+                        Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Vui lòng nhập số điện thoại .
+                    </div>
+                </div>
+
+                <div class="dangky--ho col-12">
+                    <label for="validationCustom01" class="col-12">Email <span>*</span></label>
+                    <input type="text" id="validationCustom01" name="email" class="col-12 input form-control" required>
+                    <div class="valid-feedback">
+                        Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Vui lòng nhập email .
+                    </div>
+                </div>
+
+                <div class="dangky--ho col-12">
+                    <label for="validationCustom01" class="col-12">Mật khẩu <span>*</span></label>
+                    <input type="password" id="validationCustom01" name="pass" class="col-12 input form-control" required>
+                    <div class="valid-feedback">
+                        Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Vui lòng nhập mật khẩu .
+                    </div>
+                </div>
+
+                <div class="dangky--ho col-12">
+                    <label for="validationCustom01" class="col-12">Địa chỉ <span>*</span></label>
+                    <input type="text" id="validationCustom01" name="address" class="col-12 input form-control" required>
+                    <div class="valid-feedback">
+                        Good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Vui lòng nhập địa chỉ .
+                    </div>
+                </div>
+
+                <div class="btn--dangky center">
+                    <input type="submit" class="btn-primary" name="sign_up" value="Đăng ký" ></input>
+                </div>
+                <div class="dangky--dangnhap">
+                    Bạn đã có tài khoản?
+                    <a href="index.php?act=login">Đăng nhập tại đây</a>
+                </div>
+            </form>
+        </div>
     </div>
+
+    <!-- ... -->
+
 </body>
+</html>
+<script>
+    (function () {
+        'use strict';
+
+        var forms = document.querySelectorAll('.needs-validation');
+
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
+
 </html>

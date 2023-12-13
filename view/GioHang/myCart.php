@@ -1,5 +1,5 @@
 <?php
-    var_dump($_SESSION['email']['id']);
+    // var_dump($_SESSION['email']['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">

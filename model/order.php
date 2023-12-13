@@ -23,7 +23,7 @@ function load_sanpham_user($id_order){
     return $result;
 }
 function myCart($id_user){
-    $sql = "SELECT * from cart_detail where id_user = $id_user";
+    $sql = " SELECT * from cart_detail where id_user = $id_user ORDER BY id_order DESC ";
     $result = pdo_query($sql);
     return $result;
 }

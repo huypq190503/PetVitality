@@ -54,7 +54,7 @@ if (!empty($_SESSION['cart'])) {
                                 <p><?= number_format((int)$product['price'] * (int)$quantityInCart, 0, ",", ".") ?> <u>đ</u></p>
                             </div>
                             
-                            <div class="giohang--xoa col-1"><?=$xoasp?></div>
+                            <div   onclick="return confirm('Bạn có muốn xóa sản phẩm này không??')" class="giohang--xoa col-1"><?=$xoasp?></div>
                         </div>
                         
                     

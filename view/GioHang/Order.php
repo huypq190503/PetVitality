@@ -17,34 +17,33 @@
 
 <body>
 
-<?php 
-                        if (!empty($_SESSION['cart'])) {
-                            $cart = $_SESSION['cart'];
+        <?php 
+            if (!empty($_SESSION['cart'])) {
+                    $cart = $_SESSION['cart'];
 
-                            // Tạo mảng chứa ID các sản phẩm trong giỏ hàng
-                            $productId = array_column($cart, 'id');
-                            // var_dump($productId);
-                            
-                            // Chuyển đôi mảng id thành một chuỗi để thực hiện truy vấn
-                            $idList = implode(',', $productId);
-                            // var_dump($idList);                            
-                            
-                            // Lấy sản phẩm trong bảng sản phẩm theo id
-                            $dataDb = loadone_sanphamCart($idList);
-                            // var_dump($dataDb);
-                        } 
-                        if(isset($_SESSION['email']) && (is_array($_SESSION['email']))){
-                            extract($_SESSION['email']);
-                            // var_dump($_SESSION['email']);
-                            // die();
-                        }else{
-                            $user ="";
-                            $tel ="";
-                            $email ="";
-                            $address ="";
-
-                        }    
-?>
+                    // Tạo mảng chứa ID các sản phẩm trong giỏ hàng
+                    $productId = array_column($cart, 'id');
+                    // var_dump($productId);
+            
+                    // Chuyển đôi mảng id thành một chuỗi để thực hiện truy vấn
+                    $idList = implode(',', $productId);
+                    // var_dump($idList);            
+                    
+                    // Lấy sản phẩm trong bảng sản phẩm theo id
+                    $dataDb = loadone_sanphamCart($idList);
+                    // var_dump($dataDb);
+            } 
+            if(isset($_SESSION['email']) && (is_array($_SESSION['email']))){
+                extract($_SESSION['email']);
+                // var_dump($_SESSION['email']);
+                // die();
+            }else{
+            $user ="";
+            $tel ="";
+            $email ="";
+            $address ="";
+            }    
+        ?>
     <!-- Header -->
     <div class="header col-12">
         <img src="./upload/header.jpg" alt="SunPet">
@@ -55,48 +54,46 @@
 
     <!-- Nội dung đơn hàng -->
     <div class="donhang--container col-12">
-        <div class="row col-12 donhang--title">
-            THÔNG TIN ĐƠN HÀNG
-        </div>
-
+        <div class="row col-12 donhang--title">THÔNG TIN ĐƠN HÀNG</div>
         <!-- Thông tin khách hàng  -->
         <form action="" method="post">
-        <div class="row col-12 donhang--khachhang1" id="donhang--khachhang1">
-            <div class="col-9">
-            <div>
-                <label for="" class="khachhang--title">THÔNG TIN KHÁCH HÀNG</label>
-                <!-- <button class="btn--close" onclick="anFormThayDoi()">X</button> -->
-                <div class="form--row">
-                    <label for="">Họ tên: </label>
-                    <input type="text" value="<?=$user?>" name="user" id="change-hoten">
-                </div>
-                <div class="form--row">
-                    <label for="">Số điện thoại: </label>
-                    <input type="text" value="<?=$tel?>" name="tel" id="change-sdt">
-                </div>
-                <div class="form--row">
-                    <label for="">Email: </label>
-                    <input type="text" value="<?=$email?>" name="email" id="change-sdt">
-                </div>
-                <div class="form--row">
-                    <label for="">Địa chỉ: </label>
-                    <input type="text" value="<?=$address?>" name="address" id="change-diachi">
-                </div>
-                <div class="form--row">
-                    <label for="">Phương thức thanh toán: </label>
-                    <form action="?act=order" method="post" class="input--cod " >
-                        <input type="radio" value="1" name ="pttt" checked> Thanh toán khi giao hàng <br>
-                        <input type="radio" value="2" name ="pttt"> Thanh toán trực tuyến
-                    </form>
-                </div>
-                <input type="hidden" value="<?=$id?>" >
-                </form>
+            <div class="row col-12 donhang--khachhang1" id="donhang--khachhang1">
+                <div class="col-9">
+                    <div>
+                        <label for="" class="khachhang--title">THÔNG TIN KHÁCH HÀNG</label>
+                            <!-- <button class="btn--close" onclick="anFormThayDoi()">X</button> -->
+                            <div class="form--row">
+                                <label for="">Họ tên: </label>
+                                <input type="text" value="<?=$user?>" required name="user" id="change-hoten">
+                            </div>
+                            <div class="form--row">
+                                <label for="">Số điện thoại: </label>
+                                <input type="text" value="<?=$tel?>" required name="tel" id="change-sdt">
+                            </div>
+                            <div class="form--row">
+                                <label for="">Email: </label>
+                                <input type="text" value="<?=$email?>" required name="email" id="change-sdt">
+                            </div>
+                            <div class="form--row">
+                                <label for="">Địa chỉ: </label>
+                                <input type="text" value="<?=$address?>" required name="address" id="change-diachi">
+                            </div>
+                            <div class="form--row">
+                                <label for="">Phương thức thanh toán: </label>
+                                <form action="?act=order" method="post" class="input--cod " >
+                                    <input type="radio" value="1" name ="pttt" checked> Thanh toán khi giao hàng <br>
+                                    <input type="radio" value="2" name ="pttt"> Thanh toán trực tuyến
+                                </form>
+                            </div>
+                            <input type="hidden" value="<?=$id?>" >
+                        </form>
                 <!-- <a href="#" class="form--row">
                     <button class="btn--change" >Thay đổi</button>
                 </a> -->
                 
-            </div>
-            </div>
+    </div>
+
+                </div>
             <div class="col-3 btn--thaydoi bold">
                 <div class="col-3">                    
                 <button type="submit" class="btn-tienhanhdathang" name="order_confirm">Xác nhận</button>
@@ -166,7 +163,6 @@
                             <div class="giohang--thanhtien col-2">
                                 <p><?= number_format((int)$product['price'] * (int)$quantityInCart, 0, ",", ".") ?> <u>đ</u></p>
                             </div>
-                            
                         </div>
                         
                     

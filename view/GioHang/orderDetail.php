@@ -1,7 +1,7 @@
 <?php
-var_dump($id_order);
-var_dump($order_detail);
-var_dump($thongtin_donhang);
+// var_dump($id_order);
+// var_dump($order_detail);
+// var_dump($thongtin_donhang);
 
 ?>
 <!DOCTYPE html>

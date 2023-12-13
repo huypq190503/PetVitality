@@ -13,18 +13,70 @@
     <link rel="stylesheet" href="./view/user/CSS/Font-awesome/css/all.min.css">
     <link rel="stylesheet" href="./view/user/CSS/Dang_nhap.css">
     <script src="../JS/dangKy - dangNhap.js"></script>
-</head>
-<style>
-        .error {
-      color: red;
-      font-weight: bold;
-    }
+    <style>
+   body {
+    margin: 0;
+    padding: 0;
+    /* background-image: url('upload/bg2.jpg'); */
+    background-image: url('https://img5.thuthuatphanmem.vn/uploads/2021/12/27/anh-nen-thu-cung-cute-de-thuong-cho-dien-thoai_050614631.jpg');
+    background-size: cover;
+    background-position: center 35%;
+    background-repeat: no-repeat;
+    font-family: 'Arial', sans-serif;
+}
 
-    .success {
-      color: green;
-      font-weight: bold;
-    }
+.dangnhap--container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Thêm màu nền với độ trong suốt */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Đổ bóng */
+}
+
+.dangnhap--title {
+    border: 2px solid black;
+    border-radius: 21px;
+    text-align: center;
+    color: black;
+}
+
+.dangnhap--sdt,
+.dangnhap--matkhau {
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn--dangnhap {
+    width: 100%;
+    padding: 10px;
+    /* background-color: #3498db; */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* .btn--dangnhap:hover {
+    background-color: #2980b9;
+} */
+
+.dangnhap--dangky {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+
 </style>
+
+</head>
 
 <body>
     <!-- Header -->
@@ -46,7 +98,7 @@
     ?>
     </div>
         <div class="dangnhap--title">ĐĂNG NHẬP</div>
-        <div>Nếu bạn có tài khoản, xin vui lòng đăng nhập.</div>
+        <!-- <div style="font-size: 15px;" >Nếu bạn có tài khoản, xin vui lòng đăng nhập.</div> -->
 
         <form action="index.php?act=login" method="POST" class="col-12">
             <div class="dangnhap--sdt">
